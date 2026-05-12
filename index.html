@@ -1677,7 +1677,7 @@ function updateMapKPIs() {
       cards: [
         {
           color: '#00A89E',
-          label: `Legjobb régió · ${REG_NAMES[best.id]}`,
+          label: `Kiemelkedő régió · ${REG_NAMES[best.id]}`,
           val: nf(best.val) + '%',
           sub: `Foglalkoztatási ráta 2025 (15–64 év)`,
           tag: best.val >= 82 ? {cls:'up', txt:'EU-szint felett'} : {cls:'warn', txt:'EU-szint körül'},
@@ -1689,7 +1689,7 @@ function updateMapKPIs() {
           val: nf(worst.val) + '%',
           sub: `Foglalkoztatási ráta 2025 (15–64 év)`,
           tag: {cls:'down', txt:'Legnagyobb tartalék'},
-          insight: `${REG_NAMES[worst.id]} a legkisebb foglalkoztatású régió — ${fmt(gap, 1)} százalékpont-os lemaradással a legjobbtól. Ez a legjelentősebb rejtett munkaerő-tartalék az országban, de aktiválása strukturális befektetést igényel.`
+          insight: `${REG_NAMES[worst.id]} a legkisebb foglalkoztatású régió — ${fmt(gap, 1)} százalékpontos lemaradással a legmagasabb foglalkoztatású régiótól. Ez a legjelentősebb rejtett munkaerő-tartalék az országban, de aktiválása strukturális befektetést igényel.`
         },
         {
           color: '#0345EB',
@@ -1697,15 +1697,15 @@ function updateMapKPIs() {
           val: fmt(gap, 1) + ' százalékpont',
           sub: `${REG_NAMES[best.id]} – ${REG_NAMES[worst.id]}`,
           tag: gap > 10 ? {cls:'down', txt:'Strukturális rés'} : {cls:'warn', txt:'Mérsékelt rés'},
-          insight: `A ${fmt(gap, 1)} százalékpont-os foglalkoztatási különbség tartósan fennáll, és a keleti–nyugati gazdasági megosztottságot tükrözi. Ez az EU egyik legnagyobb régiók közötti munkaerőpiaci polarizációja.`
+          insight: `A ${fmt(gap, 1)} százalékpontos foglalkoztatási különbség tartósan fennáll, és a keleti–nyugati gazdasági megosztottságot tükrözi. Ez az EU egyik legnagyobb régiók közötti munkaerőpiaci polarizációja.`
         },
         {
           color: '#000073',
-          label: 'Nemzeti átlag vs. legjobb',
+          label: 'Nemzeti átlag vs. legmagasabb foglalkoztatású régió',
           val: (best.val - national).toFixed(1).replace('.', ',') + ' százalékpont',
           sub: `${REG_NAMES[best.id]} vs. ${nf(national)}% (HU átlag)`,
           tag: {cls:'up', txt:'Kiemelkedő régió'},
-          insight: `A vezető régió ${(best.val - national).toFixed(1).replace('.', ',')} százalékpont-tal haladja meg a nemzeti átlagot (${nf(national)}%). Ez jelzi, hogy a hazai foglalkoztatási kapacitás nem egyenletesen oszlik el — koncentrált fejlesztési potenciál van az elmaradó régiókban.`
+          insight: `A kiemelkedő régió ${(best.val - national).toFixed(1).replace('.', ',')} százalékponttal haladja meg a nemzeti átlagot (${nf(national)}%). Ez jelzi, hogy a hazai foglalkoztatási kapacitás nem egyenletesen oszlik el — koncentrált fejlesztési potenciál van az elmaradó régiókban.`
         }
       ]
     },
@@ -1725,15 +1725,15 @@ function updateMapKPIs() {
           val: nf(worst.val) + '%',
           sub: `Munkanélküliségi ráta 2025 (15–74 év)`,
           tag: {cls:'down', txt:'Strukturális munkanélküliség'},
-          insight: `${REG_NAMES[worst.id]} ${nf(worst.val)}%-os munkanélkülisége közel ${(worst.val / best.val).toFixed(1).replace('.', ',')}×-ese a legjobb régiónak. Ez nem konjunkturális, hanem strukturális — tartós képzettségi és ipari mismatch jellemzi a régiót.`
+          insight: `${REG_NAMES[worst.id]} ${nf(worst.val)}%-os munkanélkülisége közel ${(worst.val / best.val).toFixed(1).replace('.', ',')}×-ese a legjobban teljesítő régiónak. Ez nem konjunkturális, hanem strukturális probléma — tartós képzettségi és ipari mismatch jellemzi a régiót.`
         },
         {
           color: '#0345EB',
-          label: 'Szórás (best–worst)',
+          label: 'Szórás (legmagasabb–legalacsonyabb)',
           val: fmt(gap, 1) + ' százalékpont',
           sub: `${REG_NAMES[best.id]} – ${REG_NAMES[worst.id]}`,
           tag: gap > 3 ? {cls:'down', txt:'Nagy egyenlőtlenség'} : {cls:'warn', txt:'Mérsékelt'},
-          insight: `A ${fmt(gap, 1)} százalékpont-os különbség azt jelzi, hogy Magyarországon a munkaerőpiac regionálisan kettészakadt. A toborzási stratégiának régiónként eltérő megközelítést igényel.`
+          insight: `A ${fmt(gap, 1)} százalékpontos különbség azt jelzi, hogy Magyarországon a munkaerőpiac regionálisan kettészakadt. A toborzási stratégiák régiónként eltérő megközelítést igényelnek.`
         },
         {
           color: '#000073',
@@ -1769,7 +1769,7 @@ function updateMapKPIs() {
           val: (best.val - worst.val) + ' eFt',
           sub: `${REG_NAMES[best.id]} – ${REG_NAMES[worst.id]}`,
           tag: {cls:'down', txt:'Területi béregyenlőtlenség'},
-          insight: `A ${(best.val - worst.val)} eFt-os bérszakadék ${((best.val/worst.val - 1)*100).toFixed(0).replace('.', ',')}%-os különbséget jelent a csúcs és az alap között. Ez a belső migráció egyik fő hajtóereje — a magasabb bérű régiók szívóhatást gyakorolnak.`
+          insight: `A ${(best.val - worst.val)} eFt-os bérszakadék ${((best.val/worst.val - 1)*100).toFixed(0).replace('.', ',')}%-os különbséget jelent a csúcs és az legkevesebb átlagbért kínáló régió között. Ez a belső migráció egyik fő hajtóereje — a magasabb bérű régiók szívóhatást gyakorolnak.`
         },
         {
           color: '#000073',
@@ -1777,7 +1777,7 @@ function updateMapKPIs() {
           val: nf(national) + ' eFt',
           sub: 'Magyarország 2025 éves átlag',
           tag: {cls:'up', txt:'KSH STADAT 2025'},
-          insight: `A ${nf(national)} eFt-os nemzeti átlag 2025-ben ~9,4%-kal emelkedett 2024-hez képest (KSH). A reálbér-növekedés regionálisan egyenlőtlen — a magasabb bérű régiókban gyorsabb a növekedés, tovább tágítva az olló.`
+          insight: `A ${nf(national)} eFt-os nemzeti átlag 2025-ben ~9,4%-kal emelkedett 2024-hez képest (KSH). A reálbér-növekedés regionálisan azonban egyenlőtlen — a magasabb bérű régiókban gyorsabb a növekedés, ezzel tágítva tovább az ollót.`
         }
       ]
     },
@@ -1785,35 +1785,35 @@ function updateMapKPIs() {
       cards: [
         {
           color: '#ED1C2E',
-          label: `Legnagyobb pool · ${REG_NAMES[best.id]}`,
+          label: `Legtöbb álláskereső · ${REG_NAMES[best.id]}`,
           val: nf(best.val) + ' ezer',
-          sub: `Nyilvántartott álláskereső 2025`,
+          sub: `Nyilvántartott álláskeresők 2025`,
           tag: {cls:'up', txt:'Toborzási potenciál'},
-          insight: `${REG_NAMES[best.id]}ban ${nf(best.val)} ezer regisztrált álláskereső áll rendelkezésre. Ez a régió a legnagyobb toborzási tartalékot kínálja — különösen fizikai munkakörökben és logisztikában releváns ez a potenciál.`
+          insight: `${REG_NAMES[best.id]}on ${nf(best.val)} ezer regisztrált álláskereső áll rendelkezésre. Ez a régió a legnagyobb toborzási tartalékot kínálja — különösen fizikai munkakörökben és logisztikában releváns ez a potenciál.`
         },
         {
           color: '#00A89E',
-          label: `Legkisebb pool · ${REG_NAMES[worst.id]}`,
+          label: `Legkevesebb álláskereső · ${REG_NAMES[worst.id]}`,
           val: nf(worst.val) + ' ezer',
-          sub: `Nyilvántartott álláskereső 2025`,
+          sub: `Nyilvántartott álláskeresők 2025`,
           tag: {cls:'down', txt:'Szűkös munkaerő'},
-          insight: `${REG_NAMES[worst.id]}ban mindössze ${nf(worst.val)} ezer regisztrált álláskereső van. A szabad munkaerő szinte teljesen kimerült — a régióban új toborzáshoz aktív sourcing, relokáció vagy bővített képzési programok szükségesek.`
+          insight: `A ${REG_NAMES[worst.id]}on mindössze ${nf(worst.val)} ezer regisztrált álláskereső van. A szabad munkaerő szinte teljesen kimerült — a régióban új toborzáshoz aktív sourcing, relokáció vagy bővített képzési programok szükségesek.`
         },
         {
           color: '#0345EB',
-          label: 'Összes pool (HU)',
+          label: 'Összes álláskereső (HU)',
           val: ids.reduce((s,id) => s + MAP_DATA.pool[id], 0) + ' ezer',
           sub: 'Összes nyilvántartott álláskereső 2025',
           tag: {cls:'warn', txt:'NFSZ 2025'},
-          insight: `Összesen ~${ids.reduce((s,id) => s + MAP_DATA.pool[id], 0)} ezer nyilvántartott álláskereső van az országban. Ebből a keleti régiók (EMO+EAL) adják a kétharmadát, míg a dunántúli régiókban ez az arány jóval kisebb.`
+          insight: `Összesen ~${ids.reduce((s,id) => s + MAP_DATA.pool[id], 0)} ezer nyilvántartott álláskereső van az országban. Ebből a keleti régiók adják a kétharmadát, míg a dunántúli régiókban ez az arány jóval kisebb.`
         },
         {
           color: '#000073',
           label: 'Koncentráció (kelet–nyugat)',
           val: Math.round((MAP_DATA.pool.EMO + MAP_DATA.pool.EAL) / ids.reduce((s,id) => s + MAP_DATA.pool[id], 0) * 100) + '%',
-          sub: 'É-Magyarország + É-Alföld részaránya',
+          sub: 'Észak-Magyarország + Észak-Alföld részaránya',
           tag: {cls:'down', txt:'Erős koncentráció'},
-          insight: `A két keleti régió (Észak-Magyarország és Észak-Alföld) az összes szabad munkaerő-kapacitás több mint felét adja. Ez felveti a kérdést: a toborzási infrastruktúra és a munkáltatói jelenlét arányos-e ezzel a potenciállal?`
+          insight: `A két keleti régió az összes szabad munkaerő-kapacitás közel felét adja. Ez felveti a kérdést: a toborzási infrastruktúra és a munkáltatói jelenlét arányos-e ezzel a potenciállal?`
         }
       ]
     }
