@@ -388,15 +388,16 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <div class="hdr-div"></div>
   <div class="hdr-title">
     <h1>Munkaerőpiaci Dashboard</h1>
-    <p>Magyarország &nbsp;·&nbsp; EU27 · V4 &nbsp;·&nbsp; 2015–2025 &nbsp;·&nbsp; KSH · Eurostat · NFSZ</p>
+    <p>Magyarország &nbsp;·&nbsp; EU27 · V4 &nbsp;·&nbsp; 2015–2025</p>
   </div>
 
 </header>
 
 <!-- TABS -->
 <nav class="tabs">
-  <div class="tab active"  data-panel="overview">Vezetői Összefoglaló</div>
+  <div class="tab active"  data-panel="overview">Áttekintés</div>
   <div class="tab"         data-panel="trends">Magyarországi Munkaerőpiaci Trendek</div>
+  <div class="tab"         data-panel="sectoral">Magyarország Ágazati Struktúrája</div>
   <div class="tab"         data-panel="regional">Magyarország Regionális Nézete</div>
   <div class="tab"         data-panel="tpi">Talent Pressure Index</div>
   <div class="tab"         data-panel="benchmark">EU27 / V4 Benchmark</div>
@@ -491,10 +492,10 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 <div class="main">
 
   <div class="kpi-grid" style="margin-top:6px">
-    <div class="kpi-card" style="--kc:#00827a"><div class="kpi-lbl">Foglalkoztatás · 2025</div><div class="kpi-val" style="color:#00827a">75,1%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(0,130,122,.18);color:#00827a;font-weight:700;">▲ +6,6 százalékpont / 10 év (2016–2025)</span></div>
-    <div class="kpi-card" style="--kc:#ee2833"><div class="kpi-lbl">Munkanélküliség · 2025</div><div class="kpi-val" style="color:#ee2833">4,4%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(238,40,51,.18);color:#ee2833;font-weight:700;">EU27: 6%</span></div>
+    <div class="kpi-card" style="--kc:#00827a"><div class="kpi-lbl">Foglalkoztatás · 2025</div><div class="kpi-val" style="color:#00827a">75,1%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(0,130,122,.18);color:#00827a;font-weight:700;">▲ +8,6 százalékpont / 10 év (2016–2025)</span></div>
+    <div class="kpi-card" style="--kc:#ee2833"><div class="kpi-lbl">Munkanélküliség · 2025</div><div class="kpi-val" style="color:#ee2833">4,5%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(238,40,51,.18);color:#ee2833;font-weight:700;">EU27: 6,1%</span></div>
     <div class="kpi-card" style="--kc:#00827a"><div class="kpi-lbl">Bruttó átlagkereset · 2025</div><div class="kpi-val" style="color:#00827a">705 eFt</div><div class="kpi-sub">HU átlag · (eFt/hó)</div><span class="kpi-tag" style="background:rgba(0,130,122,.18);color:#00827a;font-weight:700;">▲ +9% / év (2024–2025)</span></div>
-    <div class="kpi-card" style="--kc:#000073"><div class="kpi-lbl">Potenciális munkaerő-tartalék · 2025</div><div class="kpi-val" style="color:#000073">303 ezer</div><div class="kpi-sub">Mobilizálható inaktív</div><span class="kpi-tag" style="background:rgba(0,0,115,.18);color:#000073;font-weight:700;">Inaktív tartalék aránya: 23,5%</span></div>
+    <div class="kpi-card" style="--kc:#000073"><div class="kpi-lbl">Potenciális munkaerő-tartalék · 2025</div><div class="kpi-val" style="color:#000073">391 ezer</div><div class="kpi-sub">Mobilizálható inaktív</div><span class="kpi-tag" style="background:rgba(0,0,115,.18);color:#000073;font-weight:700;">Inaktív tartalék aránya: 17,2%</span></div>
   </div>
 
   <!-- FOGLALKOZTATÁS TREND -->
@@ -543,6 +544,24 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     <p style="font-size:11px;color:var(--muted);margin-top:6px">* Január 1-jei jogszabályi érték az előző év záróadataként értelmezve pl.: 2025 = 2026. jan. 1-jei adat</p>
   </div>
 
+  <div class="g2" style="margin-top:16px">
+    <div class="cc">
+      <h3>Éves nominális bérnövekedési ütemek (%)</h3>
+      <p>Minimálbér · Bruttó átlag · Nettó átlag</p>
+      <div class="cl">
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Minimálbér</div>
+        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Bruttó átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Nettó átlag</div>
+      </div>
+      <div class="cw" style="height:240px"><canvas id="ch-tr-bernov"></canvas></div>
+    </div>
+    <div class="cc">
+      <h3>Minimálbér az átlagkereset százalékában</h3>
+      <p>Minimálbér / bruttó átlagkereset aránya</p>
+      <div class="cw" style="height:240px"><canvas id="ch-tr-minpct"></canvas></div>
+    </div>
+  </div>
+
   <!-- INAKTIVITÁSI TREND -->
   <div class="sec-head"><h2>Inaktivitási trend</h2></div>
   <div class="sec-sub">Magyarország · EU27 · V4 átlag összehasonlítás</div>
@@ -553,8 +572,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
       <div class="cw" style="height:240px"><canvas id="ch-tr-inact-trend"></canvas></div>
     </div>
     <div class="cc">
-      <h3>Inaktivitás okai — Magyarország 2025</h3>
-      <p>Fő inaktivitási okok megoszlása · döntéshozói szempont</p>
+      <h3>Inaktivitás legfőbb okai</h3>
+      <p>KSH magyarországi adatok (2025)</p>
       <div class="cw" style="height:240px"><canvas id="ch-tr-inact"></canvas></div>
     </div>
   </div>
@@ -562,8 +581,78 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 </div>
 </div>
 
+
 <!-- ══════════════════════════════════════
-     3. MAGYARORSZÁG REGIONÁLIS NÉZET
+     3. MAGYARORSZÁG ÁGAZATI STRUKTÚRÁJA
+══════════════════════════════════════ -->
+<div class="panel" id="panel-sectoral">
+<div class="main">
+
+  <div class="kpi-grid" style="margin-top:6px">
+    <div class="kpi-card" style="--kc:#ed2b2e"><div class="kpi-lbl">Ipar · HU 2024</div><div class="kpi-val" style="color:#ed2b2e">23,5%</div><div class="kpi-sub">Feldolgozóipar aránya</div><span class="kpi-tag" style="background:rgba(237,43,46,.18);color:#ed2b2e;font-weight:700;">EU átlag: 17,3% · +6,2 pp felett</span></div>
+    <div class="kpi-card" style="--kc:#00827a"><div class="kpi-lbl">Szolgáltatás · HU 2024</div><div class="kpi-val" style="color:#00827a">63,2%</div><div class="kpi-sub">Szolgáltató szektor aránya</div><span class="kpi-tag" style="background:rgba(0,130,122,.18);color:#00827a;font-weight:700;">EU27: 72,2% · V4 átlag: ~63%</span></div>
+    <div class="kpi-card" style="--kc:#000073"><div class="kpi-lbl">KKV-szektor · 2023</div><div class="kpi-val" style="color:#000073">65,5%</div><div class="kpi-sub">KKV részesedés a fgl.-ban</div><span class="kpi-tag" style="background:rgba(0,0,115,.18);color:#000073;font-weight:700;">~3,1 M fő · Nagyvállalat: 34,5%</span></div>
+    <div class="kpi-card" style="--kc:#ebc230"><div class="kpi-lbl">Közmunka · 2024</div><div class="kpi-val" style="color:#ebc230">~55 ezer</div><div class="kpi-sub">Közfoglalkoztatottak száma</div><span class="kpi-tag" style="background:rgba(235,194,48,.18);color:#b8960a;font-weight:700;">▼ −75% a 2016-os csúcshoz képest</span></div>
+  </div>
+
+  <!-- ÁGAZATI MEGOSZLÁS -->
+  <div class="sec-head"><h2>Ágazati foglalkoztatás</h2></div>
+  <div class="sec-sub">Magyarország · EU27 összehasonlítás · 2024</div>
+  <div class="g2">
+    <div class="cc">
+      <h3>Magyarország ágazati megoszlása</h3>
+      <p>Foglalkoztatottak aránya főágazatonként · NACE Rev.2 · 2024</p>
+      <div class="cw" style="height:300px"><canvas id="ch-sec-hu"></canvas></div>
+    </div>
+    <div class="cc">
+      <h3>HU vs. EU27 ágazati összehasonlítás</h3>
+      <p>Foglalkoztatottak aránya (%) · Eurostat nama_10_a10_e · 2024</p>
+      <div class="cw" style="height:300px"><canvas id="ch-sec-comp"></canvas></div>
+    </div>
+  </div>
+
+  <!-- SZEKTORIÁLIS STRUKTÚRA -->
+  <div class="sec-head"><h2>Szektoriális struktúra</h2></div>
+  <div class="sec-sub">Közszféra · Privát szféra · Közmunka · KSH LFS · 2015–2024</div>
+  <div class="g2">
+    <div class="cc">
+      <h3>Közszféra · Privát szféra · Közmunka trend</h3>
+      <p>Foglalkoztatottak főbb szektorok szerint · ezer fő · KSH LFS</p>
+      <div class="cl">
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Privát szektor</div>
+        <div class="cl-item"><span class="cl-line" style="background:#000073"></span>Közszféra</div>
+        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Közmunka</div>
+      </div>
+      <div class="cw" style="height:260px"><canvas id="ch-sec-sector"></canvas></div>
+    </div>
+    <div class="cc">
+      <h3>Közszféra belső megoszlása</h3>
+      <p>~790 ezer fő belső bontása · KSH · BM · 2023 (becsült)</p>
+      <div class="cw" style="height:260px"><canvas id="ch-sec-pubsector"></canvas></div>
+    </div>
+  </div>
+
+  <!-- VÁLLALKOZÁSMÉRET -->
+  <div class="sec-head"><h2>Foglalkoztatás vállalkozásméret szerint</h2></div>
+  <div class="sec-sub">Magyarország · KSH strukturális vállalkozásstatisztika · GKI · 2015–2023</div>
+  <div class="g2">
+    <div class="cc">
+      <h3>Megoszlás vállalkozásméret szerint</h3>
+      <p>GKI Gazdaságkutató · KSH · 2023</p>
+      <div class="cw" style="height:260px"><canvas id="ch-sec-size"></canvas></div>
+    </div>
+    <div class="cc">
+      <h3>KKV vs. nagyvállalat trend</h3>
+      <p>KKV részesedése a teljes fgl.-on belül · % · KSH / KKV Stratégia · 2015–2023</p>
+      <div class="cw" style="height:260px"><canvas id="ch-sec-kkv"></canvas></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     4. MAGYARORSZÁG REGIONÁLIS NÉZET
 ══════════════════════════════════════ -->
 <div class="panel" id="panel-regional">
 <div class="main">
@@ -1032,6 +1121,7 @@ function buildPanel(name) {
   switch(name) {
     case 'overview':   buildOverview();   break;
     case 'trends':     buildTrends();     break;
+    case 'sectoral':   buildSectoral();   break;
     case 'regional':   buildRegional();   break;
     case 'tpi':        buildTPI();        break;
     case 'benchmark':  buildBenchmark();  break;
@@ -1127,23 +1217,144 @@ function buildTrends() {
     }
   });
 
+  // Minimálbér az átlagkereset %-ában — bar chart
+  const minpct = [44.8, 42.7, 46.9, 46.3, 46.7, 45.0, 45.8];
+  const ctxMinPct = document.getElementById('ch-tr-minpct');
+  if (ctxMinPct) new Chart(ctxMinPct, {
+    type:'bar',
+    data:{labels:YR_BER, datasets:[{
+      label:'Minimálbér / bruttó átlag',
+      data: minpct,
+      backgroundColor: minpct.map(v => '#0345EB'),
+      borderRadius:3, borderSkipped:false
+    }]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          enabled:false,
+          external(context) {
+            const {chart, tooltip} = context;
+            const tooltipEl = getOrCreateTooltip(chart);
+            if (tooltip.opacity === 0) { tooltipEl.style.opacity='0'; return; }
+            if (tooltip.body) {
+              const dp = tooltip.dataPoints[0];
+              const html = `<div style="font-weight:700;margin-bottom:6px;font-size:13px">${dp.label}</div>
+                <div style="display:flex;align-items:center;gap:7px">
+                  <span style="display:inline-block;width:10px;height:10px;background:${dp.dataset.backgroundColor[dp.dataIndex]};border-radius:2px;flex-shrink:0"></span>
+                  <span style="opacity:.85">${dp.dataset.label}:</span>
+                  <span style="font-weight:700;margin-left:auto;padding-left:10px">${(dp.parsed.y % 1 === 0 ? Math.round(dp.parsed.y) : dp.parsed.y.toFixed(1).replace('.',','))}%</span>
+                </div>`;
+              tooltipEl.innerHTML = html;
+            }
+            const {offsetLeft, offsetTop} = chart.canvas;
+            tooltipEl.style.opacity='1';
+            tooltipEl.style.left = offsetLeft + tooltip.caretX + 'px';
+            tooltipEl.style.top = offsetTop + tooltip.caretY + 'px';
+          }
+        }
+      },
+      scales:{
+        x:{...AX.x},
+        y:{...AX.y, min:35, max:55, ticks:{...AX.y.ticks, callback:v=>v+'%'}}
+      }
+    }
+  });
+
+  // Éves nominális bérnövekedési ütemek — grouped bar chart
+  const YR_NOV = ['2020','2021','2022','2023','2024','2025'];
+  const nov_min   = [4.0, 19.5, 16.0, 15.0,  9.0, 11.0];
+  const nov_bru   = [9.0,  8.7, 17.6, 14.0, 13.1,  9.0];
+  const nov_net   = [9.2,  8.4, 18.2, 14.0, 12.9,  9.4];
+  const ctxNov = document.getElementById('ch-tr-bernov');
+  if (ctxNov) new Chart(ctxNov, {
+    type:'bar',
+    data:{labels:YR_NOV, datasets:[
+      {label:'Minimálbér', data:nov_min, backgroundColor:'#00827a', borderRadius:3, borderSkipped:false},
+      {label:'Bruttó átlag', data:nov_bru, backgroundColor:'#ebc230', borderRadius:3, borderSkipped:false},
+      {label:'Nettó átlag', data:nov_net, backgroundColor:'#0345EB', borderRadius:3, borderSkipped:false}
+    ]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          enabled:false,
+          external(context) {
+            const {chart, tooltip} = context;
+            const tooltipEl = getOrCreateTooltip(chart);
+            if (tooltip.opacity === 0) { tooltipEl.style.opacity='0'; return; }
+            if (tooltip.body) {
+              let html = `<div style="font-weight:700;margin-bottom:6px;font-size:13px">${tooltip.title[0]}</div>`;
+              chart.data.datasets.forEach((ds,i) => {
+                const val = ds.data[tooltip.dataPoints[0].dataIndex];
+                html += `<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
+                  <span style="display:inline-block;width:10px;height:10px;background:${ds.backgroundColor};border-radius:2px;flex-shrink:0"></span>
+                  <span style="opacity:.85">${ds.label}:</span>
+                  <span style="font-weight:700;margin-left:auto;padding-left:10px">${(val % 1 === 0 ? Math.round(val) : val.toFixed(1).replace('.',','))}%</span>
+                </div>`;
+              });
+              tooltipEl.innerHTML = html;
+            }
+            const {offsetLeft, offsetTop} = chart.canvas;
+            tooltipEl.style.opacity='1';
+            tooltipEl.style.left = offsetLeft + tooltip.caretX + 'px';
+            tooltipEl.style.top = offsetTop + tooltip.caretY + 'px';
+          }
+        }
+      },
+      scales:{
+        x:{...AX.x},
+        y:{...AX.y, min:0, ticks:{...AX.y.ticks, callback:v=>v+'%'}}
+      }
+    }
+  });
   // Inaktivitás okai doughnut
+  // KSH Munkaerőpiaci folyamatok 2025 — 4 negyedév átlaga (ezer fő → %)
+  // Nyugdíj/ellátás: 1283,5 | Tanulók: 600,9 | Egyéb: 313,9 | Gyermekgondozás: 49,1 | Álláskeresési ellátás: 28,4
   const ctxI = document.getElementById('ch-tr-inact');
   if (ctxI) new Chart(ctxI, {
     type:'doughnut',
     data:{
-      labels:['Gondozás / háztartás','Betegség / rokkantság','Tanulás','Korai nyugdíj','Egyéb'],
+      labels:['Nyugdíj / ellátás','Nappali tagozatos tanulók','Egyéb inaktívak','Gyermekgondozás','Álláskeresési ellátás'],
       datasets:[{
-        data:[38,22,17,15,8],
-        backgroundColor:['#ED1C2E','#0345EB','#00A89E','#E8A12A','#7B8BAB'],
+        data:[57, 26, 14, 2, 1],
+        backgroundColor:['#ed2b2e','#00827a','#000073','#ebc230','#575756'],
         borderWidth:0, hoverOffset:8
       }]
     },
     options:{
       responsive:true, maintainAspectRatio:false, cutout:'60%',
       plugins:{
-        legend:{position:'right', labels:{color:'#3D3D3D',font:{size:11,family:'Open Sans'},padding:10,boxWidth:10}},
-        tooltip:{...TIP}
+        legend:{position:'right', labels:{color:'#3D3D3D',font:{size:11,family:'Open Sans'},padding:10,boxWidth:10, usePointStyle:false}},
+        tooltip:{
+          enabled:false,
+          external(context) {
+            const {chart, tooltip} = context;
+            const tooltipEl = getOrCreateTooltip(chart);
+            if (tooltip.opacity === 0) { tooltipEl.style.opacity = '0'; return; }
+            if (tooltip.body) {
+              const dp = tooltip.dataPoints[0];
+              const label = dp.label;
+              const val = dp.parsed;
+              const color = dp.dataset.backgroundColor[dp.dataIndex];
+              const html = `<div style="font-weight:700;margin-bottom:6px;font-size:13px">Inaktivitás okai</div>
+                <div style="display:flex;align-items:center;gap:7px">
+                  <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
+                  <span style="opacity:.85">${label}:</span>
+                  <span style="font-weight:700;margin-left:auto;padding-left:10px">${val}%</span>
+                </div>`;
+              tooltipEl.innerHTML = html;
+            }
+            const {offsetLeft, offsetTop} = chart.canvas;
+            tooltipEl.style.opacity = '1';
+            tooltipEl.style.left = offsetLeft + tooltip.caretX + 'px';
+            tooltipEl.style.top = offsetTop + tooltip.caretY + 'px';
+          }
+        }
       }
     }
   });
@@ -1156,7 +1367,234 @@ function buildTrends() {
   ], 20);
 }
 
-// ── PANEL 3: REGIONAL ─────────────────────────────────────────────────────
+// ── PANEL 3: SECTORAL ─────────────────────────────────────────────────────
+function buildSectoral() {
+  const YR10 = ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'];
+
+  // Segédfüggvény: tooltip formázás %-ra
+  function fmtPct(v) { return (v%1===0 ? v : v.toFixed(1).replace('.',','))+'%'; }
+  function fmtEzer(v) { return v+' e fő'; }
+
+  // ── 1. HU ágazati megoszlás — vízszintes bar
+  const sectors = ['Ipar / Feldolgozóipar','Kereskedelem / Szállítás','Közszféra / Okt. / Egészség','Üzleti szolgáltatások','Egyéb szolgáltatások','Építőipar','Mezőgazdaság'];
+  const hu_sec  = [23.5, 22.1, 19.8, 13.1, 9.5, 7.2, 4.8];
+  const eu_sec  = [17.3, 21.8, 24.5, 15.3, 10.2, 7.0, 3.9];
+
+  function makeBarTooltip(datasets, colors) {
+    return {
+      enabled:false,
+      external(ctx) {
+        const {chart,tooltip} = ctx;
+        const el = getOrCreateTooltip(chart);
+        if (tooltip.opacity===0){el.style.opacity='0';return;}
+        if (tooltip.body){
+          const idx = tooltip.dataPoints[0].dataIndex;
+          const label = tooltip.dataPoints[0].label;
+          let html = `<div style="font-weight:700;margin-bottom:6px;font-size:13px">${label}</div>`;
+          datasets.forEach((ds,i)=>{
+            const v = ds[idx];
+            html += `<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
+              <span style="display:inline-block;width:10px;height:10px;background:${colors[i]};border-radius:2px;flex-shrink:0"></span>
+              <span style="opacity:.85">${chart.data.datasets[i].label}:</span>
+              <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmtPct(v)}</span>
+            </div>`;
+          });
+          el.innerHTML = html;
+        }
+        const {offsetLeft,offsetTop} = chart.canvas;
+        el.style.opacity='1';
+        el.style.left = offsetLeft+tooltip.caretX+'px';
+        el.style.top  = offsetTop+tooltip.caretY+'px';
+      }
+    };
+  }
+
+  const ctxHu = document.getElementById('ch-sec-hu');
+  if (ctxHu) new Chart(ctxHu, {
+    type:'bar',
+    data:{labels:sectors, datasets:[{label:'Magyarország', data:hu_sec, backgroundColor:'#ed2b2e', borderRadius:3, borderSkipped:false}]},
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false}, tooltip:makeBarTooltip([hu_sec],['#ed2b2e'])},
+      scales:{x:{...AX.x,ticks:{...AX.x.ticks,callback:v=>v+'%'}}, y:{...AX.y,ticks:{...AX.y.ticks,font:{size:11,family:'Open Sans'}}}}
+    }
+  });
+
+  const ctxComp = document.getElementById('ch-sec-comp');
+  if (ctxComp) new Chart(ctxComp, {
+    type:'bar',
+    data:{labels:sectors, datasets:[
+      {label:'Magyarország', data:hu_sec, backgroundColor:'#ed2b2e', borderRadius:3, borderSkipped:false},
+      {label:'EU27',         data:eu_sec, backgroundColor:'#00827a', borderRadius:3, borderSkipped:false}
+    ]},
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false}, tooltip:makeBarTooltip([hu_sec,eu_sec],['#ed2b2e','#00827a'])},
+      scales:{x:{...AX.x,ticks:{...AX.x.ticks,callback:v=>v+'%'}}, y:{...AX.y,ticks:{...AX.y.ticks,font:{size:11,family:'Open Sans'}}}}
+    }
+  });
+
+  // ── 2. Szektoriális trend — line chart
+  const priv   = [3580,3650,3780,3900,3980,3890,3980,4050,4100,4130];
+  const pub    = [730,730,750,760,770,780,780,785,790,790];
+  const kozmu  = [179,221,194,157,107,83,82,72,66,55];
+
+  const ctxSector = document.getElementById('ch-sec-sector');
+  if (ctxSector) new Chart(ctxSector, {
+    type:'line',
+    data:{labels:YR10, datasets:[
+      lds('Privát szektor', priv,  '#00827a', [], true),
+      lds('Közszféra',      pub,   '#000073'),
+      lds('Közmunka',       kozmu, '#ebc230')
+    ]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false}, tooltip:{enabled:false, external(ctx){
+        const {chart,tooltip} = ctx;
+        const el = getOrCreateTooltip(chart);
+        if (tooltip.opacity===0){el.style.opacity='0';return;}
+        if (tooltip.body){
+          const colors=['#00827a','#000073','#ebc230'];
+          let html=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">${tooltip.title[0]}</div>`;
+          chart.data.datasets.forEach((ds,i)=>{
+            const v=ds.data[tooltip.dataPoints[0].dataIndex];
+            html+=`<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
+              <span style="display:inline-block;width:10px;height:10px;background:${colors[i]};border-radius:2px;flex-shrink:0"></span>
+              <span style="opacity:.85">${ds.label}:</span>
+              <span style="font-weight:700;margin-left:auto;padding-left:10px">${v} e fő</span>
+            </div>`;
+          });
+          el.innerHTML=html;
+        }
+        const {offsetLeft,offsetTop}=chart.canvas;
+        el.style.opacity='1';
+        el.style.left=offsetLeft+tooltip.caretX+'px';
+        el.style.top=offsetTop+tooltip.caretY+'px';
+      }}},
+      scales:{x:{...AX.x}, y:{...AX.y, min:0, ticks:{...AX.y.ticks,callback:v=>v+' e'}}}
+    }
+  });
+
+  // ── 3. Közszféra belső megoszlása — doughnut
+  const ctxPub = document.getElementById('ch-sec-pubsector');
+  if (ctxPub) new Chart(ctxPub, {
+    type:'doughnut',
+    data:{
+      labels:['Közalkalmazott (okt./egész./kult.)','Rendvédelem + Honvédség','Önkormányzati fgl.','Köztisztviselő / Korm.tisztv.','Közmunkások'],
+      datasets:[{
+        data:[510, 103, 105, 72, 66],
+        backgroundColor:['#ed2b2e','#754dba','#00827a','#000073','#ebc230'],
+        borderWidth:0, hoverOffset:8
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'60%',
+      plugins:{
+        legend:{position:'right', labels:{color:'#3D3D3D',font:{size:11,family:'Open Sans'},padding:10,boxWidth:10,usePointStyle:false}},
+        tooltip:{enabled:false, external(ctx){
+          const {chart,tooltip} = ctx;
+          const el = getOrCreateTooltip(chart);
+          if (tooltip.opacity===0){el.style.opacity='0';return;}
+          if (tooltip.body){
+            const dp=tooltip.dataPoints[0];
+            const color=dp.dataset.backgroundColor[dp.dataIndex];
+            el.innerHTML=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">Közszféra</div>
+              <div style="display:flex;align-items:center;gap:7px">
+                <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
+                <span style="opacity:.85">${dp.label}:</span>
+                <span style="font-weight:700;margin-left:auto;padding-left:10px">~${dp.parsed} e fő</span>
+              </div>`;
+          }
+          const {offsetLeft,offsetTop}=chart.canvas;
+          el.style.opacity='1';
+          el.style.left=offsetLeft+tooltip.caretX+'px';
+          el.style.top=offsetTop+tooltip.caretY+'px';
+        }}
+      }
+    }
+  });
+
+  // ── 4. Vállalkozásméret — doughnut
+  const ctxSize = document.getElementById('ch-sec-size');
+  if (ctxSize) new Chart(ctxSize, {
+    type:'doughnut',
+    data:{
+      labels:['Mikrovállalat (2–9 fő)','Kisvállalat (10–49 fő)','Középvállalat (50–249 fő)','Nagyvállalat (250+ fő)'],
+      datasets:[{
+        data:[26, 22, 17, 34.5],
+        backgroundColor:['#ed2b2e','#00827a','#ebc230','#000073'],
+        borderWidth:0, hoverOffset:8
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'60%',
+      plugins:{
+        legend:{position:'right', labels:{color:'#3D3D3D',font:{size:11,family:'Open Sans'},padding:10,boxWidth:10,usePointStyle:false}},
+        tooltip:{enabled:false, external(ctx){
+          const {chart,tooltip} = ctx;
+          const el = getOrCreateTooltip(chart);
+          if (tooltip.opacity===0){el.style.opacity='0';return;}
+          if (tooltip.body){
+            const dp=tooltip.dataPoints[0];
+            const color=dp.dataset.backgroundColor[dp.dataIndex];
+            el.innerHTML=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">Vállalkozásméret</div>
+              <div style="display:flex;align-items:center;gap:7px">
+                <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
+                <span style="opacity:.85">${dp.label}:</span>
+                <span style="font-weight:700;margin-left:auto;padding-left:10px">${dp.parsed%1===0?dp.parsed:dp.parsed.toFixed(1).replace('.',',')}%</span>
+              </div>`;
+          }
+          const {offsetLeft,offsetTop}=chart.canvas;
+          el.style.opacity='1';
+          el.style.left=offsetLeft+tooltip.caretX+'px';
+          el.style.top=offsetTop+tooltip.caretY+'px';
+        }}
+      }
+    }
+  });
+
+  // ── 5. KKV vs. nagyvállalat trend — line chart
+  const kkv_trend = [66.8, 67.2, 67.0, 66.5, 66.0, 66.3, 65.8, 65.5, 65.5, null];
+  const ctxKkv = document.getElementById('ch-sec-kkv');
+  if (ctxKkv) new Chart(ctxKkv, {
+    type:'line',
+    data:{labels:YR10, datasets:[
+      lds('KKV részesedés', kkv_trend, '#000073', [], true)
+    ]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false}, tooltip:{enabled:false, external(ctx){
+        const {chart,tooltip} = ctx;
+        const el = getOrCreateTooltip(chart);
+        if (tooltip.opacity===0){el.style.opacity='0';return;}
+        if (tooltip.body){
+          const dp=tooltip.dataPoints[0];
+          const v=dp.parsed.y;
+          el.innerHTML=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">${dp.label}</div>
+            <div style="display:flex;align-items:center;gap:7px">
+              <span style="display:inline-block;width:10px;height:10px;background:#000073;border-radius:2px"></span>
+              <span style="opacity:.85">KKV részesedés:</span>
+              <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmtPct(v)}</span>
+            </div>`;
+        }
+        const {offsetLeft,offsetTop}=chart.canvas;
+        el.style.opacity='1';
+        el.style.left=offsetLeft+tooltip.caretX+'px';
+        el.style.top=offsetTop+tooltip.caretY+'px';
+      }}},
+      scales:{
+        x:{...AX.x},
+        y:{...AX.y, min:60, max:72, ticks:{...AX.y.ticks, callback:v=>v+'%'}}
+      }
+    }
+  });
+}
+
+// ── PANEL 4: REGIONAL ─────────────────────────────────────────────────────
 function buildRegional() {
   if (window.initHungaryMap) setTimeout(window.initHungaryMap, 50);
   const regs = ['Nyugat-Dunántúl','Közép-Dunántúl','Budapest','Pest megye','Dél-Dunántúl','Dél-Alföld','Észak-Alföld','Észak-Mo.'];
