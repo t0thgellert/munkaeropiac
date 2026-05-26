@@ -387,8 +387,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   </a>
   <div class="hdr-div"></div>
   <div class="hdr-title">
-    <h1>MAGYARORSZÁGI MUNKAERŐPIACI ÁTTEKINTÉS</h1>
-    <p>Magyarország &nbsp;·&nbsp; EU27 · V4 &nbsp;·&nbsp; 2015–2025 &nbsp;·&nbsp; Eurostat LFS · KSH · NFSZ</p>
+    <h1>Munkaerőpiaci Dashboard</h1>
+    <p>Magyarország &nbsp;·&nbsp; EU27 · V4 &nbsp;·&nbsp; 2015–2025 &nbsp;·&nbsp; KSH · Eurostat · NFSZ</p>
   </div>
 
 </header>
@@ -399,7 +399,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <div class="tab"         data-panel="trends">Magyarországi Munkaerőpiaci Trendek</div>
   <div class="tab"         data-panel="regional">Magyarország Regionális Nézete</div>
   <div class="tab"         data-panel="tpi">Talent Pressure Index</div>
-  <div class="tab"         data-panel="benchmark">EU / V4 Benchmark</div>
+  <div class="tab"         data-panel="benchmark">EU27 / V4 Benchmark</div>
 </nav>
 
 <!-- ══════════════════════════════════════
@@ -513,48 +513,49 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 
   <!-- MUNKANÉLKÜLISÉG TREND -->
   <div class="sec-head"><h2>Munkanélküliségi trend</h2></div>
-  <div class="sec-sub">ILO-módszertan · % · Eurostat une_rt_a · 2015–2025</div>
+  <div class="sec-sub">Magyarország · EU27 · V4 átlag összehasonlítás</div>
   <div class="g2">
     <div class="cc">
-      <h3>Munkanélküliségi ráta (15–74 év)</h3>
-      <p>Teljes munkaerő %-ában · éves átlag</p>
+      <h3>Munkanélküliségi ráta</h3>
+      <p>KSH országos adatok (2015–2025)</p>
       <div class="cw" style="height:240px"><canvas id="ch-tr-unemp"></canvas></div>
     </div>
     <div class="cc">
-      <h3>Betöltetlen állások rátája (%)</h3>
-      <p>Job vacancy rate · Eurostat jvs_q_nace2 · 2015–2025</p>
+      <h3>Betöltetlen állások aránya</h3>
+      <p>Eurostat országos adatok (2015–2025)</p>
       <div class="cw" style="height:240px"><canvas id="ch-tr-vac"></canvas></div>
     </div>
   </div>
 
   <!-- BÉRTREND -->
   <div class="sec-head"><h2>Bértrend</h2></div>
-  <div class="sec-sub">Havi összegek · ezer Ft · Forrás: KSH STADAT · 2015–2025</div>
+  <div class="sec-sub">Magyarországi bérindikátorok összehasonlítása</div>
   <div class="cc g1">
-    <h3>Főbb bérindicátorok alakulása</h3>
-    <p>Bruttó értékek (kivéve nettó átlag) · teljes munkaidőben alkalmazottak · KSH</p>
+    <h3>Legfőbb bérindikátorok alakulása (2019–2025)</h3>
+    <p>KSH bruttó értékek (kivéve nettó átlag)</p>
     <div class="cl">
-      <div class="cl-item"><span class="cl-line" style="background:#ED1C2E"></span>Minimálbér</div>
-      <div class="cl-item"><span class="cl-line" style="background:#000073"></span>Medián bér</div>
-      <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Bruttó átlag</div>
-      <div class="cl-item"><span class="cl-line" style="background:#00A89E"></span>Nettó átlag</div>
+      <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Minimálbér*</div>
+      <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Bruttó átlag</div>
+      <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Nettó átlag</div>
+      <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Mediánbér</div>
     </div>
     <div class="cw" style="height:280px"><canvas id="ch-tr-ber"></canvas></div>
+    <p style="font-size:11px;color:var(--muted);margin-top:6px">* Január 1-jei jogszabályi érték az előző év záróadataként értelmezve pl.: 2025 = 2026. jan. 1-jei adat</p>
   </div>
 
-  <!-- INAKTÍV TARTALÉK -->
-  <div class="sec-head"><h2>Inaktív tartalék — mobilizálhatóság</h2></div>
-  <div class="sec-sub">Nem dolgozik és nem keres munkát · 15–64 éves korcsoport · inaktivitás okai · Eurostat LFS</div>
+  <!-- INAKTIVITÁSI TREND -->
+  <div class="sec-head"><h2>Inaktivitási trend</h2></div>
+  <div class="sec-sub">Magyarország · EU27 · V4 átlag összehasonlítás</div>
   <div class="g2">
+    <div class="cc">
+      <h3>Inaktivitási ráta</h3>
+      <p>Eurostat országos adatok (2015–2025)</p>
+      <div class="cw" style="height:240px"><canvas id="ch-tr-inact-trend"></canvas></div>
+    </div>
     <div class="cc">
       <h3>Inaktivitás okai — Magyarország 2025</h3>
       <p>Fő inaktivitási okok megoszlása · döntéshozói szempont</p>
       <div class="cw" style="height:240px"><canvas id="ch-tr-inact"></canvas></div>
-    </div>
-    <div class="cc">
-      <h3>Inaktivitási ráta trendje (%)</h3>
-      <p>15–64 év · Eurostat lfsa_igan · 2015–2025</p>
-      <div class="cw" style="height:240px"><canvas id="ch-tr-inact-trend"></canvas></div>
     </div>
   </div>
 
@@ -812,7 +813,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     </div>
     <div class="cc">
       <h3>Betöltetlen állások rátája (%) — 2015–2025</h3>
-      <p>Job vacancy rate · Eurostat jvs_a_nace2</p>
+      <p>Job vacancy rate · Eurostat jvs_q_nace2</p>
       <div class="cw" style="height:240px"><canvas id="ch-bm-vac"></canvas></div>
     </div>
   </div>
@@ -838,14 +839,17 @@ const D = {
     sk: [67.7,69.8,71.1,72.4,73.4,72.9,73.4,74.3,75.4,76.0,76.2]
   },
   unemp: {
-    eu: [9.4,8.5,7.6,6.8,6.7,7.1,7.0,6.2,6.0,5.9,6.0],
-    hu: [6.8,5.1,4.2,3.7,3.4,4.1,4.1,3.6,4.1,4.4,4.5],
-    cz: [5.1,4.0,2.9,2.2,2.0,2.6,2.8,2.2,2.6,2.7,2.8],
-    pl: [7.5,6.2,4.9,3.8,3.3,3.2,3.4,2.9,2.9,2.9,3.1],
-    sk: [11.5,9.7,8.1,6.5,5.8,6.7,6.9,6.2,5.7,5.5,5.4]
+    // 2015–2024: KSH STADAT 20.1.3.3 (mun0094); 2025: KSH STADAT 20.2.3.1 (mun0177) negyedéves átlag
+    eu: [10.2,9.3,8.3,7.4,6.8,7.2,7.2,6.3,6.1,6.0,6.1],
+    v4: [7.8,6.2,5.1,4.1,3.7,4.2,4.3,3.8,3.9,3.9,4.0],
+    hu: [6.8,5.1,4.2,3.7,3.4,4.3,4.0,3.6,4.1,4.5,4.5],
+    cz: [5.1,4.0,2.9,2.3,2.1,2.6,2.9,2.3,2.6,2.7,2.9],
+    pl: [7.6,6.2,5.0,3.9,3.3,3.2,3.4,2.9,2.9,2.9,3.2],
+    sk: [11.5,9.7,8.2,6.6,5.8,6.8,6.9,6.2,5.9,5.4,5.5]
   },
   vac: {
     eu: [1.5,1.7,1.9,2.1,2.2,1.7,2.5,3.0,2.8,2.9,2.7],
+    v4: [1.2,1.6,2.0,2.5,2.7,1.8,2.4,2.9,2.5,2.7,2.5],
     hu: [1.1,1.3,1.8,2.3,2.6,2.1,2.8,3.2,2.6,2.8,2.6],
     cz: [1.8,2.5,3.5,4.6,4.7,3.0,3.8,4.5,3.8,4.1,3.8],
     pl: [0.8,1.0,1.3,1.5,1.6,1.0,1.3,1.8,1.7,1.8,1.7],
@@ -859,14 +863,20 @@ const D = {
     sk: [3.0,3.8,5.5,5.8,5.2,3.5,4.2,9.5,9.8,7.5,7.0]
   },
   inact: {
-    eu: [27.5,26.9,26.3,25.6,25.4,26.0,25.6,25.0,24.6,24.2,23.9],
-    hu: [28.6,26.5,25.0,23.0,23.0,23.3,22.5,21.0,20.5,20.2,19.8],
-    cz: [22.0,21.2,20.3,19.3,19.2,19.9,19.5,18.7,18.2,17.8,17.1]
+    // Eurostat lfsa_ipga, 15–64 év, összesen — 2015–2025
+    eu: [28.1,27.7,27.3,26.9,26.6,27.2,26.4,25.5,25.0,24.7,24.3],
+    v4: [29.6,28.5,27.8,27.2,26.8,26.8,24.9,24.0,23.4,23.1,22.9],
+    hu: [31.4,29.9,28.8,27.9,27.2,27.0,23.7,22.7,21.8,21.4,21.4],
+    cz: [26.0,25.0,24.1,23.4,23.3,23.6,23.4,22.8,22.9,22.5,22.0],
+    pl: [31.9,31.2,30.4,29.9,29.2,28.9,27.1,26.4,25.5,25.3,24.8],
+    sk: [29.1,28.1,27.9,27.6,27.3,27.6,25.4,23.9,23.5,23.4,23.5]
   },
-  minber:  [105.0,111.0,127.5,138.0,149.0,161.0,167.4,200.0,232.0,266.8,290.8],
-  median:  [168.0,186.0,210.0,241.0,272.0,294.0,322.0,379.0,450.0,520.4,578.0],
-  brutto:  [222.6,245.8,277.9,318.2,358.7,386.7,422.6,500.0,571.2,646.8,705.0],
-  netto:   [149.2,163.5,185.2,211.9,240.5,258.5,281.7,344.5,393.7,445.2,490.0],
+  // mun0190: minimálbér; mun0046: bruttó átlag, nettó átlag, bruttó medián — 2019-től KSH adat
+  // minimálbér: jan. 1-jei érték az előző év záróadataként értelmezve (2026. jan. 1. = 2025 záró)
+  minber:  [null,null,null,null,161.0,167.4,200.0,232.0,266.8,290.8,322.8],
+  median:  [null,null,null,null,278.2,304.0,331.4,385.3,447.8,517.0,564.2],
+  brutto:  [null,null,null,null,359.7,392.1,426.1,501.1,571.5,646.6,705.0],
+  netto:   [null,null,null,null,246.8,269.5,292.2,345.5,393.9,444.9,486.8],
   bernov:  [null, 10.4, 13.1, 14.5, 12.8, 7.8, 9.3, 18.4, 14.2, 13.2, 9.1]
 };
 
@@ -912,6 +922,34 @@ function getOrCreateTooltip(chart) {
   return tooltipEl;
 }
 
+function externalTooltipEft(context) {
+  const {chart, tooltip} = context;
+  const tooltipEl = getOrCreateTooltip(chart);
+  if (tooltip.opacity === 0) { tooltipEl.style.opacity = '0'; return; }
+  if (tooltip.body) {
+    const title = tooltip.title || [];
+    const idx = tooltip.dataPoints[0]?.dataIndex;
+    let html = `<div style="font-weight:700;margin-bottom:6px;font-size:13px">${title[0] || ''}</div>`;
+    chart.data.datasets.forEach(ds => {
+      const color = ds.borderColor;
+      const rawEft = ds.data[idx];
+      const val = (idx !== undefined && rawEft !== null && rawEft !== undefined)
+        ? Math.round(rawEft) + ' eFt'
+        : 'nem elérhető';
+      html += `<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
+        <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
+        <span style="opacity:.85">${ds.label}:</span>
+        <span style="font-weight:700;margin-left:auto;padding-left:10px">${val}</span>
+      </div>`;
+    });
+    tooltipEl.innerHTML = html;
+  }
+  const {offsetLeft, offsetTop} = chart.canvas;
+  tooltipEl.style.opacity = '1';
+  tooltipEl.style.left = offsetLeft + tooltip.caretX + 'px';
+  tooltipEl.style.top = offsetTop + tooltip.caretY + 'px';
+}
+
 function externalTooltip(context) {
   const {chart, tooltip} = context;
   const tooltipEl = getOrCreateTooltip(chart);
@@ -922,8 +960,12 @@ function externalTooltip(context) {
     let html = `<div style="font-weight:700;margin-bottom:6px;font-size:13px">${title[0] || ''}</div>`;
     chart.data.datasets.forEach(ds => {
       const color = ds.borderColor;
-      const val = (idx !== undefined && ds.data[idx] !== null && ds.data[idx] !== undefined)
-        ? ds.data[idx].toFixed(1) + '%'
+      const raw = ds.data[idx];
+      const formatted = Number.isInteger(raw) || (raw * 10) % 10 === 0
+        ? Math.round(raw).toString().replace('.', ',')
+        : raw.toFixed(1).replace('.', ',');
+      const val = (idx !== undefined && raw !== null && raw !== undefined)
+        ? formatted + '%'
         : 'nem elérhető';
       html += `<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
         <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
@@ -1009,7 +1051,7 @@ function buildOverview() {
   lineChart('ch-ov-emp', [
     lds('Magyarország', D.empRate.hu, '#ED1C2E', [], true),
     lds('EU27', D.empRate.eu, '#0345EB'),
-    lds('V4 átlag', D.empRate.v4, '#E8A12A', [6,3]),
+    lds('V4 átlag', D.empRate.v4, '#E8A12A'),
     lds('Csehország', D.empRate.cz, '#00A89E')
   ], 62);
 
@@ -1048,37 +1090,39 @@ function buildTrends() {
   lineChart('ch-tr-emp', [
     lds('Magyarország', D.empRate.hu, '#ed2b2e', [], true),
     lds('EU27', D.empRate.eu, '#00827a'),
-    lds('V4 átlag', D.empRate.v4, '#ebc230', [6,3])
+    lds('V4 átlag', D.empRate.v4, '#ebc230')
   ], 62);
 
   lineChart('ch-tr-unemp', [
-    lds('Magyarország', D.unemp.hu, '#ED1C2E'),
-    lds('EU27', D.unemp.eu, '#0345EB'),
-    lds('Csehország', D.unemp.cz, '#00A89E'),
-    lds('Lengyelország', D.unemp.pl, '#FF5C00'),
-    lds('Szlovákia', D.unemp.sk, '#754DBA')
+    lds('Magyarország', D.unemp.hu, '#ed2b2e', [], true),
+    lds('EU27', D.unemp.eu, '#00827a'),
+    lds('V4 átlag', D.unemp.v4, '#ebc230')
   ], 0);
 
   lineChart('ch-tr-vac', [
-    lds('Magyarország', D.vac.hu, '#ED1C2E'),
-    lds('EU27', D.vac.eu, '#0345EB'),
-    lds('Csehország', D.vac.cz, '#00A89E')
+    lds('Magyarország', D.vac.hu, '#ed2b2e', [], true),
+    lds('EU27', D.vac.eu, '#00827a'),
+    lds('V4 átlag', D.vac.v4, '#ebc230')
   ], 0);
 
   // Bér trend
+  const YR_BER = ['2019','2020','2021','2022','2023','2024','2025'];
   const ctxBer = document.getElementById('ch-tr-ber');
   if (ctxBer) new Chart(ctxBer, {
     type:'line',
-    data:{labels:YR, datasets:[
-      lds('Minimálbér', D.minber, '#ED1C2E'),
-      lds('Medián bér', D.median, '#000073'),
-      lds('Bruttó átlag', D.brutto, '#0345EB', [], true),
-      lds('Nettó átlag', D.netto, '#00A89E')
+    data:{labels:YR_BER, datasets:[
+      lds('Minimálbér*', D.minber.slice(4), '#00827a'),
+      lds('Bruttó átlag', D.brutto.slice(4), '#ebc230'),
+      lds('Nettó átlag',  D.netto.slice(4),  '#0345EB'),
+      lds('Mediánbér',  D.median.slice(4), '#ed2b2e', [], true)
     ]},
     options:{
       responsive:true, maintainAspectRatio:false,
       interaction:{mode:'index',intersect:false},
-      plugins:{legend:{display:false}, tooltip:{...TIP,callbacks:{label:c=>` ${c.dataset.label}: ${Math.round(c.parsed.y*1000).toLocaleString('hu-HU')} Ft`}}},
+      plugins:{
+        legend:{display:false},
+        tooltip:{ enabled:false, external:externalTooltipEft }
+      },
       scales:{x:{...AX.x},y:{...AX.y,min:0,ticks:{...AX.y.ticks,callback:v=>v+' eFt'}}}
     }
   });
@@ -1106,10 +1150,10 @@ function buildTrends() {
 
   // Inaktivitás trend
   lineChart('ch-tr-inact-trend', [
-    lds('Magyarország', D.inact.hu, '#ED1C2E', [], true),
-    lds('EU27', D.inact.eu, '#0345EB'),
-    lds('Csehország', D.inact.cz, '#00A89E')
-  ], 15);
+    lds('Magyarország', D.inact.hu, '#ed2b2e', [], true),
+    lds('EU27', D.inact.eu, '#00827a'),
+    lds('V4 átlag', D.inact.v4, '#ebc230')
+  ], 20);
 }
 
 // ── PANEL 3: REGIONAL ─────────────────────────────────────────────────────
