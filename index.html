@@ -96,7 +96,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   position: relative; overflow: hidden;
   transition: box-shadow .2s, transform .2s;
 }
-.exec-kpi:hover { box-shadow: 0 6px 24px rgba(0,0,115,.1); transform: translateY(-1px); }
+.exec-kpi:hover { box-shadow: none; transform: none; }
 .exec-kpi::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: var(--kc, var(--blue));
@@ -387,8 +387,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   </a>
   <div class="hdr-div"></div>
   <div class="hdr-title">
-    <h1>Munkaerőpiaci Dashboard</h1>
-    <p>Magyarország &nbsp;·&nbsp; EU27 · V4 &nbsp;·&nbsp; 2015–2025</p>
+    <h1>Munkaerőpiaci Áttekintés</h1>
+    <p>Magyarország &nbsp;·&nbsp; EU27 · V4 &nbsp;·&nbsp; V4 országok</p>
   </div>
 
 </header>
@@ -396,7 +396,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 <!-- TABS -->
 <nav class="tabs">
   <div class="tab active"  data-panel="overview">Áttekintés</div>
-  <div class="tab"         data-panel="trends">Magyarországi Munkaerőpiaci Trendek</div>
+  <div class="tab"         data-panel="trends">Munkaerőpiaci Trendek</div>
   <div class="tab"         data-panel="sectoral">Magyarország Ágazati Struktúrája</div>
   <div class="tab"         data-panel="regional">Magyarország Regionális Nézete</div>
   <div class="tab"         data-panel="tpi">Fizikai Munkaerő Benchmark</div>
@@ -409,63 +409,120 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 <div class="panel active" id="panel-overview">
 <div class="main">
 
-  <!-- 6 KPI TILE -->
-  <div class="exec-kpis" style="margin-top:8px">
-    <div class="exec-kpi" style="--kc:#0345EB">
-      <div class="exec-kpi-label">Foglalkoztatási ráta</div>
-      <div class="exec-kpi-value">80,8%</div>
-      <div class="exec-kpi-desc">Magyarország · 20–64 év · 2025 · EU top 10</div>
-      <span class="exec-kpi-badge up">▲ +12,6 százalékpont / 10 év</span>
+  <!-- 4 TOP KPI -->
+  <div class="exec-kpis" style="margin-top:8px;grid-template-columns:repeat(4,1fr)">
+    <div class="exec-kpi" style="--kc:#ed2b2e">
+      <div class="exec-kpi-label">Foglalkoztatási ráta · 2025</div>
+      <div class="exec-kpi-value">75,1%</div>
+      <div class="exec-kpi-desc">HU · 15–64 év · EU27: 70,5%</div>
+      <span class="exec-kpi-badge up">▲ +8,6 pp / 10 év</span>
     </div>
-    <div class="exec-kpi" style="--kc:#ED1C2E">
-      <div class="exec-kpi-label">Munkanélküliség</div>
+    <div class="exec-kpi" style="--kc:#00827a">
+      <div class="exec-kpi-label">Munkanélküliség · 2025</div>
       <div class="exec-kpi-value">4,5%</div>
-      <div class="exec-kpi-desc">Magyarország · ILO · 2025 · EU27: 6,0%</div>
+      <div class="exec-kpi-desc">HU · ILO · EU27: 6,1%</div>
       <span class="exec-kpi-badge up">▼ EU átlag alatt</span>
     </div>
     <div class="exec-kpi" style="--kc:#000073">
-      <div class="exec-kpi-label">Bérnövekedés</div>
-      <div class="exec-kpi-value">+9,1%</div>
-      <div class="exec-kpi-desc">Bruttó átlagkereset · 2025 vs. 2024 · KSH</div>
-      <span class="exec-kpi-badge up">Reál: +5–6%</span>
+      <div class="exec-kpi-label">Bruttó átlagkereset · 2025</div>
+      <div class="exec-kpi-value">705 eFt</div>
+      <div class="exec-kpi-desc">HU · KSH · +9,0% / év</div>
+      <span class="exec-kpi-badge up">▲ Reál: +5–6%</span>
     </div>
-    <div class="exec-kpi" style="--kc:#00A89E">
-      <div class="exec-kpi-label">Betöltetlen állások</div>
+    <div class="exec-kpi" style="--kc:#ebc230">
+      <div class="exec-kpi-label">Betöltetlen állások · 2025</div>
       <div class="exec-kpi-value">2,6%</div>
-      <div class="exec-kpi-desc">Job vacancy rate · 2025 · EU27: 2,7%</div>
+      <div class="exec-kpi-desc">HU · Eurostat · EU27: 2,7%</div>
       <span class="exec-kpi-badge warn">CZ: 3,8% — feszesebb</span>
     </div>
-    <div class="exec-kpi" style="--kc:#754DBA">
-      <div class="exec-kpi-label">Aktivitási ráta</div>
-      <div class="exec-kpi-value">79,8%</div>
-      <div class="exec-kpi-desc">15–64 év · 2025 · EU felett</div>
-      <span class="exec-kpi-badge up">▲ +8,4 százalékpont / 10 év</span>
-    </div>
-    <div class="exec-kpi" style="--kc:#FF5C00">
-      <div class="exec-kpi-label">Régiós munkaerőhiány</div>
-      <div class="exec-kpi-value">11,3 százalékpont</div>
-      <div class="exec-kpi-desc">Nyugat–Észak foglalkoztatási rés</div>
-      <span class="exec-kpi-badge down">↑ Strukturális probléma</span>
-    </div>
   </div>
 
-  <!-- 3 KEY MESSAGES -->
-  <div class="key-msgs">
-    <div class="key-msg" style="--mc:#000073">
-      <div class="key-msg-tag">🔴 Munkaerőpiaci helyzet</div>
-      <p>A magyar munkaerőpiac tartósan <strong>feszes</strong> marad: 80,8%-os foglalkoztatás (a korábbi 81,1%-os csúcsról enyhén mérséklődött), a munkanélküliség az EU átlag alatt. Az érdemi szabad munkaerő-tartalék 2010 óta kimerült.</p>
+  <!-- FÜL-ÖSSZEFOGLALÓK -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0">
+
+    <!-- TRENDEK -->
+    <div class="cc" style="border-left:4px solid #ed2b2e;padding-left:16px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ed2b2e;margin-bottom:8px">📈 Magyarországi Munkaerőpiaci Trendek</div>
+      <div style="display:flex;gap:24px;margin-bottom:12px">
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#ed2b2e;line-height:1">+8,6 pp</div>
+          <div style="font-size:11px;color:var(--muted)">Fgl. ráta növekedés / 10 év</div>
+        </div>
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#000073;line-height:1">705 eFt</div>
+          <div style="font-size:11px;color:var(--muted)">Bruttó átlagbér 2025</div>
+        </div>
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#00827a;line-height:1">21,4%</div>
+          <div style="font-size:11px;color:var(--muted)">Inaktivitási ráta 2025</div>
+        </div>
+      </div>
+      <p style="font-size:12.5px;line-height:1.65;color:var(--body);margin:0">A foglalkoztatás 10 éve folyamatosan nő, a minimálbér 2019 óta megduplázódott (161→323 eFt). Az inaktivitás csökkent, de a <strong>nyugdíj/ellátás</strong> adja az inaktívak 57%-át — mobilizálható tartalék korlátozott.</p>
     </div>
-    <div class="key-msg" style="--mc:#0345EB">
-      <div class="key-msg-tag">🗺 Földrajzi struktúra</div>
-      <p><strong>Nyugat-Dunántúl és Budapest</strong> döntő munkaerőhiány alatt van — ide áramlik a kereslet. <strong>Észak-Magyarország</strong> adja a legnagyobb elérhető munkaerő-tartalékot, de fizikai mobilitás korlátozott.</p>
+
+    <!-- ÁGAZATI -->
+    <div class="cc" style="border-left:4px solid #00827a;padding-left:16px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#00827a;margin-bottom:8px">🏭 Magyarország Ágazati Struktúrája</div>
+      <div style="display:flex;gap:24px;margin-bottom:12px">
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#ed2b2e;line-height:1">−199 eFő</div>
+          <div style="font-size:11px;color:var(--muted)">Oktatás lemaradás EU27-től</div>
+        </div>
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#ed2b2e;line-height:1">−293 eFő</div>
+          <div style="font-size:11px;color:var(--muted)">Egészségügy lemaradás EU27-től</div>
+        </div>
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#000073;line-height:1">3,3×</div>
+          <div style="font-size:11px;color:var(--muted)">Termelékenységi rés (nagy/mikro)</div>
+        </div>
+      </div>
+      <p style="font-size:12.5px;line-height:1.65;color:var(--body);margin:0">A feldolgozóipar aránya (17,8%) meghaladja az EU27 átlagot (+4,3 pp), cserébe az oktatás és egészségügy <strong>jelentősen alulreprezentált</strong>. A mikrovállalatok adják a foglalkoztatás 39%-át, de termelékenységük háromszor elmarad a nagyvállalatokétól.</p>
     </div>
-    <div class="key-msg" style="--mc:#ED1C2E">
-      <div class="key-msg-tag">💰 Bérnyomás</div>
-      <p>A munkaerőköltség-index <strong>+9,1%</strong>-ra mérséklődött 2025-ben (EU: +4,8%). A bérnyomás érezhetően lassult — a reálbér-növekedés +5–6% — de <strong>strukturálisan jelen marad</strong> a szűk munkaerőpiacon.</p>
+
+    <!-- REGIONÁLIS -->
+    <div class="cc" style="border-left:4px solid #000073;padding-left:16px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000073;margin-bottom:8px">🗺 Magyarország Regionális Nézete</div>
+      <div style="display:flex;gap:24px;margin-bottom:12px">
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#000073;line-height:1">11,3 pp</div>
+          <div style="font-size:11px;color:var(--muted)">Nyugat–Észak fgl. rés</div>
+        </div>
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#00827a;line-height:1">585 eFt</div>
+          <div style="font-size:11px;color:var(--muted)">Budapest átlagbér</div>
+        </div>
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#ed2b2e;line-height:1">7,1%</div>
+          <div style="font-size:11px;color:var(--muted)">Észak-Mo. mun.ráta</div>
+        </div>
+      </div>
+      <p style="font-size:12.5px;line-height:1.65;color:var(--body);margin:0"><strong>Budapest és Nyugat-Dunántúl</strong> feszített munkaerőpiaca kontrasztban áll Észak-Magyarország 70%-os foglalkoztatásával. A fővárosi átlagbér (585 eFt) közel 43%-kal múlja felül az Észak-Alföld (400 eFt) szintjét.</p>
     </div>
+
+    <!-- BENCHMARK -->
+    <div class="cc" style="border-left:4px solid #ebc230;padding-left:16px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#b8960a;margin-bottom:8px">⚙️ Fizikai Munkaerő Benchmark</div>
+      <div style="display:flex;gap:24px;margin-bottom:12px">
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#ed2b2e;line-height:1">62%</div>
+          <div style="font-size:11px;color:var(--muted)">1 éven belül kilép (2022)</div>
+        </div>
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#000073;line-height:1">380 eFt</div>
+          <div style="font-size:11px;color:var(--muted)">Betanított átlagbér</div>
+        </div>
+        <div>
+          <div style="font-size:22px;font-weight:700;color:#00827a;line-height:1">91%</div>
+          <div style="font-size:11px;color:var(--muted)">Utazási ktgérítés arány</div>
+        </div>
+      </div>
+      <p style="font-size:12.5px;line-height:1.65;color:var(--body);margin:0">A fizikai dolgozók körében <strong>extrém magas a fluktuáció</strong> — a kilépők 62%-a 1 éven belül távozik, mediánja 2 hónap. Iparáganként 207 eFt-os bérkülönbség mérhető (vegyipar 547 vs. műanyagipar 340 eFt). A külföldi munkavállalók aránya 33%.</p>
+    </div>
+
   </div>
 
-  <!-- SUMMARY CHART -->
+  <!-- SUMMARY CHARTS -->
   <div class="sec-head"><h2>Foglalkoztatás és munkanélküliség — 10 éves pálya</h2></div>
   <div class="sec-sub">Magyarország · EU27 · Forrás: Eurostat LFS · 2015–2025</div>
   <div class="g2">
@@ -493,9 +550,9 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 
   <div class="kpi-grid" style="margin-top:6px">
     <div class="kpi-card" style="--kc:#00827a"><div class="kpi-lbl">Foglalkoztatás · 2025</div><div class="kpi-val" style="color:#00827a">75,1%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(0,130,122,.18);color:#00827a;font-weight:700;">▲ +8,6 százalékpont / 10 év (2016–2025)</span></div>
-    <div class="kpi-card" style="--kc:#ee2833"><div class="kpi-lbl">Munkanélküliség · 2025</div><div class="kpi-val" style="color:#ee2833">4,5%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(238,40,51,.18);color:#ee2833;font-weight:700;">EU27: 6,1%</span></div>
-    <div class="kpi-card" style="--kc:#00827a"><div class="kpi-lbl">Bruttó átlagkereset · 2025</div><div class="kpi-val" style="color:#00827a">705 eFt</div><div class="kpi-sub">HU átlag · (eFt/hó)</div><span class="kpi-tag" style="background:rgba(0,130,122,.18);color:#00827a;font-weight:700;">▲ +9% / év (2024–2025)</span></div>
-    <div class="kpi-card" style="--kc:#000073"><div class="kpi-lbl">Potenciális munkaerő-tartalék · 2025</div><div class="kpi-val" style="color:#000073">391 ezer</div><div class="kpi-sub">Mobilizálható inaktív</div><span class="kpi-tag" style="background:rgba(0,0,115,.18);color:#000073;font-weight:700;">Inaktív tartalék aránya: 17,2%</span></div>
+    <div class="kpi-card" style="--kc:#ebc230"><div class="kpi-lbl">Munkanélküliség · 2025</div><div class="kpi-val" style="color:#ebc230">4,5%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(235,194,48,.18);color:#b8960a;font-weight:700;">EU27: 6,1%</span></div>
+    <div class="kpi-card" style="--kc:#0345EB"><div class="kpi-lbl">Bruttó átlagkereset · 2025</div><div class="kpi-val" style="color:#0345EB">705 eFt</div><div class="kpi-sub">HU átlag · (eFt/hó)</div><span class="kpi-tag" style="background:rgba(3,69,235,.18);color:#0345EB;font-weight:700;">▲ +9% / év (2024–2025)</span></div>
+    <div class="kpi-card" style="--kc:#0345EB"><div class="kpi-lbl">Inaktivitás · 2025</div><div class="kpi-val" style="color:#0345EB">21,4%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(3,69,235,.18);color:#0345EB;font-weight:700;">▼ −8,5 százalékpont / 10 év (2016–2025)</span></div>
   </div>
 
   <!-- FOGLALKOZTATÁS TREND -->
@@ -503,13 +560,14 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <div class="sec-sub">Magyarország · EU27 · V4 átlag összehasonlítás</div>
   <div class="g1 cc">
     <h3>Foglalkoztatási ráta</h3>
-    <p>KSH országos adatok (2015–2025)</p>
+    <p>KSH országos adatok (2016–2025)</p>
     <div class="cl">
       <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
       <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
       <div class="cl-item"><span class="cl-line" style="background:#ebc230;border-bottom:2px dashed #ebc230"></span>V4 átlag</div>
     </div>
     <div class="cw" style="height:280px"><canvas id="ch-tr-emp"></canvas></div>
+    <p style="font-size:11px;color:var(--muted);margin-top:6px">* Az EU27 és V4 átlag 2025-ös értékei nem hivatalos, becsült adatok</p>
   </div>
 
   <!-- MUNKANÉLKÜLISÉG TREND -->
@@ -518,12 +576,22 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <div class="g2">
     <div class="cc">
       <h3>Munkanélküliségi ráta</h3>
-      <p>KSH országos adatok (2015–2025)</p>
+      <p>KSH országos adatok (2016–2025)</p>
+      <div class="cl">
+        <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
+        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
+      </div>
       <div class="cw" style="height:240px"><canvas id="ch-tr-unemp"></canvas></div>
     </div>
     <div class="cc">
       <h3>Betöltetlen állások aránya</h3>
       <p>Eurostat országos adatok (2015–2025)</p>
+      <div class="cl">
+        <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
+        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
+      </div>
       <div class="cw" style="height:240px"><canvas id="ch-tr-vac"></canvas></div>
     </div>
   </div>
@@ -532,8 +600,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <div class="sec-head"><h2>Bértrend</h2></div>
   <div class="sec-sub">Magyarországi bérindikátorok összehasonlítása</div>
   <div class="cc g1">
-    <h3>Legfőbb bérindikátorok alakulása (2019–2025)</h3>
-    <p>KSH bruttó értékek (kivéve nettó átlag)</p>
+    <h3>Legfőbb bérindikátorok alakulása</h3>
+    <p>KSH bérstatisztikák (2019–2025)</p>
     <div class="cl">
       <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Minimálbér*</div>
       <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Bruttó átlag</div>
@@ -547,7 +615,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <div class="g2" style="margin-top:16px">
     <div class="cc">
       <h3>Éves nominális bérnövekedési ütemek (%)</h3>
-      <p>Minimálbér · Bruttó átlag · Nettó átlag</p>
+      <p>KSH bérstatisztikák (2019–2025)</p>
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Minimálbér</div>
         <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Bruttó átlag</div>
@@ -568,7 +636,12 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <div class="g2">
     <div class="cc">
       <h3>Inaktivitási ráta</h3>
-      <p>Eurostat országos adatok (2015–2025)</p>
+      <p>Eurostat országos adatok (2016–2025)</p>
+      <div class="cl">
+        <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
+        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
+      </div>
       <div class="cw" style="height:240px"><canvas id="ch-tr-inact-trend"></canvas></div>
     </div>
     <div class="cc">
@@ -790,24 +863,34 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     <div class="int-sub">Bérbenchmark · Juttatások · Fluktuáció · Kilépési okok · Külföldi munkavállalók</div>
     <div class="int-kpis">
       <div class="int-kpi">
-        <div class="int-kpi-l">Vizsgált pozíciók</div>
-        <div class="int-kpi-v">730</div>
-        <div class="int-kpi-s">~130 vállalat · 2026 Q1</div>
+        <div class="int-kpi-l">Teljes kompenzáció átlag</div>
+        <div class="int-kpi-v">517 eFt</div>
+        <div class="int-kpi-s">Alapbér + juttatások · 730 pozíció</div>
       </div>
       <div class="int-kpi">
-        <div class="int-kpi-l">Betanított átlagbér</div>
-        <div class="int-kpi-v">380 eFt</div>
-        <div class="int-kpi-s">Medián: 356 eFt/hó</div>
+        <div class="int-kpi-l">Betanított / Szakmunkás bér</div>
+        <div class="int-kpi-v">380 / 459 eFt</div>
+        <div class="int-kpi-s">Bruttó havi alapbér átlag</div>
       </div>
       <div class="int-kpi">
-        <div class="int-kpi-l">Szakmunkás átlagbér</div>
-        <div class="int-kpi-v">459 eFt</div>
-        <div class="int-kpi-s">Medián: 426 eFt/hó</div>
+        <div class="int-kpi-l">1 éven belül kilép</div>
+        <div class="int-kpi-v">62%</div>
+        <div class="int-kpi-s">2022 · medián: 2,0 hónap</div>
       </div>
       <div class="int-kpi">
-        <div class="int-kpi-l">Medián munkaviszony</div>
-        <div class="int-kpi-v">2,0 hó</div>
-        <div class="int-kpi-s">2022 · 9 214 kilépési eset</div>
+        <div class="int-kpi-l">Külföldi munkavállaló</div>
+        <div class="int-kpi-v">33%</div>
+        <div class="int-kpi-s">Ukrán 14% · Szerb 4% · Egyéb 15%</div>
+      </div>
+      <div class="int-kpi">
+        <div class="int-kpi-l">Utazási ktgérítés</div>
+        <div class="int-kpi-v">91%</div>
+        <div class="int-kpi-s">Leggyakoribb juttatás</div>
+      </div>
+      <div class="int-kpi">
+        <div class="int-kpi-l">3 műszakos pozíció</div>
+        <div class="int-kpi-v">44%</div>
+        <div class="int-kpi-s">Legnépesebb műszakrend</div>
       </div>
     </div>
   </div>
@@ -894,7 +977,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 <div class="main">
 
   <div class="kpi-grid" style="margin-top:6px">
-    <div class="kpi-card" style="--kc:#0345EB"><div class="kpi-lbl">HU fgl. ráta · 2025</div><div class="kpi-val">80,8%</div><div class="kpi-sub">EU top 10 · 2025</div><span class="kpi-tag up">+4,7 százalékpont EU felett</span></div>
+    <div class="kpi-card" style="--kc:#0345EB"><div class="kpi-lbl">HU fgl. ráta · 2025</div><div class="kpi-val">80,8%</div><div class="kpi-sub">20–64 év · EU top 10 · 2025</div><span class="kpi-tag up">+4,7 százalékpont EU felett</span></div>
     <div class="kpi-card" style="--kc:#00A89E"><div class="kpi-lbl">V4 átlag · 2025</div><div class="kpi-val">79,6%</div><div class="kpi-sub">EU27 átlag felett · 2025</div><span class="kpi-tag up">+3,5 százalékpont EU felett</span></div>
     <div class="kpi-card" style="--kc:#ED1C2E"><div class="kpi-lbl">HU LCI · 2025</div><div class="kpi-val">+9,1%</div><div class="kpi-sub">Munkaerőköltség-index · 2025</div><span class="kpi-tag warn">EU: +4,8% · mérséklődik</span></div>
     <div class="kpi-card" style="--kc:#E8A12A"><div class="kpi-lbl">HU órabér · 2025</div><div class="kpi-val">€14,1</div><div class="kpi-sub">vs. EU átlag: €33,5</div><span class="kpi-tag down">42% az EU átlagnak</span></div>
@@ -918,8 +1001,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
       </thead>
       <tbody>
         <tr><td>Foglalkoztatási ráta 20–64 (%) · 2025</td><td>76,1</td><td>79,6</td><td>80,8</td><td class="best">82,9</td><td>78,3</td><td>76,2</td></tr>
-        <tr><td>Munkanélküliségi ráta (%) · 2025</td><td>6,0</td><td>~4,0</td><td>4,5</td><td class="best">2,8</td><td>3,1</td><td>5,4</td></tr>
-        <tr><td>Inaktivitási ráta 15–64 (%)</td><td>24,2</td><td>22,5</td><td>20,2</td><td class="best">17,8</td><td>23,0</td><td>22,5</td></tr>
+        <tr><td>Munkanélküliségi ráta (%) · 2025</td><td>6,1</td><td>~4,0</td><td>4,5</td><td class="best">2,8</td><td>3,1</td><td>5,4</td></tr>
+        <tr><td>Inaktivitási ráta 15–64 (%)</td><td>24,3</td><td>22,9</td><td>21,4</td><td class="best">22,0</td><td>24,8</td><td>23,5</td></tr>
         <tr><td>Ifjúsági munkanélküliség (%)</td><td>14,1</td><td>—</td><td>14,2</td><td class="best">8,3</td><td>10,9</td><td>13,5</td></tr>
         <tr><td>Tartós munkanélküliség (%)</td><td>1,9</td><td>—</td><td>1,8</td><td class="best">0,8</td><td class="best">0,8</td><td class="worst">3,5</td></tr>
         <tr><td>Betöltetlen állások rátája (%)</td><td>2,9</td><td>—</td><td>2,8</td><td class="worst">4,1</td><td class="best">1,8</td><td>2,1</td></tr>
@@ -977,8 +1060,8 @@ const C  = { eu:'#0345EB', v4:'#E8A12A', hu:'#ED1C2E', cz:'#00A89E', pl:'#FF5C00
 
 const D = {
   empRate: {
-    eu: [64.6,65.6,66.7,67.7,68.4,67.5,68.3,69.8,70.4,70.8,null],
-    v4: [64.9,67.0,68.5,69.8,70.6,70.2,71.9,73.2,73.6,73.8,null],
+    eu: [64.6,65.6,66.7,67.7,68.4,67.5,68.3,69.8,70.4,70.8,71.1],  // 2025: becsült*
+    v4: [64.9,67.0,68.5,69.8,70.6,70.2,71.9,73.2,73.6,73.8,74.0],  // 2025: becsült*
     hu: [63.9,66.5,68.2,69.4,70.3,69.9,73.3,74.5,74.9,75.1,75.1],
     cz: [75.0,76.7,78.5,80.0,80.3,79.9,80.1,81.0,81.8,82.3,82.9],
     pl: [67.8,69.3,70.9,72.2,73.7,73.3,74.5,76.4,77.6,78.5,78.3],
@@ -1103,6 +1186,7 @@ function externalTooltip(context) {
   if (tooltip.body) {
     const title = tooltip.title || [];
     const idx = tooltip.dataPoints[0]?.dataIndex;
+    const is2025 = (title[0] === '2025');
     let html = `<div style="font-weight:700;margin-bottom:6px;font-size:13px">${title[0] || ''}</div>`;
     chart.data.datasets.forEach(ds => {
       const color = ds.borderColor;
@@ -1113,9 +1197,10 @@ function externalTooltip(context) {
       const val = (idx !== undefined && raw !== null && raw !== undefined)
         ? formatted + '%'
         : 'nem elérhető';
+      const starLabel = (is2025 && (ds.label === 'EU27' || ds.label === 'V4 átlag')) ? ds.label + '*' : ds.label;
       html += `<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
         <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
-        <span style="opacity:.85">${ds.label}:</span>
+        <span style="opacity:.85">${starLabel}:</span>
         <span style="font-weight:700;margin-left:auto;padding-left:10px">${val}</span>
       </div>`;
     });
@@ -1127,17 +1212,20 @@ function externalTooltip(context) {
   tooltipEl.style.top = offsetTop + tooltip.caretY + 'px';
 }
 
-function lineChart(id, datasets, yMin=null, yTip='%') {
+function lineChart(id, datasets, yMin=null, yTip='%', labels=null) {
   const ctx = document.getElementById(id);
   if (!ctx) return;
   const axes = {
     x: {...AX.x},
-    y: {...AX.y, ticks:{...AX.y.ticks, callback:v=>v+yTip}}
+    y: {...AX.y, ticks:{...AX.y.ticks, callback:v=>{
+      const s = String(v).replace('.', ',');
+      return s + yTip;
+    }}}
   };
   if (yMin !== null) axes.y.min = yMin;
   new Chart(ctx, {
     type:'line',
-    data:{ labels:YR, datasets },
+    data:{ labels: labels || YR, datasets },
     options:{
       responsive:true, maintainAspectRatio:false,
       interaction:{mode:'index',intersect:false},
@@ -1234,17 +1322,20 @@ function buildOverview() {
 
 // ── PANEL 2: TRENDS ───────────────────────────────────────────────────────
 function buildTrends() {
+  const YR16 = YR.slice(1); // 2016–2025
+
+  // Foglalkoztatási ráta: 2016-tól, EU27/V4 2025 becsült (*)
   lineChart('ch-tr-emp', [
-    lds('Magyarország', D.empRate.hu, '#ed2b2e', [], true),
-    lds('EU27', D.empRate.eu, '#00827a'),
-    lds('V4 átlag', D.empRate.v4, '#ebc230')
-  ], 62);
+    lds('Magyarország', D.empRate.hu.slice(1), '#ed2b2e', [], true),
+    lds('EU27', D.empRate.eu.slice(1), '#00827a'),
+    lds('V4 átlag', D.empRate.v4.slice(1), '#ebc230')
+  ], 62, '%', YR16);
 
   lineChart('ch-tr-unemp', [
-    lds('Magyarország', D.unemp.hu, '#ed2b2e', [], true),
-    lds('EU27', D.unemp.eu, '#00827a'),
-    lds('V4 átlag', D.unemp.v4, '#ebc230')
-  ], 0);
+    lds('Magyarország', D.unemp.hu.slice(1), '#ed2b2e', [], true),
+    lds('EU27', D.unemp.eu.slice(1), '#00827a'),
+    lds('V4 átlag', D.unemp.v4.slice(1), '#ebc230')
+  ], 0, '%', YR16);
 
   lineChart('ch-tr-vac', [
     lds('Magyarország', D.vac.hu, '#ed2b2e', [], true),
@@ -1418,10 +1509,10 @@ function buildTrends() {
 
   // Inaktivitás trend
   lineChart('ch-tr-inact-trend', [
-    lds('Magyarország', D.inact.hu, '#ed2b2e', [], true),
-    lds('EU27', D.inact.eu, '#00827a'),
-    lds('V4 átlag', D.inact.v4, '#ebc230')
-  ], 20);
+    lds('Magyarország', D.inact.hu.slice(1), '#ed2b2e', [], true),
+    lds('EU27', D.inact.eu.slice(1), '#00827a'),
+    lds('V4 átlag', D.inact.v4.slice(1), '#ebc230')
+  ], 18, '%', YR16);
 }
 
 // ── PANEL 3: SECTORAL ─────────────────────────────────────────────────────
