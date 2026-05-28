@@ -399,7 +399,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <div class="tab"         data-panel="trends">Magyarországi Munkaerőpiaci Trendek</div>
   <div class="tab"         data-panel="sectoral">Magyarország Ágazati Struktúrája</div>
   <div class="tab"         data-panel="regional">Magyarország Regionális Nézete</div>
-  <div class="tab"         data-panel="tpi">Talent Pressure Index</div>
+  <div class="tab"         data-panel="tpi">Fizikai Munkaerő Benchmark</div>
   <div class="tab"         data-panel="benchmark">EU27 / V4 Benchmark</div>
 </nav>
 
@@ -506,8 +506,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     <p>KSH országos adatok (2015–2025)</p>
     <div class="cl">
       <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
-      <div class="cl-item"><span class="cl-line" style="background:#ebc230;border-bottom:2px dashed #ebc230"></span>V4 átlag</div>
       <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
+      <div class="cl-item"><span class="cl-line" style="background:#ebc230;border-bottom:2px dashed #ebc230"></span>V4 átlag</div>
     </div>
     <div class="cw" style="height:280px"><canvas id="ch-tr-emp"></canvas></div>
   </div>
@@ -589,10 +589,10 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 <div class="main">
 
   <div class="kpi-grid" style="margin-top:6px">
-    <div class="kpi-card" style="--kc:#ed2b2e"><div class="kpi-lbl">Ipar · HU 2025</div><div class="kpi-val" style="color:#ed2b2e">17,8%</div><div class="kpi-sub">Feldolgozóipar aránya</div><span class="kpi-tag" style="background:rgba(237,43,46,.18);color:#ed2b2e;font-weight:700;">EU átlag: 13,5% · V4 átlag: 20,4%</span></div>
-    <div class="kpi-card" style="--kc:#00827a"><div class="kpi-lbl">Szolgáltatás · HU 2025</div><div class="kpi-val" style="color:#00827a">48,2%</div><div class="kpi-sub">Kereskedelem + Üzleti + Egyéb</div><span class="kpi-tag" style="background:rgba(0,130,122,.18);color:#00827a;font-weight:700;">EU27: 49,9% · V4 átlag: 44,7%</span></div>
-    <div class="kpi-card" style="--kc:#000073"><div class="kpi-lbl">KKV-szektor · 2023</div><div class="kpi-val" style="color:#000073">65,5%</div><div class="kpi-sub">KKV részesedés a fgl.-ban</div><span class="kpi-tag" style="background:rgba(0,0,115,.18);color:#000073;font-weight:700;">~3,1 M fő · Nagyvállalat: 34,5%</span></div>
-    <div class="kpi-card" style="--kc:#ebc230"><div class="kpi-lbl">Közmunka · 2024</div><div class="kpi-val" style="color:#ebc230">~55 ezer</div><div class="kpi-sub">Közfoglalkoztatottak száma</div><span class="kpi-tag" style="background:rgba(235,194,48,.18);color:#b8960a;font-weight:700;">▼ −75% a 2016-os csúcshoz képest</span></div>
+    <div class="kpi-card" style="--kc:#ed2b2e"><div class="kpi-lbl">Oktatásban foglalkoztatottak · 2025</div><div class="kpi-val" style="color:#ed2b2e">361,6 eFő</div><div class="kpi-sub">HU lemaradás az EU27 átlagtól</div><span class="kpi-tag" style="background:rgba(237,43,46,.18);color:#ed2b2e;font-weight:700;">EU27 átlag: 561 eFő · −199 eFő (−35%)</span></div>
+    <div class="kpi-card" style="--kc:#ed2b2e"><div class="kpi-lbl">Egészségügyben foglalkoztatottak · 2025</div><div class="kpi-val" style="color:#ed2b2e">190,1 eFő</div><div class="kpi-sub">HU lemaradás az EU27 átlagtól</div><span class="kpi-tag" style="background:rgba(237,43,46,.18);color:#ed2b2e;font-weight:700;">EU27 átlag: 483,5 eFő · −293 eFő (−61%)</span></div>
+    <div class="kpi-card" style="--kc:#000073"><div class="kpi-lbl">KKV részesedés · 2024</div><div class="kpi-val" style="color:#000073">71,2%</div><div class="kpi-sub">KKV foglalkoztatási aránya</div><span class="kpi-tag" style="background:rgba(0,0,115,.18);color:#000073;font-weight:700;">Mikro: 39% · Kis: 17,9% · Közép: 14,3%</span></div>
+    <div class="kpi-card" style="--kc:#000073"><div class="kpi-lbl">Termelékenységi rés · 2024</div><div class="kpi-val" style="color:#000073">3,3×</div><div class="kpi-sub">Nagyvállalat vs. mikrovállalat</div><span class="kpi-tag" style="background:rgba(0,0,115,.18);color:#000073;font-weight:700;">Nagy: 22,1 MFt/fő · Mikro: 6,7 MFt/fő</span></div>
   </div>
 
   <!-- ÁGAZATI MEGOSZLÁS -->
@@ -614,37 +614,60 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <!-- SZEKTORIÁLIS STRUKTÚRA -->
   <div class="sec-head"><h2>Közszféra foglalkoztatás</h2></div>
   <div class="sec-sub">Magyarország · EU27 · V4 átlag összehasonlítás</div>
+
+  <div class="cc g1" style="margin-bottom:16px">
+    <h3>Közszféra foglalkoztatásának alakulása</h3>
+    <p>Eurostat országos foglalkoztatási adatok (2015–2025)</p>
+    <div class="cl">
+      <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
+      <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27 átlag</div>
+      <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
+    </div>
+    <div class="cw" style="height:260px"><canvas id="ch-sec-sector"></canvas></div>
+  </div>
+
   <div class="g2">
     <div class="cc">
-      <h3>Közszféra foglalkoztatásának aránya a teljes foglalkoztatásra</h3>
+      <h3>Oktatásban foglalkoztatottak száma</h3>
       <p>Eurostat országos foglalkoztatási adatok (2015–2025)</p>
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
-        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27 átlag</div>
         <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
       </div>
-      <div class="cw" style="height:260px"><canvas id="ch-sec-sector"></canvas></div>
+      <div class="cw" style="height:240px"><canvas id="ch-sec-edu"></canvas></div>
     </div>
     <div class="cc">
-      <h3>Közszféra belső megoszlása</h3>
-      <p>Eurostat közszféra foglalkoztatási adatok (2025)</p>
-      <div class="cw" style="height:260px"><canvas id="ch-sec-pubsector"></canvas></div>
+      <h3>Egészségügyben foglalkoztatottak száma</h3>
+      <p>Eurostat országos foglalkoztatási adatok (2015–2025)</p>
+      <div class="cl">
+        <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27 átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
+      </div>
+      <div class="cw" style="height:240px"><canvas id="ch-sec-health"></canvas></div>
     </div>
   </div>
 
   <!-- VÁLLALKOZÁSMÉRET -->
-  <div class="sec-head"><h2>Foglalkoztatás vállalkozásméret szerint</h2></div>
-  <div class="sec-sub">Magyarország · KSH strukturális vállalkozásstatisztika · GKI · 2015–2023</div>
+  <div class="sec-head"><h2>Vállalkozásméret szerinti foglalkoztatás</h2></div>
+  <div class="sec-sub">Magyarországi vállalkozásstatisztikák összehasonlítása</div>
   <div class="g2">
     <div class="cc">
-      <h3>Megoszlás vállalkozásméret szerint</h3>
-      <p>GKI Gazdaságkutató · KSH · 2023</p>
+      <h3>Vállalkozásméret szerinti megoszlás</h3>
+      <p>KSH vállalkozásteljesítményi adatok (2024)</p>
       <div class="cw" style="height:260px"><canvas id="ch-sec-size"></canvas></div>
     </div>
     <div class="cc">
-      <h3>KKV vs. nagyvállalat trend</h3>
-      <p>KKV részesedése a teljes fgl.-on belül · % · KSH / KKV Stratégia · 2015–2023</p>
-      <div class="cw" style="height:260px"><canvas id="ch-sec-kkv"></canvas></div>
+      <h3>Vállalkozásméretek szerinti egy főre jutó hozzáadott érték</h3>
+      <p>KSH vállalkozásteljesítményi adatok (2015–2024)</p>
+      <div class="cl">
+        <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Mikrovállalat</div>
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Kisvállalat</div>
+        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Középvállalat</div>
+        <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Nagyvállalat</div>
+      </div>
+      <div class="cw" style="height:260px"><canvas id="ch-sec-prod"></canvas></div>
     </div>
   </div>
 
@@ -762,68 +785,102 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 
   <!-- INTERNAL DATA BANNER -->
   <div class="internal-banner" style="margin-top:8px">
-    <div class="int-label">Prohuman belső adat · Demo adatok</div>
-    <div class="int-title">Talent Pressure Index — Toborzási feszültség</div>
-    <div class="int-sub">Time-to-fill · Jelentkezőszám / hirdetés · Bérigény trend · Nehéz pozíciók</div>
+    <div class="int-label">Prohuman belső adat · Benchmark_alaptábla_2026_Q1</div>
+    <div class="int-title">Fizikai Munkaerő Benchmark — 2026 Q1</div>
+    <div class="int-sub">Bérbenchmark · Juttatások · Fluktuáció · Kilépési okok · Külföldi munkavállalók</div>
     <div class="int-kpis">
       <div class="int-kpi">
-        <div class="int-kpi-l">Átlagos time-to-fill</div>
-        <div class="int-kpi-v">38 nap</div>
-        <div class="int-kpi-s">▲ +6 nap vs. 2023</div>
+        <div class="int-kpi-l">Vizsgált pozíciók</div>
+        <div class="int-kpi-v">730</div>
+        <div class="int-kpi-s">~130 vállalat · 2026 Q1</div>
       </div>
       <div class="int-kpi">
-        <div class="int-kpi-l">Jelölt / hirdetés</div>
-        <div class="int-kpi-v">4,2</div>
-        <div class="int-kpi-s">▼ −2,1 vs. 2022</div>
+        <div class="int-kpi-l">Betanított átlagbér</div>
+        <div class="int-kpi-v">380 eFt</div>
+        <div class="int-kpi-s">Medián: 356 eFt/hó</div>
       </div>
       <div class="int-kpi">
-        <div class="int-kpi-l">Bérigény-indexált</div>
-        <div class="int-kpi-v">+18%</div>
-        <div class="int-kpi-s">Jelölt bérigény vs. ajánlott</div>
+        <div class="int-kpi-l">Szakmunkás átlagbér</div>
+        <div class="int-kpi-v">459 eFt</div>
+        <div class="int-kpi-s">Medián: 426 eFt/hó</div>
       </div>
       <div class="int-kpi">
-        <div class="int-kpi-l">Kritikus pozíciók</div>
-        <div class="int-kpi-v">34%</div>
-        <div class="int-kpi-s">60+ napos betöltési idő</div>
+        <div class="int-kpi-l">Medián munkaviszony</div>
+        <div class="int-kpi-v">2,0 hó</div>
+        <div class="int-kpi-s">2022 · 9 214 kilépési eset</div>
       </div>
     </div>
   </div>
 
-  <!-- TPI BAR PER POZÍCIÓ -->
-  <div class="sec-head"><h2>Talent Pressure Index — pozíciótípusonként</h2></div>
-  <div class="sec-sub">Demo adatok · Prohuman belső toborzási adatbázis · 2025 · (1–100: alacsony→extrém nyomás)</div>
-  <div class="cc" style="margin-bottom:18px">
-    <h3>Toborzási nehézség pozíciótípusonként</h3>
-    <p>TPI-pontszám (0–100) · magasabb = nehezebb betölteni · Prohuman belső becslés</p>
-    <div class="tpi-bar-wrap" id="tpi-bars" style="margin-top:12px;padding:4px 0"></div>
-  </div>
-
+  <!-- BÉR BENCHMARK -->
+  <div class="sec-head"><h2>Bérbenchmark</h2></div>
+  <div class="sec-sub">Fizikai betanított · Fizikai szakmunka · Prohuman belső adatbázis · 2026 Q1</div>
   <div class="g2">
     <div class="cc">
-      <h3>Time-to-fill trend (nap) — 2022–2025</h3>
-      <p>Pozíciók betöltéséhez szükséges átlagos napok száma · Prohuman belső</p>
-      <div class="cw" style="height:240px"><canvas id="ch-tpi-ttf"></canvas></div>
+      <h3>Iparági bérek — fizikai betanított</h3>
+      <p>Bruttó havi alapbér átlaga iparáganként · eFt/hó</p>
+      <div id="tpi-ipar-bars" style="margin-top:12px"></div>
     </div>
     <div class="cc">
-      <h3>Jelöltszám / hirdetés — szektorbontás</h3>
-      <p>Átlagos beérkező jelöltek száma hirdetésenként · 2025 · Demo adatok</p>
-      <div class="cw" style="height:240px"><canvas id="ch-tpi-apply"></canvas></div>
+      <h3>Regionális bérkülönbségek</h3>
+      <p>Bruttó havi alapbér átlaga vármegyénként · eFt/hó · betanított</p>
+      <div id="tpi-reg-bars" style="margin-top:12px"></div>
     </div>
   </div>
 
-  <!-- BÉRIGÉNY TREND -->
-  <div class="sec-head"><h2>Jelölt bérigény trend</h2></div>
-  <div class="sec-sub">Demo adatok · Jelöltek által jelzett bérelvárás vs. munkáltatói ajánlat · Prohuman · 2022–2025</div>
+  <!-- JUTTATÁSOK -->
+  <div class="sec-head"><h2>Juttatási struktúra</h2></div>
+  <div class="sec-sub">Fizikai dolgozók juttatásai · Prohuman benchmark · 2026 Q1</div>
   <div class="g2">
     <div class="cc">
-      <h3>Jelölt bérigény vs. munkáltatói ajánlat (eFt/hó)</h3>
-      <p>Átlagos bruttó bérigény · Prohuman közvetítési adatok · Demo</p>
-      <div class="cw" style="height:240px"><canvas id="ch-tpi-ber"></canvas></div>
+      <h3>Juttatások elterjedtsége</h3>
+      <p>A vizsgált pozíciók hány %-ánál érhető el az adott juttatás</p>
+      <div class="cw" style="height:260px"><canvas id="ch-tpi-jutt"></canvas></div>
     </div>
     <div class="cc">
-      <h3>Nehezen betölthető pozíciók régiónként (%)</h3>
-      <p>60+ napos betöltési idő aránya régiónként · Prohuman belső · Demo</p>
-      <div class="cw" style="height:240px"><canvas id="ch-tpi-hard"></canvas></div>
+      <h3>Műszakbeosztás megoszlása</h3>
+      <p>Vizsgált pozíciók műszak szerinti eloszlása · 2026 Q1</p>
+      <div class="cw" style="height:260px"><canvas id="ch-tpi-muszak"></canvas></div>
+    </div>
+  </div>
+
+  <!-- FLUKTUÁCIÓ -->
+  <div class="sec-head"><h2>Fluktuáció elemzés</h2></div>
+  <div class="sec-sub">Fizikai munkavállalók · 2022 (9 214 eset) · 2023 (2 760 eset)</div>
+  <div class="g2">
+    <div class="cc">
+      <h3>Munkaviszony időtartama kilépéskor</h3>
+      <p>Kilépők megoszlása munkaviszony hossza szerint · %</p>
+      <div class="cl">
+        <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>2022</div>
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>2023</div>
+      </div>
+      <div class="cw" style="height:260px"><canvas id="ch-tpi-flukt-ido"></canvas></div>
+    </div>
+    <div class="cc">
+      <h3>Kilépési okok megoszlása</h3>
+      <p>Kategorizált kilépési okok · 2022 (9 214 eset)</p>
+      <div class="cw" style="height:260px"><canvas id="ch-tpi-kilepes"></canvas></div>
+    </div>
+  </div>
+
+  <!-- KÜLFÖLDI MUNKAVÁLLALÓK -->
+  <div class="sec-head"><h2>Külföldi munkavállalók</h2></div>
+  <div class="sec-sub">Állampolgárság szerinti megoszlás · 2022-es fluktuációs adatbázis</div>
+  <div class="g2">
+    <div class="cc">
+      <h3>Állampolgárság megoszlása</h3>
+      <p>Kilépők állampolgárság szerint · 2022 · n=9 214</p>
+      <div class="cw" style="height:260px"><canvas id="ch-tpi-allampolgarsag"></canvas></div>
+    </div>
+    <div class="cc">
+      <h3>Teljes kompenzáció vs. alapbér</h3>
+      <p>Bruttó alapbér vs. elérhető teljes kompenzáció (alapbér + juttatások) · eFt/hó</p>
+      <div class="cl">
+        <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Bruttó alapbér</div>
+        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Teljes kompenzáció</div>
+      </div>
+      <div class="cw" style="height:260px"><canvas id="ch-tpi-kompenz"></canvas></div>
     </div>
   </div>
 
@@ -1373,7 +1430,7 @@ function buildSectoral() {
 
   // Segédfüggvény: tooltip formázás %-ra
   function fmtPct(v) { return (v%1===0 ? v : v.toFixed(1).replace('.',','))+'%'; }
-  function fmtEzer(v) { return v+' e fő'; }
+  function fmtEzer(v) { return v+' eFő'; }
 
   // ── 1. HU ágazati megoszlás — vízszintes bar
   // Forrás: Eurostat nama_10_a10_e — 2025, % of total employment
@@ -1536,20 +1593,31 @@ function buildSectoral() {
     }
   });
 
-  // ── 2. Közszféra aránya — Eurostat lfsa_egan22d (Sheet 75+76+77+78+79) / Sheet 1
+  // ── 2. Közszféra belső trendek — Eurostat lfsa_egan22d, HU 2015–2025 (ezer fő)
   const YR11 = ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'];
   const kozszfera_pct = [24.2,24.3,23.9,23.9,23.6,23.3,23.6,23.1,22.8,23.0,24.1];
   const kozszfera_fo  = [1009.9,1048.9,1046.2,1050.0,1041.3,1012.9,1065.0,1053.2,1043.5,1050.0,1092.2];
   const eu27_pct      = [24.8,24.7,24.7,24.7,24.8,25.4,25.7,25.5,25.6,25.7,25.8];
   const v4_pct        = [21.9,21.9,21.9,22.0,21.9,22.1,22.6,22.4,22.4,22.8,23.2];
 
+  const pub_admin_hu  = [422.8,444.1,436.1,407.7,387.2,379.5,402.0,405.7,388.3,376.2,397.5];
+  const education_hu  = [316.1,324.7,323.5,342.2,342.2,324.0,358.4,348.5,356.0,350.0,361.6];
+  const health_hu     = [164.0,163.0,162.9,181.4,184.2,178.7,180.0,182.7,173.6,179.4,190.1];
+  const social_hu     = [49.8,57.4,59.4,54.8,66.2,70.6,64.4,59.7,63.5,75.3,79.4];
+  const residential_hu= [57.2,59.7,64.3,63.9,61.5,60.1,60.2,56.6,62.1,69.1,63.6];
+
+  // Közszféra abszolút létszám: HU, EU27 országátlag (/27), V4 átlag ((HU+CZ+PL+SK)/4)
+  const hu_fo   = [1009.9,1048.9,1046.2,1050.0,1041.3,1012.9,1065.0,1053.2,1043.5,1050.0,1092.2];
+  const eu27_fo = [1704.1,1725.9,1745.4,1766.8,1792.1,1804.6,1835.6,1857.4,1889.2,1910.9,1928.9];
+  const v4_fo   = [1432.7,1449.0,1470.5,1485.5,1501.5,1504.5,1565.6,1571.2,1590.0,1615.1,1635.4];
+
   const ctxSector = document.getElementById('ch-sec-sector');
   if (ctxSector) new Chart(ctxSector, {
     type:'line',
     data:{labels:YR11, datasets:[
-      lds('Magyarország', kozszfera_pct, '#ed2b2e', [], true),
-      lds('EU27',         eu27_pct,      '#00827a'),
-      lds('V4 átlag',     v4_pct,        '#ebc230')
+      lds('Magyarország', hu_fo,   '#ed2b2e', [], true),
+      lds('EU27 átlag',   eu27_fo, '#00827a'),
+      lds('V4 átlag',     v4_fo,   '#ebc230')
     ]},
     options:{
       responsive:true, maintainAspectRatio:false,
@@ -1559,16 +1627,15 @@ function buildSectoral() {
         const el = getOrCreateTooltip(chart);
         if (tooltip.opacity===0){el.style.opacity='0';return;}
         if (tooltip.body){
-          const i = tooltip.dataPoints[0].dataIndex;
           const colors=['#ed2b2e','#00827a','#ebc230'];
           let html=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">${tooltip.title[0]}</div>`;
-          chart.data.datasets.forEach((ds,j)=>{
-            const v=ds.data[i];
+          chart.data.datasets.forEach((ds,i)=>{
+            const v=ds.data[tooltip.dataPoints[0].dataIndex];
             const fmt=v%1===0?v:v.toFixed(1).replace('.',',');
             html+=`<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
-              <span style="display:inline-block;width:10px;height:10px;background:${colors[j]};border-radius:2px;flex-shrink:0"></span>
+              <span style="display:inline-block;width:10px;height:10px;background:${colors[i]};border-radius:2px;flex-shrink:0"></span>
               <span style="opacity:.85">${ds.label}:</span>
-              <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt}%</span>
+              <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt} eFő</span>
             </div>`;
           });
           el.innerHTML=html;
@@ -1578,58 +1645,71 @@ function buildSectoral() {
         el.style.left=offsetLeft+tooltip.caretX+'px';
         el.style.top=offsetTop+tooltip.caretY+'px';
       }}},
-      scales:{x:{...AX.x}, y:{...AX.y, min:18, max:28, ticks:{...AX.y.ticks, callback:v=>v+'%'}}}
+      scales:{x:{...AX.x}, y:{...AX.y, min:0, ticks:{...AX.y.ticks, callback:v=>v+' eFő'}}}
     }
   });
 
-  // ── 3. Közszféra belső megoszlása — Eurostat lfsa_egan22d, HU 2025 (ezer fő)
-  const ctxPub = document.getElementById('ch-sec-pubsector');
-  if (ctxPub) new Chart(ctxPub, {
-    type:'doughnut',
-    data:{
-      labels:['Közigazgatás / Honvédelem','Oktatás','Egészségügy','Szociális munka','Szociális ellátás'],
-      datasets:[{
-        data:[397.5, 361.6, 190.1, 79.4, 63.6],
-        backgroundColor:['#ed2b2e','#00827a','#0345EB','#ebc230','#754dba'],
-        borderWidth:0, hoverOffset:8
-      }]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false, cutout:'60%',
-      plugins:{
-        legend:{position:'right', labels:{color:'#3D3D3D',font:{size:11,family:'Open Sans'},padding:10,boxWidth:10,usePointStyle:false}},
-        tooltip:{enabled:false, external(ctx){
-          const {chart,tooltip} = ctx;
-          const el = getOrCreateTooltip(chart);
-          if (tooltip.opacity===0){el.style.opacity='0';return;}
-          if (tooltip.body){
-            const dp=tooltip.dataPoints[0];
-            const color=dp.dataset.backgroundColor[dp.dataIndex];
-            el.innerHTML=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">Közszféra 2025</div>
-              <div style="display:flex;align-items:center;gap:7px">
-                <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
-                <span style="opacity:.85">${dp.label}:</span>
-                <span style="font-weight:700;margin-left:auto;padding-left:10px">${dp.parsed.toFixed(1).replace('.',',')} e fő</span>
+  // ── 3. Oktatás + Egészségügy — Eurostat lfsa_egan22d, 2015–2025 (ezer fő)
+  const edu_hu   = [316.1,324.7,323.5,342.2,342.2,324.0,358.4,348.5,356.0,350.0,361.6];
+  const edu_eu27 = [493.3,497.8,503.7,512.9,523.0,520.2,534.1,540.0,549.5,554.7,561.0];
+  const edu_v4   = [502.1,496.8,507.4,524.4,538.2,539.7,558.0,553.9,564.5,567.9,578.9];
+  const hea_hu   = [164.0,163.0,162.9,181.4,184.2,178.7,180.0,182.7,173.6,179.4,190.1];
+  const hea_eu27 = [413.8,422.0,426.9,430.9,441.1,442.0,449.7,459.1,472.0,478.5,483.5];
+  const hea_v4   = [298.8,302.1,304.4,305.5,309.6,317.8,338.0,346.7,348.1,354.7,358.0];
+
+  function makeSubChart(canvasId, hu, eu27, v4, title) {
+    const ctx = document.getElementById(canvasId);
+    if (!ctx) return;
+    new Chart(ctx, {
+      type:'line',
+      data:{labels:YR11, datasets:[
+        lds('Magyarország', hu,   '#ed2b2e', [], true),
+        lds('EU27 átlag',   eu27, '#00827a'),
+        lds('V4 átlag',     v4,   '#ebc230')
+      ]},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:false}, tooltip:{enabled:false, external(cx){
+          const {chart,tooltip}=cx;
+          const el=getOrCreateTooltip(chart);
+          if(tooltip.opacity===0){el.style.opacity='0';return;}
+          if(tooltip.body){
+            const colors=['#ed2b2e','#00827a','#ebc230'];
+            let html=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">${tooltip.title[0]}</div>`;
+            chart.data.datasets.forEach((ds,i)=>{
+              const v=ds.data[tooltip.dataPoints[0].dataIndex];
+              const fmt=v%1===0?v:v.toFixed(1).replace('.',',');
+              html+=`<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
+                <span style="display:inline-block;width:10px;height:10px;background:${colors[i]};border-radius:2px;flex-shrink:0"></span>
+                <span style="opacity:.85">${ds.label}:</span>
+                <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt} eFő</span>
               </div>`;
+            });
+            el.innerHTML=html;
           }
           const {offsetLeft,offsetTop}=chart.canvas;
           el.style.opacity='1';
           el.style.left=offsetLeft+tooltip.caretX+'px';
           el.style.top=offsetTop+tooltip.caretY+'px';
-        }}
+        }}},
+        scales:{x:{...AX.x}, y:{...AX.y, min:0, ticks:{...AX.y.ticks, callback:v=>v+' eFő'}}}
       }
-    }
-  });
+    });
+  }
 
-  // ── 4. Vállalkozásméret — doughnut
+  makeSubChart('ch-sec-edu',    edu_hu, edu_eu27, edu_v4);
+  makeSubChart('ch-sec-health', hea_hu, hea_eu27, hea_v4);
+
+  // ── 4. Vállalkozásméret — doughnut — KSH STADAT 9.1.1.16 (gsz0017), 2024
   const ctxSize = document.getElementById('ch-sec-size');
   if (ctxSize) new Chart(ctxSize, {
     type:'doughnut',
     data:{
-      labels:['Mikrovállalat (2–9 fő)','Kisvállalat (10–49 fő)','Középvállalat (50–249 fő)','Nagyvállalat (250+ fő)'],
+      labels:['Mikrovállalat (1–9 fő)','Kisvállalat (10–49 fő)','Középvállalat (50–249 fő)','Nagyvállalat (250+ fő)'],
       datasets:[{
-        data:[26, 22, 17, 34.5],
-        backgroundColor:['#ed2b2e','#00827a','#ebc230','#000073'],
+        data:[39.0, 17.9, 14.3, 28.8],
+        backgroundColor:['#ed2b2e','#00827a','#ebc230','#0345EB'],
         borderWidth:0, hoverOffset:8
       }]
     },
@@ -1660,40 +1740,49 @@ function buildSectoral() {
     }
   });
 
-  // ── 5. KKV vs. nagyvállalat trend — line chart
-  const kkv_trend = [66.8, 67.2, 67.0, 66.5, 66.0, 66.3, 65.8, 65.5, 65.5, null];
-  const ctxKkv = document.getElementById('ch-sec-kkv');
-  if (ctxKkv) new Chart(ctxKkv, {
+  // ── 5. Hozzáadott érték / foglalkoztatott — KSH gsz0017, 2015–2024 (eFt/fő)
+  const prod_mikro = [3312,3297,3753,4559,4690,4420,4828,5393,6334,6693];
+  const prod_kis   = [5462,5610,6172,7262,7327,7991,9659,10875,11767,12469];
+  const prod_kozep = [7053,7019,7634,8517,9174,9666,12224,13625,15122,16366];
+  const prod_nagy  = [10326,10186,10911,11524,12123,12594,16567,18757,20564,22086];
+
+  const ctxProd = document.getElementById('ch-sec-prod');
+  if (ctxProd) new Chart(ctxProd, {
     type:'line',
     data:{labels:YR10, datasets:[
-      lds('KKV részesedés', kkv_trend, '#000073', [], true)
+      lds('Mikrovállalat', prod_mikro, '#ed2b2e', [], true),
+      lds('Kisvállalat',   prod_kis,   '#00827a'),
+      lds('Középvállalat', prod_kozep, '#ebc230'),
+      lds('Nagyvállalat',  prod_nagy,  '#0345EB')
     ]},
     options:{
       responsive:true, maintainAspectRatio:false,
       interaction:{mode:'index',intersect:false},
       plugins:{legend:{display:false}, tooltip:{enabled:false, external(ctx){
-        const {chart,tooltip} = ctx;
-        const el = getOrCreateTooltip(chart);
-        if (tooltip.opacity===0){el.style.opacity='0';return;}
-        if (tooltip.body){
-          const dp=tooltip.dataPoints[0];
-          const v=dp.parsed.y;
-          el.innerHTML=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">${dp.label}</div>
-            <div style="display:flex;align-items:center;gap:7px">
-              <span style="display:inline-block;width:10px;height:10px;background:#000073;border-radius:2px"></span>
-              <span style="opacity:.85">KKV részesedés:</span>
-              <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmtPct(v)}</span>
+        const {chart,tooltip}=ctx;
+        const el=getOrCreateTooltip(chart);
+        if(tooltip.opacity===0){el.style.opacity='0';return;}
+        if(tooltip.body){
+          const colors=['#ed2b2e','#00827a','#ebc230','#0345EB'];
+          let html=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">${tooltip.title[0]}</div>`;
+          chart.data.datasets.forEach((ds,i)=>{
+            const v=ds.data[tooltip.dataPoints[0].dataIndex];
+            const mft = v/1000;
+            const fmt = mft%1===0 ? Math.round(mft) : mft.toFixed(1).replace('.',',');
+            html+=`<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
+              <span style="display:inline-block;width:10px;height:10px;background:${colors[i]};border-radius:2px;flex-shrink:0"></span>
+              <span style="opacity:.85">${ds.label}:</span>
+              <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt} MFt/fő</span>
             </div>`;
+          });
+          el.innerHTML=html;
         }
         const {offsetLeft,offsetTop}=chart.canvas;
         el.style.opacity='1';
         el.style.left=offsetLeft+tooltip.caretX+'px';
         el.style.top=offsetTop+tooltip.caretY+'px';
       }}},
-      scales:{
-        x:{...AX.x},
-        y:{...AX.y, min:60, max:72, ticks:{...AX.y.ticks, callback:v=>v+'%'}}
-      }
+      scales:{x:{...AX.x}, y:{...AX.y, min:0, ticks:{...AX.y.ticks, callback:v=>{const m=v/1000;return (m%1===0?Math.round(m):m.toFixed(1).replace('.',','))+'M';}}}}
     }
   });
 }
@@ -1751,7 +1840,7 @@ function buildRegional() {
       responsive:true, maintainAspectRatio:false,
       plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>` ${c.parsed.x} eFt/hó`}}},
       scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+' e'},grid:{color:'rgba(0,0,115,.05)'},min:280,max:520},
+        x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+' eFő'},grid:{color:'rgba(0,0,115,.05)'},min:280,max:520},
         y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},grid:{display:false}}
       }
     }
@@ -1767,129 +1856,315 @@ function buildRegional() {
       responsive:true, maintainAspectRatio:false,
       plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>` ~${c.parsed.x} ezer fő`}}},
       scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+' e'},grid:{color:'rgba(0,0,115,.05)'},min:0,max:130},
+        x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+' eFő'},grid:{color:'rgba(0,0,115,.05)'},min:0,max:130},
         y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},grid:{display:false}}
       }
     }
   });
 }
 
-// ── PANEL 4: TPI ──────────────────────────────────────────────────────────
+// ── PANEL 5: TPI ──────────────────────────────────────────────────────────
 function buildTPI() {
-  // TPI bars
-  const positions = [
-    {label:'Hegesztő / lakatos', tpi:91, color:'#ED1C2E'},
-    {label:'CNC-operátor', tpi:87, color:'#ED1C2E'},
-    {label:'Targoncavezető', tpi:83, color:'#ED1C2E'},
-    {label:'Raktáros (éjszakai)', tpi:76, color:'#E8A12A'},
-    {label:'Minőségügyi szakember', tpi:72, color:'#E8A12A'},
-    {label:'IT fejlesztő (senior)', tpi:88, color:'#ED1C2E'},
-    {label:'Logisztikai koordinátor', tpi:65, color:'#E8A12A'},
-    {label:'Adminisztrátor / irodai', tpi:38, color:'#00A89E'},
-    {label:'Takarítói személyzet', tpi:29, color:'#00A89E'},
-    {label:'Betanított munkás (általános)', tpi:45, color:'#0345EB'},
-  ];
 
-  const container = document.getElementById('tpi-bars');
-  if (container) {
-    positions.sort((a,b)=>b.tpi-a.tpi).forEach(p => {
-      const row = document.createElement('div');
-      row.className = 'tpi-row';
-      row.innerHTML = `
-        <span class="tpi-label">${p.label}</span>
-        <div class="tpi-bar-bg">
-          <div class="tpi-bar-fill" style="width:${p.tpi}%;background:${p.color}"></div>
-        </div>
-        <span class="tpi-val" style="color:${p.color}">${p.tpi}</span>
-      `;
-      container.appendChild(row);
-    });
+  // Tooltip helper
+  function tipEft(ctx) {
+    const {chart,tooltip} = ctx;
+    const el = getOrCreateTooltip(chart);
+    if (tooltip.opacity===0){el.style.opacity='0';return;}
+    if (tooltip.body){
+      const colors = chart.data.datasets.map(ds=>Array.isArray(ds.backgroundColor)?ds.backgroundColor[0]:ds.backgroundColor||ds.borderColor);
+      let html=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">${tooltip.title[0]}</div>`;
+      chart.data.datasets.forEach((ds,i)=>{
+        const v=ds.data[tooltip.dataPoints[0].dataIndex];
+        if(v==null)return;
+        const fmt=v%1===0?Math.round(v):v.toFixed(1).replace('.',',');
+        html+=`<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
+          <span style="display:inline-block;width:10px;height:10px;background:${colors[i]};border-radius:2px;flex-shrink:0"></span>
+          <span style="opacity:.85">${ds.label}:</span>
+          <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt} eFt</span>
+        </div>`;
+      });
+      el.innerHTML=html;
+    }
+    const {offsetLeft,offsetTop}=chart.canvas;
+    el.style.opacity='1';
+    el.style.left=offsetLeft+tooltip.caretX+'px';
+    el.style.top=offsetTop+tooltip.caretY+'px';
   }
 
-  // Time-to-fill trend (quarterly demo 2022-2024)
-  const ttfLabels = ['2022 Q1','Q2','Q3','Q4','2023 Q1','Q2','Q3','Q4','2024 Q1','Q2','Q3','Q4','2025 Q1','Q2','Q3','Q4'];
-  const ttfData = {
-    fizikai: [24,25,26,27,28,30,31,32,33,36,38,40,41,42,43,44],
-    szellemi: [28,29,31,32,32,33,35,36,36,37,38,39,40,40,41,41],
-    it: [31,33,34,35,36,37,38,38,38,39,40,42,42,43,44,45]
-  };
-  const ctxTTF = document.getElementById('ch-tpi-ttf');
-  if (ctxTTF) new Chart(ctxTTF, {
-    type:'line',
-    data:{labels:ttfLabels, datasets:[
-      lds('Fizikai pozíciók', ttfData.fizikai, '#ED1C2E'),
-      lds('Szellemi / admin', ttfData.szellemi, '#0345EB'),
-      lds('IT / Tech', ttfData.it, '#00A89E')
-    ]},
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      interaction:{mode:'index',intersect:false},
-      plugins:{legend:{display:true,position:'bottom',labels:{color:'#3D3D3D',font:{size:11},boxWidth:12,padding:10}},
-        tooltip:{...TIP,callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y} nap`}}},
-      scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:10}},grid:{color:'rgba(0,0,115,.04)'}},
-        y:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+' nap'},grid:{color:'rgba(0,0,115,.05)'},min:15}
-      }
+  function tipPct(ctx) {
+    const {chart,tooltip} = ctx;
+    const el = getOrCreateTooltip(chart);
+    if (tooltip.opacity===0){el.style.opacity='0';return;}
+    if (tooltip.body){
+      const dp=tooltip.dataPoints[0];
+      const color=Array.isArray(dp.dataset.backgroundColor)?dp.dataset.backgroundColor[dp.dataIndex]:dp.dataset.backgroundColor||dp.dataset.borderColor;
+      const v=dp.parsed.x!==undefined?dp.parsed.x:dp.parsed.y;
+      const fmt=v%1===0?Math.round(v):v.toFixed(1).replace('.',',');
+      el.innerHTML=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">${dp.label||tooltip.title[0]}</div>
+        <div style="display:flex;align-items:center;gap:7px">
+          <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
+          <span style="opacity:.85">${dp.dataset.label}:</span>
+          <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt}%</span>
+        </div>`;
     }
-  });
+    const {offsetLeft,offsetTop}=chart.canvas;
+    el.style.opacity='1';
+    el.style.left=offsetLeft+tooltip.caretX+'px';
+    el.style.top=offsetTop+tooltip.caretY+'px';
+  }
 
-  // Jelöltszám / hirdetés — szektorbontás
-  const applyLabs = ['Adminisztrátor','Betanított mkás','Logisztika','Raktáros','Gépész/Lakatos','CNC-operátor','Hegesztő','IT fejlesztő'];
-  const applyDat  = [12.4, 8.6, 6.2, 5.8, 3.1, 2.4, 1.8, 1.5];
-  const applyCol  = applyDat.map(v=>v>8?'#00A89E':v>4?'#0345EB':v>2.5?'#E8A12A':'#ED1C2E');
-  const ctxApply = document.getElementById('ch-tpi-apply');
-  if (ctxApply) new Chart(ctxApply, {
+  // ── CSS horizontal bar chart helper
+  function cssBarChart(containerId, data, minVal, maxVal) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const range = maxVal - minVal;
+    let html = '';
+    data.forEach(({label, value, color}) => {
+      const pct = ((value - minVal) / range * 100).toFixed(1);
+      const fmt = value % 1 === 0 ? Math.round(value) : value.toFixed(1).replace('.', ',');
+      html += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:7px">
+        <div style="width:140px;font-size:11px;color:#3D3D3D;text-align:right;flex-shrink:0;line-height:1.3">${label}</div>
+        <div style="flex:1;background:#f0f2f5;border-radius:3px;height:22px;position:relative">
+          <div style="height:100%;width:${pct}%;background:${color};border-radius:3px;transition:width .4s"></div>
+        </div>
+        <div style="width:52px;font-size:12px;font-weight:700;color:${color};flex-shrink:0">${fmt} e</div>
+      </div>`;
+    });
+    container.innerHTML = html;
+  }
+
+  // ── 1. IPARÁGI BÉREK
+  const iparLabels = ['Vegyipar','Kereskedelem','Autóipar','Egyéb gyártóipar','Fémipar','Elektronika','Logisztika','Élelmiszeripar','Egészségügyi ipar','Műanyagipar'];
+  const iparBer    = [547.3, 406.3, 393.4, 383.7, 367.7, 364.4, 363.2, 351.6, 346.5, 340.3];
+  const iparColors = iparBer.map(v => v>400?'#ed2b2e':v>370?'#ebc230':'#00827a');
+
+  cssBarChart('tpi-ipar-bars',
+    iparLabels.map((l,i) => ({label:l, value:iparBer[i], color:iparColors[i]})),
+    300, 570
+  );
+
+  // ── 2. REGIONÁLIS BÉREK
+  const regLabels = ['Budapest','Hajdú-Bihar','Csongrád-Csanád','Bács-Kiskun','Komárom-Eszt.','Pest vm.','Heves','Győr-Moson-S.','Veszprém','Szabolcs-Sz-B.','Fejér','Borsod-A-Z.'];
+  const regBer    = [426.9, 429.9, 410.7, 409.9, 401.8, 394.7, 383.1, 383.0, 361.8, 369.2, 346.3, 336.5];
+  const regColors = regBer.map(v => v>=420?'#ed2b2e':v>=390?'#ebc230':'#00827a');
+
+  cssBarChart('tpi-reg-bars',
+    regLabels.map((l,i) => ({label:l, value:regBer[i], color:regColors[i]})),
+    310, 450
+  );
+
+  // ── 3. JUTTATÁSOK ELTERJEDTSÉGE
+  const juttLabels = ['Utazási ktgérítés','Cafeteria','Műszakpótlék','Teljesítmény bónusz','Ingyenes céges busz','Jelenléti bónusz','Egyéb bónusz','Szállás biztosítva'];
+  const juttDat    = [91.3, 76.4, 82.5, 44.1, 49.4, 22.2, 26.3, 19.1];
+  const juttColors = juttDat.map(v => v>=75?'#ed2b2e':v>=45?'#ebc230':'#00827a');
+
+  const ctxJutt = document.getElementById('ch-tpi-jutt');
+  if (ctxJutt) new Chart(ctxJutt, {
     type:'bar', indexAxis:'y',
-    data:{labels:applyLabs, datasets:[{label:'Jelölt/hirdetés',data:applyDat,backgroundColor:applyCol,borderRadius:5,borderWidth:0}]},
+    data:{labels:juttLabels, datasets:[{
+      label:'Elterjedtség',
+      data:juttDat,
+      backgroundColor:juttColors,
+      borderRadius:3, borderSkipped:false
+    }]},
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>` ${fmt(c.parsed.x, 1)} jelölt/hird.`}}},
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false}, tooltip:{enabled:false, external:tipPct}},
       scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:11}},grid:{color:'rgba(0,0,115,.05)'},min:0},
-        y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},grid:{display:false}}
+        x:{...AX.x, min:0, max:100, ticks:{...AX.x.ticks, callback:v=>v+'%'}},
+        y:{...AX.y, ticks:{...AX.y.ticks, font:{size:11,family:'Open Sans'}}}
       }
     }
   });
 
-  // Bérigény trend
-  const berLabels = ['2022 Q1','Q2','Q3','Q4','2023 Q1','Q2','Q3','Q4','2024 Q1','Q2','Q3','Q4','2025 Q1','Q2','Q3','Q4'];
-  const berigeny = {
-    jelolt:   [380,390,410,430,445,460,480,500,515,530,545,560,572,585,595,605],
-    ajanlott: [360,368,380,400,408,420,440,458,462,470,480,490,497,505,512,518]
-  };
-  const ctxBer = document.getElementById('ch-tpi-ber');
-  if (ctxBer) new Chart(ctxBer, {
-    type:'line',
-    data:{labels:berLabels, datasets:[
-      lds('Jelölt bérigénye', berigeny.jelolt, '#ED1C2E', [], true),
-      lds('Munkáltatói ajánlat', berigeny.ajanlott, '#0345EB')
+  // ── 4. MŰSZAKBEOSZTÁS MEGOSZLÁSA
+  const ctxMuszak = document.getElementById('ch-tpi-muszak');
+  if (ctxMuszak) new Chart(ctxMuszak, {
+    type:'doughnut',
+    data:{
+      labels:['3 műszakos','2 műszakos','1 műszakos','4 műszakos','Egyedi'],
+      datasets:[{
+        data:[44.1, 26.0, 19.6, 6.0, 4.3],
+        backgroundColor:['#ed2b2e','#00827a','#ebc230','#0345EB','#575756'],
+        borderWidth:0, hoverOffset:8
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'60%',
+      plugins:{
+        legend:{position:'right', labels:{color:'#3D3D3D',font:{size:11,family:'Open Sans'},padding:10,boxWidth:10,usePointStyle:false}},
+        tooltip:{enabled:false, external(ctx){
+          const {chart,tooltip}=ctx;
+          const el=getOrCreateTooltip(chart);
+          if(tooltip.opacity===0){el.style.opacity='0';return;}
+          if(tooltip.body){
+            const dp=tooltip.dataPoints[0];
+            const color=dp.dataset.backgroundColor[dp.dataIndex];
+            const total=dp.dataset.data.reduce((a,b)=>a+b,0);
+            const pct=(dp.parsed/total*100);
+            const fmt=pct%1===0?Math.round(pct):pct.toFixed(1).replace('.',',');
+            el.innerHTML=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">Műszakbeosztás</div>
+              <div style="display:flex;align-items:center;gap:7px">
+                <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
+                <span style="opacity:.85">${dp.label}:</span>
+                <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt}%</span>
+              </div>`;
+          }
+          const {offsetLeft,offsetTop}=chart.canvas;
+          el.style.opacity='1';
+          el.style.left=offsetLeft+tooltip.caretX+'px';
+          el.style.top=offsetTop+tooltip.caretY+'px';
+        }}
+      }
+    }
+  });
+
+  // ── 5. FLUKTUÁCIÓ — munkaviszony időtartama
+  const fluktLabels = ['1 hónapnál kevesebb','1–3 hónap','4–6 hónap','7–12 hónap','1–3 év','3–5 év','5+ év'];
+  const flukt22 = [32.7, 29.1, 17.5, 11.8, 7.2, 1.3, 0.3];
+  const flukt23 = [21.8, 25.2, 19.0, 20.3, 11.4, 1.3, 0.9];
+
+  const ctxFluktIdo = document.getElementById('ch-tpi-flukt-ido');
+  if (ctxFluktIdo) new Chart(ctxFluktIdo, {
+    type:'bar',
+    data:{labels:fluktLabels, datasets:[
+      {label:'2022', data:flukt22, backgroundColor:'#ed2b2e', borderRadius:3, borderSkipped:false},
+      {label:'2023', data:flukt23, backgroundColor:'#00827a', borderRadius:3, borderSkipped:false}
     ]},
     options:{
       responsive:true, maintainAspectRatio:false,
       interaction:{mode:'index',intersect:false},
-      plugins:{legend:{display:true,position:'bottom',labels:{color:'#3D3D3D',font:{size:11},boxWidth:12,padding:10}},
-        tooltip:{...TIP,callbacks:{label:c=>` ${c.dataset.label}: ${Math.round(c.parsed.y).toLocaleString('hu-HU')} Ft`}}},
+      plugins:{legend:{display:false}, tooltip:{enabled:false, external(ctx){
+        const {chart,tooltip}=ctx;
+        const el=getOrCreateTooltip(chart);
+        if(tooltip.opacity===0){el.style.opacity='0';return;}
+        if(tooltip.body){
+          const idx=tooltip.dataPoints[0].dataIndex;
+          let html=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">${fluktLabels[idx]}</div>`;
+          [['2022','#ed2b2e',flukt22],['2023','#00827a',flukt23]].forEach(([yr,color,dat])=>{
+            const v=dat[idx];
+            const fmt=v%1===0?v:v.toFixed(1).replace('.',',');
+            html+=`<div style="display:flex;align-items:center;gap:7px;margin-bottom:3px">
+              <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
+              <span style="opacity:.85">${yr}:</span>
+              <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt}%</span>
+            </div>`;
+          });
+          el.innerHTML=html;
+        }
+        const {offsetLeft,offsetTop}=chart.canvas;
+        el.style.opacity='1';
+        el.style.left=offsetLeft+tooltip.caretX+'px';
+        el.style.top=offsetTop+tooltip.caretY+'px';
+      }}},
       scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:10}},grid:{color:'rgba(0,0,115,.04)'}},
-        y:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+' eFt'},grid:{color:'rgba(0,0,115,.05)'},min:300}
+        x:{...AX.x, ticks:{...AX.x.ticks, font:{size:10,family:'Open Sans'}}},
+        y:{...AX.y, min:0, ticks:{...AX.y.ticks, callback:v=>v+'%'}}
       }
     }
   });
 
-  // Nehéz pozíciók régiónként
-  const hardRegs = ['Budapest','Ny-Dunántúl','K-Dunántúl','Pest m.','D-Dunántúl','D-Alföld','É-Alföld','Észak-Mo.'];
-  const hardDat  = [41,48,44,37,29,26,22,18];
-  const hardCol  = hardDat.map(v=>v>40?'#ED1C2E':v>30?'#E8A12A':'#00A89E');
-  const ctxHard = document.getElementById('ch-tpi-hard');
-  if (ctxHard) new Chart(ctxHard, {
+  // ── 6. KILÉPÉSI OKOK — 2022
+  const ctxKilepes = document.getElementById('ch-tpi-kilepes');
+  if (ctxKilepes) new Chart(ctxKilepes, {
+    type:'doughnut',
+    data:{
+      labels:['Egyéb / nem nyilatkozott','Nem megfelelő teljesítmény','Igazolatlan hiányzás','Indokl. nélküli felmondás','Jobb állás','Családi ok','Egészségügyi / Nyugdíj','Munkahelyi körülmény / Bér','Viselkedési problémák','Költözés / Bejárás'],
+      datasets:[{
+        data:[30.1, 18.8, 15.1, 12.3, 7.9, 4.8, 2.9, 2.6, 2.0, 1.5],
+        backgroundColor:['#575756','#ed2b2e','#0345EB','#ebc230','#00827a','#754dba','#ff5c00','#000073','#ed2b2e','#00827a'],
+        borderWidth:0, hoverOffset:8
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'55%',
+      plugins:{
+        legend:{position:'right', labels:{color:'#3D3D3D',font:{size:10,family:'Open Sans'},padding:6,boxWidth:10,usePointStyle:false}},
+        tooltip:{enabled:false, external(ctx){
+          const {chart,tooltip}=ctx;
+          const el=getOrCreateTooltip(chart);
+          if(tooltip.opacity===0){el.style.opacity='0';return;}
+          if(tooltip.body){
+            const dp=tooltip.dataPoints[0];
+            const color=dp.dataset.backgroundColor[dp.dataIndex];
+            const fmt=dp.parsed%1===0?dp.parsed:dp.parsed.toFixed(1).replace('.',',');
+            el.innerHTML=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">Kilépési ok</div>
+              <div style="display:flex;align-items:center;gap:7px">
+                <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
+                <span style="opacity:.85">${dp.label}:</span>
+                <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt}%</span>
+              </div>`;
+          }
+          const {offsetLeft,offsetTop}=chart.canvas;
+          el.style.opacity='1';
+          el.style.left=offsetLeft+tooltip.caretX+'px';
+          el.style.top=offsetTop+tooltip.caretY+'px';
+        }}
+      }
+    }
+  });
+
+  // ── 7. ÁLLAMPOLGÁRSÁG — 2022
+  const ctxAllamp = document.getElementById('ch-tpi-allampolgarsag');
+  if (ctxAllamp) new Chart(ctxAllamp, {
+    type:'doughnut',
+    data:{
+      labels:['Magyar','Ukrán','Szerb','Szlovák','Vietnami','Egyéb'],
+      datasets:[{
+        data:[66.7, 13.9, 4.0, 2.9, 1.9, 0.6],
+        backgroundColor:['#ed2b2e','#0345EB','#00827a','#ebc230','#754dba','#575756'],
+        borderWidth:0, hoverOffset:8
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'60%',
+      plugins:{
+        legend:{position:'right', labels:{color:'#3D3D3D',font:{size:11,family:'Open Sans'},padding:10,boxWidth:10,usePointStyle:false}},
+        tooltip:{enabled:false, external(ctx){
+          const {chart,tooltip}=ctx;
+          const el=getOrCreateTooltip(chart);
+          if(tooltip.opacity===0){el.style.opacity='0';return;}
+          if(tooltip.body){
+            const dp=tooltip.dataPoints[0];
+            const color=dp.dataset.backgroundColor[dp.dataIndex];
+            const fmt=dp.parsed%1===0?dp.parsed:dp.parsed.toFixed(1).replace('.',',');
+            el.innerHTML=`<div style="font-weight:700;margin-bottom:6px;font-size:13px">Állampolgárság</div>
+              <div style="display:flex;align-items:center;gap:7px">
+                <span style="display:inline-block;width:10px;height:10px;background:${color};border-radius:2px;flex-shrink:0"></span>
+                <span style="opacity:.85">${dp.label}:</span>
+                <span style="font-weight:700;margin-left:auto;padding-left:10px">${fmt}%</span>
+              </div>`;
+          }
+          const {offsetLeft,offsetTop}=chart.canvas;
+          el.style.opacity='1';
+          el.style.left=offsetLeft+tooltip.caretX+'px';
+          el.style.top=offsetTop+tooltip.caretY+'px';
+        }}
+      }
+    }
+  });
+
+  // ── 8. TELJES KOMPENZÁCIÓ vs. ALAPBÉR — iparáganként
+  const kompLabels = ['Vegyipar','Autóipar','Egyéb gyártóipar','Fémipar','Elektronika','Logisztika','Élelmiszeripar'];
+  const alapber22  = [547.3, 393.4, 383.7, 367.7, 364.4, 363.2, 351.6];
+  const teljesKomp = [666.9, 518.5, 507.7, 473.6, 494.4, 485.2, 479.5];
+
+  const ctxKompenz = document.getElementById('ch-tpi-kompenz');
+  if (ctxKompenz) new Chart(ctxKompenz, {
     type:'bar',
-    data:{labels:hardRegs, datasets:[{label:'60+ napos pos. aránya (%)',data:hardDat,backgroundColor:hardCol,borderRadius:5,borderWidth:0}]},
+    data:{labels:kompLabels, datasets:[
+      {label:'Bruttó alapbér', data:alapber22, backgroundColor:'#ed2b2e', borderRadius:3, borderSkipped:false},
+      {label:'Teljes kompenzáció', data:teljesKomp, backgroundColor:'#00827a', borderRadius:3, borderSkipped:false}
+    ]},
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>` ${c.parsed.y}% nehéz pozíció`}}},
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false}, tooltip:{enabled:false, external:tipEft}},
       scales:{
-        x:{ticks:{color:'#000073',font:{size:10,weight:'600'}},grid:{display:false}},
-        y:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+'%'},grid:{color:'rgba(0,0,115,.05)'},min:0,max:60}
+        x:{...AX.x, ticks:{...AX.x.ticks, font:{size:10,family:'Open Sans'}}},
+        y:{...AX.y, min:0, ticks:{...AX.y.ticks, callback:v=>v+' e'}}
       }
     }
   });
@@ -1957,11 +2232,6 @@ function buildBenchmark() {
     lds('Szlovákia', D.vac.sk, '#754DBA')
   ], 0);
 }
-
-// ── BOOT ─────────────────────────────────────────────────────────────────
-buildOverview();
-built['panel-overview'] = true;
-
 
 // ── HUNGARY MAP (D3) ─────────────────────────────────────────────────────
 (function() {
