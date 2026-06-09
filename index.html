@@ -21,16 +21,16 @@
   --border: #DDE3EE;
   --muted:  #7B8BAB;
   --body:   #3D3D3D;
-  --eu:     #0345EB;
-  --v4:     #E8A12A;
-  --phu8:   #6A1B9A;
+  --eu:     #00827A;
+  --v4:     #EBC230;
+  --phu8:   #0345EB;
   --hu:     #ED1C2E;
-  --at:     #1565C0;
-  --de:     #F9A825;
-  --si:     #2E7D32;
+  --at:     #00827A;
+  --de:     #EBC230;
+  --si:     #0345EB;
   --ro:     #AD1457;
   --hr:     #00838F;
-  --rs:     #78909C;
+  --rs:     #575756;
   --cz:     #00A89E;
   --pl:     #FF5C00;
   --sk:     #754DBA;
@@ -404,11 +404,11 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 <nav class="tabs">
   <div class="tab active"  data-panel="overview">Áttekintés</div>
   <div class="tab"         data-panel="trends">Munkaerőpiaci Trendek</div>
-  <div class="tab"         data-panel="bertrend">Bértrend</div>
+  <div class="tab"         data-panel="bertrend">Bértrendek</div>
   <div class="tab"         data-panel="sectoral">Magyarország Ágazati Struktúrája</div>
   <div class="tab"         data-panel="regional">Magyarország Regionális Nézete</div>
   <div class="tab"         data-panel="tpi">Fizikai Munkaerő Benchmark</div>
-  <div class="tab"         data-panel="benchmark">EU27 / V4 Benchmark</div>
+  <div class="tab"         data-panel="benchmark">EU27 / PHU8 / V4 Benchmark</div>
 </nav>
 
 <!-- ══════════════════════════════════════
@@ -559,21 +559,21 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   <div class="kpi-grid" style="margin-top:6px">
     <div class="kpi-card" style="--kc:#00827a"><div class="kpi-lbl">Foglalkoztatás · 2025</div><div class="kpi-val" style="color:#00827a">75,1%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(0,130,122,.18);color:#00827a;font-weight:700;">▲ +8,6 százalékpont / 10 év (2016–2025)</span></div>
     <div class="kpi-card" style="--kc:#ebc230"><div class="kpi-lbl">Munkanélküliség · 2025</div><div class="kpi-val" style="color:#ebc230">4,5%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(235,194,48,.18);color:#b8960a;font-weight:700;">EU27: 6,1%</span></div>
-    <div class="kpi-card" style="--kc:#0345EB"><div class="kpi-lbl">Bruttó átlagkereset · 2025</div><div class="kpi-val" style="color:#0345EB">705 eFt</div><div class="kpi-sub">HU átlag · (eFt/hó)</div><span class="kpi-tag" style="background:rgba(3,69,235,.18);color:#0345EB;font-weight:700;">▲ +9% / év (2024–2025)</span></div>
+    <div class="kpi-card" style="--kc:#EBC230"><div class="kpi-lbl">Betöltetlen állások · 2025</div><div class="kpi-val" style="color:#EBC230">2,6%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(235,194,48,.18);color:#b8960a;font-weight:700;">EU27: 2,7%</span></div>
     <div class="kpi-card" style="--kc:#0345EB"><div class="kpi-lbl">Inaktivitás · 2025</div><div class="kpi-val" style="color:#0345EB">21,4%</div><div class="kpi-sub">HU átlag · (15–64 év)</div><span class="kpi-tag" style="background:rgba(3,69,235,.18);color:#0345EB;font-weight:700;">▼ −8,5 százalékpont / 10 év (2016–2025)</span></div>
   </div>
 
   <!-- FOGLALKOZTATÁS TREND -->
   <div class="sec-head"><h2>Foglalkoztatási trend</h2></div>
-  <div class="sec-sub">Magyarország · EU27 · V4 átlag összehasonlítás</div>
+  <div class="sec-sub">Magyarország · EU27 · PHU8 · V4 összehasonlítás</div>
   <div class="g1 cc">
     <h3>Foglalkoztatási ráta</h3>
     <p>KSH országos adatok (2016–2025)</p>
     <div class="cl">
       <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
       <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
-      <div class="cl-item"><span class="cl-line" style="background:#ebc230;border-bottom:2px dashed #ebc230"></span>V4 átlag</div>
-      <div class="cl-item"><span class="cl-line" style="background:#6A1B9A;border-bottom:2px dashed #6A1B9A"></span>PHU8 átlag</div>
+      <div class="cl-item"><span class="cl-line" style="background:#EBC230"></span>V4 átlag</div>
+      <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>PHU8 átlag</div>
     </div>
     <div class="cw" style="height:280px"><canvas id="ch-tr-emp"></canvas></div>
     <p style="font-size:11px;color:var(--muted);margin-top:6px">* Az EU27 és V4 átlag 2025-ös értékei nem hivatalos, becsült adatok</p>
@@ -581,7 +581,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 
   <!-- MUNKANÉLKÜLISÉG TREND -->
   <div class="sec-head"><h2>Munkanélküliségi trend</h2></div>
-  <div class="sec-sub">Magyarország · EU27 · V4 átlag · PHU8 átlag összehasonlítás</div>
+  <div class="sec-sub">Magyarország · EU27 · PHU8 · V4 összehasonlítás</div>
   <div class="g2">
     <div class="cc">
       <h3>Munkanélküliségi ráta</h3>
@@ -589,8 +589,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
         <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
-        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
-        <div class="cl-item"><span class="cl-line" style="background:#6A1B9A;border-bottom:2px dashed #6A1B9A"></span>PHU8 átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#EBC230"></span>V4 átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>PHU8 átlag</div>
       </div>
       <div class="cw" style="height:240px"><canvas id="ch-tr-unemp"></canvas></div>
     </div>
@@ -600,55 +600,16 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
         <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
-        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
-        <div class="cl-item"><span class="cl-line" style="background:#6A1B9A;border-bottom:2px dashed #6A1B9A"></span>PHU8 átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#EBC230"></span>V4 átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>PHU8 átlag</div>
       </div>
       <div class="cw" style="height:240px"><canvas id="ch-tr-vac"></canvas></div>
     </div>
   </div>
 
   <!-- BÉRTREND -->
-  <div class="sec-head"><h2>Bértrend</h2></div>
-  <div class="sec-sub">Magyarországi bérindikátorok összehasonlítása</div>
-  <div class="cc g1">
-    <h3>Legfőbb bérindikátorok alakulása</h3>
-    <p>KSH bérstatisztikák (2019–2025)</p>
-    <div class="cl">
-      <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Minimálbér*</div>
-      <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Bruttó átlag</div>
-      <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Nettó átlag</div>
-      <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Mediánbér</div>
-    </div>
-    <div class="cw" style="height:280px"><canvas id="ch-tr-ber"></canvas></div>
-    <p style="font-size:11px;color:var(--muted);margin-top:6px">* Január 1-jei jogszabályi érték az előző év záróadataként értelmezve pl.: 2025 = 2026. jan. 1-jei adat</p>
-  </div>
-
-  <div class="g2" style="margin-top:16px">
-    <div class="cc">
-      <h3>Éves nominális bérnövekedési ütemek (%)</h3>
-      <p>KSH bérstatisztikák (2019–2025)</p>
-      <div class="cl">
-        <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Minimálbér</div>
-        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Bruttó átlag</div>
-        <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Nettó átlag</div>
-      </div>
-      <div class="cw" style="height:240px"><canvas id="ch-tr-bernov"></canvas></div>
-    </div>
-    <div class="cc">
-      <h3>Éves reálbér változás (%)</h3>
-      <p>KSH — inflációval korrigált nettó átlagkereset változása (2020–2025)</p>
-      <div class="cl">
-        <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Reálbér változás</div>
-        <div class="cl-item"><span class="cl-line" style="background:#575756"></span>Infláció (KSH CPI)</div>
-      </div>
-      <div class="cw" style="height:240px"><canvas id="ch-tr-realber"></canvas></div>
-      <p style="font-size:11px;color:var(--muted);margin-top:6px">* 2025: KSH Monitor előzetes adat (jan–szept. átlag)</p>
-    </div>
-  </div>
-
-  <!-- INAKTIVITÁSI TREND -->
   <div class="sec-head"><h2>Inaktivitási trend</h2></div>
-  <div class="sec-sub">Magyarország · EU27 · V4 átlag · PHU8 átlag összehasonlítás</div>
+  <div class="sec-sub">Magyarország · EU27 · PHU8 · V4 összehasonlítás</div>
   <div class="g2">
     <div class="cc">
       <h3>Inaktivitási ráta</h3>
@@ -656,8 +617,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
         <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27</div>
-        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
-        <div class="cl-item"><span class="cl-line" style="background:#6A1B9A;border-bottom:2px dashed #6A1B9A"></span>PHU8 átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#EBC230"></span>V4 átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>PHU8 átlag</div>
       </div>
       <div class="cw" style="height:240px"><canvas id="ch-tr-inact-trend"></canvas></div>
     </div>
@@ -669,8 +630,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   </div>
 
   <!-- PHU8 COUNTRY COMPARISON SECTION -->
-  <div class="sec-head"><h2>PHU8 — Országos összehasonlítás (2025)</h2></div>
-  <div class="sec-sub">Prohuman8 tagállamok · Eurostat lfsi_emp_a · lfsa_urgan · jvs_a_nace2 · 15–64 év</div>
+  <div class="sec-head"><h2>Prohuman országok összehasonlítása</h2></div>
+  <div class="sec-sub">Munkaerőpiaci trendek összehasonlítása · 2025</div>
   <div class="g2">
     <div class="cc">
       <h3>Foglalkoztatási ráta — PHU8 országok (2025)</h3>
@@ -679,14 +640,14 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     </div>
     <div class="cc">
       <h3>Munkanélküliségi ráta — PHU8 országok (2025)</h3>
-      <p>15–64 év · % · Eurostat / becsült</p>
+      <p>Eurostat / ILOSTAT (Szerbia) · 2025</p>
       <div class="cw" style="height:300px"><canvas id="ch-tr-phu8-unemp"></canvas></div>
     </div>
   </div>
   <div class="g2" style="margin-top:16px">
     <div class="cc">
       <h3>Betöltetlen állások rátája — PHU8 (2025)</h3>
-      <p>Teljes gazdaság · % · Eurostat jvs_a_nace2 · * Szerbia: Eurostat JVS nem fedi (EU-tagállamok)</p>
+      <p>Teljes gazdaság · % · Eurostat jvs_a_nace2 · Szerbia: Eurostat JVS n.a.</p>
       <div class="cw" style="height:280px"><canvas id="ch-tr-phu8-vac"></canvas></div>
     </div>
     <div class="cc">
@@ -708,33 +669,33 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 
   <!-- KPI SOR -->
   <div class="kpi-grid" style="margin-top:6px">
-    <div class="kpi-card" style="--kc:#ed2b2e"><div class="kpi-lbl">Reálbér változás · 2024</div><div class="kpi-val" style="color:#ed2b2e">+8,6%</div><div class="kpi-sub">HU éves átlag · rekord 2024-ben</div><span class="kpi-tag" style="background:rgba(237,43,46,.18);color:#ed2b2e;font-weight:700;">▲ EU27 átlag: +2,3%</span></div>
-    <div class="kpi-card" style="--kc:#0345EB"><div class="kpi-lbl">Bruttó átlagkereset · 2025</div><div class="kpi-val" style="color:#0345EB">705 eFt</div><div class="kpi-sub">HU éves átlag · +9,0% nominálisan</div><span class="kpi-tag" style="background:rgba(3,69,235,.18);color:#0345EB;font-weight:700;">Reál: +4–5%</span></div>
-    <div class="kpi-card" style="--kc:#6a1b9a"><div class="kpi-lbl">HU órabér · 2024</div><div class="kpi-val" style="color:#6a1b9a">€12,8</div><div class="kpi-sub">EUR · AT: €36,2 · DE: €38,5</div><span class="kpi-tag" style="background:rgba(106,27,154,.18);color:#6a1b9a;font-weight:700;">PHU8 legalacsonyabb: RS ~€7,5</span></div>
-    <div class="kpi-card" style="--kc:#f9a825"><div class="kpi-lbl">Egységnyi munkaköltség · 2024</div><div class="kpi-val" style="color:#f9a825">+11,9%</div><div class="kpi-sub">HU nominális ULC változás</div><span class="kpi-tag" style="background:rgba(249,168,37,.18);color:#b8960a;font-weight:700;">EU27: +4,9% · versenyképességi nyomás</span></div>
+    <div class="kpi-card" style="--kc:#00827A"><div class="kpi-lbl">Reálbér változás · 2025</div><div class="kpi-val" style="color:#00827a">+4,2%</div><div class="kpi-sub">HU átlag · 2025 előzetes</div><span class="kpi-tag" style="background:rgba(0,130,122,.18);color:#00827a;font-weight:700;">▲ EU27 átlag: +2,3%</span></div>
+    <div class="kpi-card" style="--kc:#EBC230"><div class="kpi-lbl">Bruttó átlagkereset · 2025</div><div class="kpi-val" style="color:#EBC230">705 eFt</div><div class="kpi-sub">HU átlag</div><span class="kpi-tag" style="background:rgba(235,194,48,.18);color:#b8960a;font-weight:700;">Reál: +4,2%</span></div>
+    <div class="kpi-card" style="--kc:#ED1C2E"><div class="kpi-lbl">Órabér EUR-ban · 2024</div><div class="kpi-val" style="color:#ED1C2E">€12,8</div><div class="kpi-sub">HU átlag</div><span class="kpi-tag" style="background:rgba(237,43,46,.18);color:#ED1C2E;font-weight:700;">EU27: ~€33,5</span></div>
+    <div class="kpi-card" style="--kc:#ED1C2E"><div class="kpi-lbl">Egységnyi munkaköltség · 2024</div><div class="kpi-val" style="color:#ED1C2E">+11,9%</div><div class="kpi-sub">HU nominális ULC változás</div><span class="kpi-tag" style="background:rgba(249,168,37,.18);color:#ED1C2E;font-weight:700;">EU27: +4,9%</span></div>
   </div>
 
   <!-- ABSZOLÚT BÉRSZINT + REÁL VÁLTOZÁS -->
-  <div class="sec-head"><h2>Bérszintek és reálbér-változás</h2></div>
+  <div class="sec-head"><h2>Abszolút bérszintek és reálbér-változás</h2></div>
   <div class="sec-sub">Magyarország · KSH STADAT 20.1.1.7 mun0046 · 2019–2025</div>
   <div class="g2">
     <div class="cc">
       <h3>Abszolút bérszintek (eFt/hó)</h3>
-      <p>KSH STADAT mun0046 · Minimálbér · Bruttó · Nettó · Mediánbér · 2019–2025</p>
+      <p>KSH magyarországi adatok (2019-2025)</p>
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Minimálbér</div>
-        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Bruttó átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#EBC230"></span>Bruttó átlag</div>
         <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Nettó átlag</div>
-        <div class="cl-item"><span class="cl-line" style="background:#754DBA"></span>Mediánbér</div>
+        <div class="cl-item"><span class="cl-line" style="background:#ED1C2E"></span>Mediánbér</div>
       </div>
       <div class="cw" style="height:260px"><canvas id="ch-bt-szint"></canvas></div>
     </div>
     <div class="cc">
       <h3>Éves reálbér változás (%)</h3>
-      <p>KSH bérstatisztikák és inflációs adatok (2020–2025) · nettó, inflációval korrigált</p>
+      <p>KSH magyarországi adatok (2020-2025)</p>
       <div class="cl">
-        <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>HU Reálbér (nettó)</div>
-        <div class="cl-item"><span class="cl-line" style="background:#575756"></span>Infláció (KSH CPI)</div>
+        <div class="cl-item"><span class="cl-line" style="background:#00827A"></span>Reálbér változás</div>
+        <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Infláció (KSH CPI)</div>
       </div>
       <div class="cw" style="height:260px"><canvas id="ch-bt-real"></canvas></div>
       <p style="font-size:11px;color:var(--muted);margin-top:6px">* 2025: előzetes adat (KSH Monitor, jan–szept. átlag)</p>
@@ -742,44 +703,46 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
   </div>
 
   <!-- PHU8 REÁL BÉRNÖVEKEDÉS ÖSSZEHASONLÍTÁS -->
-  <div class="sec-head"><h2>PHU8 bérnövekedési összehasonlítás</h2></div>
-  <div class="sec-sub">Prohuman8 országok · EU Bizottság LMWD 2025 · Eurostat · 2024</div>
+  <div class="sec-head"><h2>Prohuman országok és EU27 összehasonlítása</h2></div>
+  <div class="sec-sub">Bértrendek összehasonlítása (Szerbia nélkül)</div>
   <div class="g2">
     <div class="cc">
-      <h3>Reál bérnövekedés 2024 (%)</h3>
+      <h3>Reál bérnövekedés (%)</h3>
       <p>PHU8 + EU27 · inflációval korrigált · Eurostat / EC LMWD 2025</p>
       <div class="cw" style="height:280px"><canvas id="ch-bt-phu8real"></canvas></div>
     </div>
     <div class="cc">
-      <h3>Nominális egységnyi munkaköltség változása 2024 (%)</h3>
-      <p>PHU8 + EU27 · ULC (bér / termelékenység) · Eurostat nama_10_lp_ulc</p>
+      <h3>Nominális egységnyi munkaköltség változása (%)</h3>
+      <p>Eurostat országos adatok (2024)</p>
       <div class="cw" style="height:280px"><canvas id="ch-bt-ulc"></canvas></div>
     </div>
   </div>
 
   <!-- ÓRABÉR ÉS MINIMÁLBÉR -->
-  <div class="sec-head"><h2>Bérek nemzetközi összehasonlításban</h2></div>
-  <div class="sec-sub">PHU8 országok · EUR alapú összehasonlítás · 2024–2026</div>
+  
+
   <div class="g2">
     <div class="cc">
-      <h3>Órabér EUR-ban (2024)</h3>
-      <p>Eurostat earn_mw_avgr2 · teljes gazdaság átlag · bruttó</p>
+      <h3>Bruttó órabér EUR-ban</h3>
+      <p>Eurostat országos adatok (2024)</p>
       <div class="cw" style="height:280px"><canvas id="ch-bt-oraberphu8"></canvas></div>
     </div>
     <div class="cc">
-      <h3>Törvényes minimálbér EUR/hó (2026. január)</h3>
-      <p>Eurostat / nemzeti jogszabályok · * AT: nincs törvényes nemzeti minimálbér</p>
+      <h3>Törvényes minimálbér EUR/hó</h3>
+      <p>Eurostat országos adatok (2026. január) · * AT: nincs törvényes minimálbér</p>
       <div class="cw" style="height:280px"><canvas id="ch-bt-minber"></canvas></div>
     </div>
   </div>
 
   <!-- BÉR-TERMELÉKENYSÉG ÖSSZEFÜGGÉS -->
+  
+
   <div class="sec-head"><h2>Bér és munkatermelékenység</h2></div>
-  <div class="sec-sub">Magyarország · Eurostat nama_10_lp_ulc · 2015=100 bázis</div>
+  <div class="sec-sub">Bér és munkatermelékenység összehasonlítása · Eurostat / KSH</div>
   <div class="g2">
     <div class="cc">
-      <h3>Bérnövekedés vs. termelékenység — Magyarország (2015–2025)</h3>
-      <p>Nominális bérnövekedés és reál munkatermelékenység index (2015=100) · Eurostat / KSH</p>
+      <h3>Bérnövekedés vs. Termelékenység</h3>
+      <p>KSH magyarországi adatok (2015-2025)</p>
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Nominális bérindex (2015=100)</div>
         <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Reál termelékenység/óra (2015=100)</div>
@@ -787,8 +750,8 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
       <div class="cw" style="height:260px"><canvas id="ch-bt-olló"></canvas></div>
     </div>
     <div class="cc">
-      <h3>Reál termelékenység/óra változás 2025 (%)</h3>
-      <p>PHU8 + EU27 · Eurostat nama_10_lp_ulc · 2025 előzetes</p>
+      <h3>Reál termelékenység/óra változás (%)</h3>
+      <p>Eurostat országos adatok (2025 előzetes)</p>
       <div class="cw" style="height:260px"><canvas id="ch-bt-prodphu8"></canvas></div>
     </div>
   </div>
@@ -835,7 +798,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     <div class="cl">
       <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
       <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27 átlag</div>
-      <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
+      <div class="cl-item"><span class="cl-line" style="background:#EBC230"></span>V4 átlag</div>
     </div>
     <div class="cw" style="height:260px"><canvas id="ch-sec-sector"></canvas></div>
   </div>
@@ -847,7 +810,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
         <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27 átlag</div>
-        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#EBC230"></span>V4 átlag</div>
       </div>
       <div class="cw" style="height:240px"><canvas id="ch-sec-edu"></canvas></div>
     </div>
@@ -857,7 +820,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Magyarország</div>
         <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>EU27 átlag</div>
-        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>V4 átlag</div>
+        <div class="cl-item"><span class="cl-line" style="background:#EBC230"></span>V4 átlag</div>
       </div>
       <div class="cw" style="height:240px"><canvas id="ch-sec-health"></canvas></div>
     </div>
@@ -873,12 +836,12 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
       <div class="cw" style="height:260px"><canvas id="ch-sec-size"></canvas></div>
     </div>
     <div class="cc">
-      <h3>Vállalkozásméretek szerinti egy főre jutó hozzáadott érték</h3>
+      <h3>Hozzáadott érték / fő (MFt) méretkategóriánként</h3>
       <p>KSH vállalkozásteljesítményi adatok (2015–2024)</p>
       <div class="cl">
         <div class="cl-item"><span class="cl-line" style="background:#ed2b2e"></span>Mikrovállalat</div>
         <div class="cl-item"><span class="cl-line" style="background:#00827a"></span>Kisvállalat</div>
-        <div class="cl-item"><span class="cl-line" style="background:#ebc230"></span>Középvállalat</div>
+        <div class="cl-item"><span class="cl-line" style="background:#EBC230"></span>Középvállalat</div>
         <div class="cl-item"><span class="cl-line" style="background:#0345EB"></span>Nagyvállalat</div>
       </div>
       <div class="cw" style="height:260px"><canvas id="ch-sec-prod"></canvas></div>
@@ -887,24 +850,12 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 
   <!-- KÜLFÖLDI / VENDÉGMUNKÁSOK -->
   <div class="sec-head"><h2>Külföldi munkavállalók az EU munkaerőpiacán</h2></div>
-  <div class="sec-sub">PHU8 összehasonlítás · nem EU-állampolgárok és külföldi születésűek aránya a foglalkoztatottakban · Eurostat lfsa_egan · 2024</div>
-  <div class="kpi-grid" style="margin-bottom:18px">
-    <div class="kpi-card" style="--kc:#1565C0"><div class="kpi-lbl">Ausztria · külföldi arány · 2024</div><div class="kpi-val" style="color:#1565C0">18,5%</div><div class="kpi-sub">EU-n belüli bevándorlás + harmadik országbeliek</div><span class="kpi-tag" style="background:rgba(21,101,192,.18);color:#1565C0;font-weight:700;">PHU8 legmagasabb</span></div>
-    <div class="kpi-card" style="--kc:#ED1C2E"><div class="kpi-lbl">Magyarország · külföldi arány · 2024</div><div class="kpi-val" style="color:#ED1C2E">7,2%</div><div class="kpi-sub">Harmadik országbeliek dominanciája (ukrán, szerb)</div><span class="kpi-tag" style="background:rgba(237,43,46,.18);color:#ED1C2E;font-weight:700;">▲ 3-szorosára nőtt 5 év alatt</span></div>
-    <div class="kpi-card" style="--kc:#AD1457"><div class="kpi-lbl">Románia · külföldi arány · 2024</div><div class="kpi-val" style="color:#AD1457">1,8%</div><div class="kpi-sub">Elsősorban küldő ország</div><span class="kpi-tag" style="background:rgba(173,20,87,.18);color:#AD1457;font-weight:700;">PHU8 legalacsonyabb</span></div>
-    <div class="kpi-card" style="--kc:#000073"><div class="kpi-lbl">EU27 átlag · 2024</div><div class="kpi-val" style="color:#000073">10,5%</div><div class="kpi-sub">Külföldi születésű foglalkoztatottak aránya</div><span class="kpi-tag" style="background:rgba(0,0,115,.18);color:#000073;font-weight:700;">▲ Évtizede folyamatos növekedés</span></div>
-  </div>
-  <div class="g2">
+  <div class="sec-sub">Magyarország · EU27 · PHU8 összehasonlítás · Eurostat lfsa_egan · 2024</div>
+  <div class="g1">
     <div class="cc">
       <h3>Külföldi munkavállalók aránya a foglalkoztatásban (2024)</h3>
       <p>Nem EU-állampolgárok + EU-n belüli mobilitás aránya · % · Eurostat lfsa_egan + becslés</p>
-      <div class="cw" style="height:300px"><canvas id="ch-sec-foreign-phu8"></canvas></div>
-    </div>
-    <div class="cc">
-      <h3>Külföldi munkavállalók Magyarországon — trend</h3>
-      <p>Harmadik országbeli munkavállalók aránya a teljes foglalkoztatásban · % · KSH / NFSZ adatok</p>
-      <div class="cw" style="height:300px"><canvas id="ch-sec-foreign-trend"></canvas></div>
-      <p style="font-size:11px;color:var(--muted);margin-top:6px">* 2022–2025: KSH Munkaerő-felmérés + NFSZ munkavállalási engedélyek; becslések tartalmazzák az ukrán menekültek egy részét is</p>
+      <div class="cw" style="height:340px"><canvas id="ch-sec-foreign-phu8"></canvas></div>
     </div>
   </div>
 
@@ -1007,6 +958,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     </div>
   </div>
 
+
   <!-- REGIONÁLIS BAR CHART ÖSSZEHASONLÍTÁS -->
   <div class="sec-head"><h2>Régiók összehasonlítása</h2></div>
   <div class="sec-sub">KSH STADAT 20.2.2.2 / 20.2.2.5 / mun0171 · 2025 éves becsült átlag</div>
@@ -1037,13 +989,17 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 
 </div>
 </div>
+
+<!-- ══════════════════════════════════════
+     4. TALENT PRESSURE INDEX
 ══════════════════════════════════════ -->
+
 <div class="panel" id="panel-tpi">
 <div class="main">
 
   <!-- INTERNAL DATA BANNER -->
   <div class="internal-banner" style="margin-top:8px">
-    <div class="int-label">Prohuman belső adat · Benchmark_alaptábla_2026_Q1</div>
+    <div class="int-label">Prohuman belső adat · 2026Q1</div>
     <div class="int-title">Fizikai Munkaerő Benchmark — 2026 Q1</div>
     <div class="int-sub">Bérbenchmark · Juttatások · Fluktuáció · Kilépési okok · Külföldi munkavállalók</div>
     <div class="int-kpis">
@@ -1114,7 +1070,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 
   <!-- FLUKTUÁCIÓ -->
   <div class="sec-head"><h2>Fluktuáció elemzés</h2></div>
-  <div class="sec-sub">Fizikai munkavállalók · 2022 (9 214 eset) · 2023 (2 760 eset)</div>
+  <div class="sec-sub">Fizikai munkavállalók · 2022-2023</div>
   <div class="g2">
     <div class="cc">
       <h3>Munkaviszony időtartama kilépéskor</h3>
@@ -1152,6 +1108,7 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     </div>
   </div>
 
+
   <!-- TOP HIÁNYSZAKMÁK & LEGFELKAPOTTABB POZÍCIÓK -->
   <div class="sec-head"><h2>Top pozíciók & Hiányszakmák</h2></div>
   <div class="sec-sub">Prohuman belső adatbázis · 2026 Q1 · n=730 pozíció · Fizikai munkaerő</div>
@@ -1163,11 +1120,10 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     </div>
     <div class="cc">
       <h3>Top hiányszakmák</h3>
-      <p>Magas kereslet, alacsony kínálat · Prohuman adatok + KSH hiányszakma-lista · 2025–2026</p>
+      <p>Magas kereslet, alacsony kínálat · Prohuman + KSH hiányszakma-lista · 2025–2026</p>
       <div id="tpi-hianyszakma-bars" style="padding:8px 4px"></div>
     </div>
   </div>
-
   <div class="g2" style="margin-top:16px">
     <div class="cc">
       <h3>Pozíciók iparági megoszlása</h3>
@@ -1190,12 +1146,17 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
 
 </div>
 </div>
+
+<!-- ══════════════════════════════════════
+     5. EU / V4 BENCHMARK
+══════════════════════════════════════ -->
+
 <div class="panel" id="panel-benchmark">
 <div class="main">
 
   <div class="kpi-grid" style="margin-top:6px">
     <div class="kpi-card" style="--kc:#0345EB"><div class="kpi-lbl">HU fgl. ráta · 2025</div><div class="kpi-val">80,8%</div><div class="kpi-sub">20–64 év · EU top 10 · 2025</div><span class="kpi-tag up">+4,7 százalékpont EU felett</span></div>
-    <div class="kpi-card" style="--kc:#6A1B9A"><div class="kpi-lbl">PHU8 átlag · 2025</div><div class="kpi-val">73,8%</div><div class="kpi-sub">15–64 év · HU + AT + DE + SI + SK + RO + HR + RS</div><span class="kpi-tag" style="background:rgba(106,27,154,.18);color:#6A1B9A;font-weight:700;">+4,2 pp EU felett</span></div>
+    <div class="kpi-card" style="--kc:#0345EB"><div class="kpi-lbl">PHU8 átlag · 2025</div><div class="kpi-val">73,8%</div><div class="kpi-sub">15–64 év · HU + AT + DE + SI + SK + RO + HR + RS</div><span class="kpi-tag" style="background:rgba(3,69,235,.18);color:#0345EB;font-weight:700;">+4,2 pp EU felett</span></div>
     <div class="kpi-card" style="--kc:#ED1C2E"><div class="kpi-lbl">HU LCI · 2025</div><div class="kpi-val">+9,1%</div><div class="kpi-sub">Munkaerőköltség-index · 2025</div><span class="kpi-tag warn">EU: +4,8% · mérséklődik</span></div>
     <div class="kpi-card" style="--kc:#E8A12A"><div class="kpi-lbl">HU órabér · 2024</div><div class="kpi-val">€12,8</div><div class="kpi-sub">vs. EU átlag: €33,5 · Eurostat earn_mw_avgr2</div><span class="kpi-tag down">42% az EU átlagnak</span></div>
   </div>
@@ -1234,48 +1195,9 @@ body { background: var(--light); color: var(--body); font-family: var(--font); m
     <p style="font-size:10px;color:var(--muted);margin-top:8px">* Szerbia: Eurostat EU-LFS kandidátus ország — foglalkoztatás, munkanélküliség, inaktivitás elérhető · † PHU7 EU-tagállamok átlaga (LCI és betöltetlen állás Eurostat-ban nem érhető el Szerbiára)</p>
   </div>
 
-  <!-- BENCHMARK CHARTS -->
-  <div class="g2">
-    <div class="cc">
-      <h3>Foglalkoztatási ráta — PHU8 + EU27 összehasonlítás</h3>
-      <p>15–64 év · % · 2015–2025 · Eurostat lfsi_emp_a</p>
-      <div class="cl">
-        <div class="cl-item"><span class="cl-line" style="background:#ED1C2E"></span>HU</div>
-        <div class="cl-item"><span class="cl-line" style="background:#1565C0"></span>AT</div>
-        <div class="cl-item"><span class="cl-line" style="background:#F9A825"></span>DE</div>
-        <div class="cl-item"><span class="cl-line" style="background:#2E7D32"></span>SI</div>
-        <div class="cl-item"><span class="cl-line" style="background:#754DBA"></span>SK</div>
-        <div class="cl-item"><span class="cl-line" style="background:#AD1457"></span>RO</div>
-        <div class="cl-item"><span class="cl-line" style="background:#00838F"></span>HR</div>
-        <div class="cl-item"><span class="cl-line" style="background:#6A1B9A;border-bottom:2px dashed #6A1B9A"></span>PHU8 átl.</div>
-        <div class="cl-item"><span class="cl-line" style="background:#0345EB;border-bottom:2px dashed #0345EB"></span>EU27</div>
-      </div>
-      <div class="cw" style="height:280px"><canvas id="ch-bm-emp"></canvas></div>
-    </div>
-    <div class="cc">
-      <h3>Munkaerőköltség-index — LCI éves % változás</h3>
-      <p>Labour Cost Index · teljes gazdaság · Eurostat lc_lci_r2_a · 2015–2025</p>
-      <div class="cw" style="height:280px"><canvas id="ch-bm-lci"></canvas></div>
-    </div>
-  </div>
-
-  <div class="g2">
-    <div class="cc">
-      <h3>Órabér összehasonlítás (EUR) — 2025</h3>
-      <p>Average hourly labour costs · egész gazdaság · Eurostat</p>
-      <div class="cw" style="height:240px"><canvas id="ch-bm-wage"></canvas></div>
-    </div>
-    <div class="cc">
-      <h3>Betöltetlen állások rátája (%) — 2015–2025</h3>
-      <p>Job vacancy rate · Eurostat jvs_q_nace2</p>
-      <div class="cw" style="height:240px"><canvas id="ch-bm-vac"></canvas></div>
-    </div>
-  </div>
-
+  
 </div>
-</div>
-
-<!-- FOOTER -->
+</div> -->
 
 
 <script>
@@ -1551,7 +1473,7 @@ function buildOverview() {
 
   lineChart('ch-ov-emp', [
     lds('Magyarország', D.empRate.hu, '#ED1C2E', [], true),
-    lds('EU27', D.empRate.eu, '#0345EB'),
+    lds('EU27', D.empRate.eu, '#00827A'),
     lds('V4 átlag', D.empRate.v4, '#E8A12A'),
     lds('Csehország', D.empRate.cz, '#00A89E')
   ], 62);
@@ -1595,21 +1517,21 @@ function buildTrends() {
     lds('Magyarország', D.empRate.hu.slice(1), '#ed2b2e', [], true),
     lds('EU27', D.empRate.eu.slice(1), '#00827a'),
     lds('V4 átlag', D.empRate.v4.slice(1), '#ebc230'),
-    lds('PHU8 átlag', D.empRate.phu8.slice(1), '#6A1B9A', [5,3])
+    lds('PHU8 átlag', D.empRate.phu8.slice(1), '#0345EB')
   ], 62, '%', YR16);
 
   lineChart('ch-tr-unemp', [
     lds('Magyarország', D.unemp.hu.slice(1), '#ed2b2e', [], true),
     lds('EU27', D.unemp.eu.slice(1), '#00827a'),
     lds('V4 átlag', D.unemp.v4.slice(1), '#ebc230'),
-    lds('PHU8 átlag', D.unemp.phu8.slice(1), '#6A1B9A', [5,3])
+    lds('PHU8 átlag', D.unemp.phu8.slice(1), '#0345EB')
   ], 0, '%', YR16);
 
   lineChart('ch-tr-vac', [
     lds('Magyarország', D.vac.hu, '#ed2b2e', [], true),
     lds('EU27', D.vac.eu, '#00827a'),
     lds('V4 átlag', D.vac.v4, '#ebc230'),
-    lds('PHU8 átlag', D.vac.phu8, '#6A1B9A', [5,3])
+    lds('PHU8 átlag', D.vac.phu8, '#0345EB')
   ], 0);
 
   // Bér trend
@@ -1692,7 +1614,7 @@ function buildTrends() {
   if (ctxReal) new Chart(ctxReal, {
     type:'bar',
     data:{labels:YR_REAL, datasets:[
-      {label:'Reálbér változás',data:real_ber,backgroundColor:real_ber.map(v=>v>=0?'rgba(0,130,122,.75)':'rgba(237,43,46,.75)'),borderRadius:3,borderSkipped:false},
+      {label:'Reálbér változás',data:real_ber,backgroundColor:real_ber.map(v=>v>=0?'#00827A':'#ED1C2E'),borderRadius:3,borderSkipped:false},
       {label:'Infláció (CPI)',data:inflacio,type:'line',borderColor:'#575756',backgroundColor:'transparent',borderWidth:2,tension:0.3,pointRadius:3,pointHoverRadius:5,yAxisID:'y2'}
     ]},
     options:{
@@ -1787,126 +1709,68 @@ function buildTrends() {
     lds('Magyarország', D.inact.hu.slice(1), '#ed2b2e', [], true),
     lds('EU27', D.inact.eu.slice(1), '#00827a'),
     lds('V4 átlag', D.inact.v4.slice(1), '#ebc230'),
-    lds('PHU8 átlag', D.inact.phu8.slice(1), '#6A1B9A', [5,3])
+    lds('PHU8 átlag', D.inact.phu8.slice(1), '#0345EB')
   ], 18, '%', YR16);
 
-  // ── PHU8 Country Comparison Charts — latest year bar charts
-  const PHU8_LABELS = ['Csehország','Németország','Ausztria','Magyarország','Szlovénia','Lengyelország','Szlovákia','Horvátország','Románia','Szerbia*'];
-  const PHU8_COLORS = ['#00A89E','#F9A825','#1565C0','#ED1C2E','#2E7D32','#FF5C00','#754DBA','#00838F','#AD1457','#78909C'];
+  // ── PHU8 Country Comparison Charts — csak a 8 PHU8 ország (HU,AT,DE,SI,SK,RO,HR,RS)
+  const PHU8_L = ['Magyarország','Ausztria','Németország','Szlovénia','Szlovákia','Románia','Horvátország','Szerbia*'];
+  const PHU8_C = ['#ED1C2E','#00827A','#EBC230','#0345EB','#754DBA','#FF5C00','#00838F','#575756'];
 
-  // 2025 foglalkoztatási ráta 15-64: CZ,DE,AT,HU,SI,PL,SK,HR,RO,RS
-  const phu8_emp25  = [82.9, 79.0, 78.5, 75.1, 77.7, 78.3, 76.0, 72.5, 68.5, 63.0];
-  const ctxPhu8Emp = document.getElementById('ch-tr-phu8-emp');
-  if (ctxPhu8Emp) new Chart(ctxPhu8Emp, {
-    type:'bar',
-    data:{labels:PHU8_LABELS, datasets:[{
-      data:phu8_emp25, backgroundColor:['#00A89E','#F9A825','#1565C0','#ED1C2E','#2E7D32','#FF5C00','#754DBA','#00838F','#AD1457','#78909C'],
-      borderRadius:4, borderSkipped:false, maxBarThickness:28
-    }]},
-    options:{
-      indexAxis:'y',
-      responsive:true, maintainAspectRatio:false,
-      plugins:{
-        legend:{display:false},
-        tooltip:{backgroundColor:'rgba(0,0,115,.95)',titleColor:'#fff',
-          bodyColor:'rgba(255,255,255,.9)',borderColor:'rgba(0,0,115,.3)',
-          borderWidth:1,padding:10,cornerRadius:6,
-          callbacks:{label:c=>` ${c.parsed.x.toFixed(1).replace('.',',')}%`}}
-      },
-      scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+'%'},
-           grid:{color:'rgba(0,0,115,.05)'},min:55,max:90},
-        y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},
-           grid:{display:false}}
+  function makePhu8Bar(canvasId, data, xMin, xMax, unit) {
+    const ctx = document.getElementById(canvasId);
+    if (!ctx) return;
+    new Chart(ctx, {
+      type:'bar',
+      data:{labels:PHU8_L, datasets:[{
+        data, backgroundColor:PHU8_C,
+        borderRadius:4, borderSkipped:false, maxBarThickness:32
+      }]},
+      options:{
+        indexAxis:'y', responsive:true, maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          tooltip:{backgroundColor:'rgba(0,0,115,.95)',titleColor:'#fff',
+            bodyColor:'rgba(255,255,255,.9)',borderColor:'rgba(0,0,115,.3)',
+            borderWidth:1,padding:10,cornerRadius:6,
+            callbacks:{label:c=>` ${c.parsed.x.toFixed(1).replace('.',',')}${unit}`}}
+        },
+        scales:{
+          x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+unit},
+             grid:{color:'rgba(0,0,115,.05)'},min:xMin,max:xMax},
+          y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},
+             grid:{display:false}}
+        }
       }
-    }
-  });
+    });
+  }
 
-  // 2025 munkanélküliség: CZ,DE,AT,HU,SI,PL,SK,HR,RO,RS
-  const phu8_unemp25 = [2.9, 3.4, 5.2, 4.5, 4.5, 3.2, 5.5, 4.6, 5.5, 8.8];
-  const ctxPhu8Unemp = document.getElementById('ch-tr-phu8-unemp');
-  if (ctxPhu8Unemp) new Chart(ctxPhu8Unemp, {
-    type:'bar',
-    data:{labels:PHU8_LABELS, datasets:[{
-      data:phu8_unemp25, backgroundColor:['#00A89E','#F9A825','#1565C0','#ED1C2E','#2E7D32','#FF5C00','#754DBA','#00838F','#AD1457','#78909C'],
-      borderRadius:4, borderSkipped:false, maxBarThickness:28
-    }]},
-    options:{
-      indexAxis:'y',
-      responsive:true, maintainAspectRatio:false,
-      plugins:{
-        legend:{display:false},
-        tooltip:{backgroundColor:'rgba(0,0,115,.95)',titleColor:'#fff',
-          bodyColor:'rgba(255,255,255,.9)',borderColor:'rgba(0,0,115,.3)',
-          borderWidth:1,padding:10,cornerRadius:6,
-          callbacks:{label:c=>` ${c.parsed.x.toFixed(1).replace('.',',')}%`}}
-      },
-      scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+'%'},
-           grid:{color:'rgba(0,0,115,.05)'},min:0,max:12},
-        y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},
-           grid:{display:false}}
-      }
-    }
-  });
+  // Foglalkoztatási ráta 15–64 (%) 2025 — Eurostat lfsi_emp_a / ILOSTAT (RS)
+  makePhu8Bar('ch-tr-phu8-emp',  [75.1, 78.5, 79.0, 77.7, 76.0, 68.5, 72.5, 63.0], 55, 85, '%');
 
-  // 2025 betöltetlen állás: CZ,DE,AT,HU,SI,PL,SK,HR,RO (RS n.a. — Eurostat JVS EU-only)
-  const phu8_vac25 = [3.8, 3.0, 3.0, 2.6, 2.0, 1.7, 2.0, 1.9, 1.4];
-  const phu8_vac_labels = ['Csehország','Németország','Ausztria','Magyarország','Szlovénia','Lengyelország','Szlovákia','Horvátország','Románia'];
-  const phu8_vac_colors = PHU8_COLORS.slice(0,9);
+  // Munkanélküliségi ráta (%) 2025 — Eurostat une_rt_a / ILOSTAT (RS)
+  makePhu8Bar('ch-tr-phu8-unemp',[4.5,  5.2,  3.4,  4.5,  5.5,  5.5,  4.6,  8.8],  0, 12, '%');
+
+  // Betöltetlen állások rátája (%) 2025 — Eurostat jvs_a_nace2 (RS: n.a.)
   const ctxPhu8Vac = document.getElementById('ch-tr-phu8-vac');
   if (ctxPhu8Vac) new Chart(ctxPhu8Vac, {
     type:'bar',
-    data:{labels:['CZ','DE','AT','HU','SI','PL','SK','HR','RO'], datasets:[{
-      data:[3.8,3.0,3.0,2.6,2.0,1.7,2.0,1.9,1.4], backgroundColor:['#00A89E','#F9A825','#1565C0','#ED1C2E','#2E7D32','#FF5C00','#754DBA','#00838F','#AD1457'],
-      borderRadius:4, borderSkipped:false, maxBarThickness:28
-    }]},
-    options:{
-      indexAxis:'y',
-      responsive:true, maintainAspectRatio:false,
-      plugins:{
-        legend:{display:false},
-        tooltip:{backgroundColor:'rgba(0,0,115,.95)',titleColor:'#fff',
-          bodyColor:'rgba(255,255,255,.9)',borderColor:'rgba(0,0,115,.3)',
-          borderWidth:1,padding:10,cornerRadius:6,
-          callbacks:{label:c=>` ${c.parsed.x.toFixed(1).replace('.',',')}%`}}
-      },
-      scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+'%'},
-           grid:{color:'rgba(0,0,115,.05)'},min:0,max:5},
-        y:{ticks:{color:'#000073',font:{size:10,weight:'600',family:'Open Sans'}},
-           grid:{display:false}}
-      }
-    }
+    data:{labels:['Magyarország','Ausztria','Németország','Szlovénia','Szlovákia','Románia','Horvátország'],
+          datasets:[{data:[2.6,3.0,3.0,2.0,2.0,1.4,1.9],
+            backgroundColor:['#ED1C2E','#00827A','#EBC230','#0345EB','#754DBA','#FF5C00','#00838F'],
+            borderRadius:4,borderSkipped:false,maxBarThickness:32}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},
+        tooltip:{backgroundColor:'rgba(0,0,115,.95)',titleColor:'#fff',bodyColor:'rgba(255,255,255,.9)',
+          borderColor:'rgba(0,0,115,.3)',borderWidth:1,padding:10,cornerRadius:6,
+          callbacks:{label:c=>` ${c.parsed.x.toFixed(1).replace('.',',')}%`}}},
+      scales:{x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+'%'},
+               grid:{color:'rgba(0,0,115,.05)'},min:0,max:4.5},
+              y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},grid:{display:false}}}}
   });
 
-  // 2025 inaktivitás: CZ,DE,AT,HU,SI,PL,SK,HR,RO,RS
-  const phu8_inact25 = [22.0, 21.2, 22.0, 21.4, 21.0, 24.8, 23.5, 25.0, 29.5, 31.5];
-  const ctxPhu8Inact = document.getElementById('ch-tr-phu8-inact');
-  if (ctxPhu8Inact) new Chart(ctxPhu8Inact, {
-    type:'bar',
-    data:{labels:PHU8_LABELS, datasets:[{
-      data:phu8_inact25, backgroundColor:['#00A89E','#F9A825','#1565C0','#ED1C2E','#2E7D32','#FF5C00','#754DBA','#00838F','#AD1457','#78909C'],
-      borderRadius:4, borderSkipped:false, maxBarThickness:28
-    }]},
-    options:{
-      indexAxis:'y',
-      responsive:true, maintainAspectRatio:false,
-      plugins:{
-        legend:{display:false},
-        tooltip:{backgroundColor:'rgba(0,0,115,.95)',titleColor:'#fff',
-          bodyColor:'rgba(255,255,255,.9)',borderColor:'rgba(0,0,115,.3)',
-          borderWidth:1,padding:10,cornerRadius:6,
-          callbacks:{label:c=>` ${c.parsed.x.toFixed(1).replace('.',',')}%`}}
-      },
-      scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>v+'%'},
-           grid:{color:'rgba(0,0,115,.05)'},min:15,max:36},
-        y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},
-           grid:{display:false}}
-      }
-    }
-  });
+  // Inaktivitási ráta 15–64 (%) 2025 — Eurostat lfsa_ipga / ILOSTAT (RS)
+  makePhu8Bar('ch-tr-phu8-inact',[21.4, 22.0, 21.2, 21.0, 23.5, 29.5, 25.0, 31.5], 15, 36, '%');
+
 }
 
 // ── PANEL 2b: BÉRTREND ────────────────────────────────────────────────────
@@ -1928,7 +1792,7 @@ function buildBertrend() {
       lds('Minimálbér', szint_minber, '#00827a'),
       lds('Bruttó átlag', szint_brutto, '#ebc230'),
       lds('Nettó átlag', szint_netto, '#0345EB'),
-      lds('Mediánbér', szint_median, '#754DBA', [4,2])
+      lds('Mediánbér', szint_median, '#ED1C2E', [4,2])
     ]},
     options:{responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
       plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y.toFixed(1).replace('.',',')} eFt`}}},
@@ -1943,8 +1807,8 @@ function buildBertrend() {
   if (ctxBtReal) new Chart(ctxBtReal, {
     type:'bar',
     data:{labels:YR6, datasets:[
-      {label:'Reálbér változás', data:bt_real, backgroundColor:bt_real.map(v=>v>=0?'rgba(0,130,122,.8)':'rgba(237,43,46,.8)'), borderRadius:3, borderSkipped:false},
-      {label:'Infláció (CPI)', data:bt_infl, type:'line', borderColor:'#575756', backgroundColor:'transparent', borderWidth:2, tension:0.3, pointRadius:3, pointHoverRadius:5, yAxisID:'y2'}
+      {label:'Reálbér változás', data:bt_real, backgroundColor:bt_real.map(v=>v>=0?'#00827A':'#ED1C2E'), borderRadius:3, borderSkipped:false},
+      {label:'Infláció (CPI)', data:bt_infl, type:'line', borderColor:'#0345EB', backgroundColor:'transparent', borderWidth:2, tension:0.3, pointRadius:3, pointHoverRadius:5, yAxisID:'y2'}
     ]},
     options:{responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
       plugins:{legend:{display:false},tooltip:{enabled:false, external(ctx){
@@ -1987,7 +1851,7 @@ function buildBertrend() {
   if (ctxPHU8R) new Chart(ctxPHU8R, {
     type:'bar',
     data:{labels:['Románia','Magyarország','Horvátország','Szlovénia','Ausztria','Németország','Szlovákia','EU27'], datasets:[{
-      data:[10.2, 8.6, 5.5, 2.0, 0.5, 1.0, -1.0, 2.3], backgroundColor:['#AD1457','#ED1C2E','#00838F','#2E7D32','#1565C0','#F9A825','#754DBA','#0345EB'],
+      data:[10.2, 8.6, 5.5, 2.0, 0.5, 1.0, -1.0, 2.3], backgroundColor:['#FF5C00','#ED1C2E','#00838F','#0345EB','#00827A','#EBC230','#754DBA','#0345EB'],
       borderRadius:4, borderSkipped:false, maxBarThickness:28
     }]},
     options:{
@@ -2002,7 +1866,7 @@ function buildBertrend() {
       },
       scales:{
         x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>(v>=0?'+':'')+v+'%'},
-           grid:{color:'rgba(0,0,115,.05)'},min:-3,max:12},
+           grid:{color:'rgba(0,0,115,.05)'},min:-2,max:12},
         y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},
            grid:{display:false}}
       }
@@ -2015,7 +1879,7 @@ function buildBertrend() {
   if (ctxULC) new Chart(ctxULC, {
     type:'bar',
     data:{labels:['Románia','Magyarország','Horvátország','Ausztria','Németország','Szlovákia','Szlovénia','EU27'], datasets:[{
-      data:[18.0, 11.9, 10.8, 8.0, 5.8, 5.5, 4.9, 4.9], backgroundColor:['#AD1457','#ED1C2E','#00838F','#1565C0','#F9A825','#754DBA','#2E7D32','#0345EB'],
+      data:[18.0, 11.9, 10.8, 8.0, 5.8, 5.5, 4.9, 4.9], backgroundColor:['#FF5C00','#ED1C2E','#00838F','#00827A','#EBC230','#754DBA','#0345EB','#0345EB'],
       borderRadius:4, borderSkipped:false, maxBarThickness:28
     }]},
     options:{
@@ -2043,7 +1907,7 @@ function buildBertrend() {
   if (ctxOraber) new Chart(ctxOraber, {
     type:'bar',
     data:{labels:['Németország','Ausztria','EU27','Szlovénia','Szlovákia','Horvátország','Magyarország','Románia','Szerbia*'], datasets:[{
-      data:[38.5, 36.2, 33.5, 20.1, 14.0, 13.8, 12.8, 9.4, 7.5], backgroundColor:['#F9A825','#1565C0','#0345EB','#2E7D32','#754DBA','#00838F','#ED1C2E','#AD1457','#78909C'],
+      data:[38.5, 36.2, 33.5, 20.1, 14.0, 13.8, 12.8, 9.4, 7.5], backgroundColor:['#EBC230','#00827A','#0345EB','#0345EB','#754DBA','#00838F','#ED1C2E','#FF5C00','#575756'],
       borderRadius:4, borderSkipped:false, maxBarThickness:28
     }]},
     options:{
@@ -2071,7 +1935,7 @@ function buildBertrend() {
   if (ctxMinber) new Chart(ctxMinber, {
     type:'bar',
     data:{labels:['Németország','Szlovénia','Románia','Horvátország','Szlovákia','Magyarország','Szerbia*'], datasets:[{
-      data:[1584, 1254, 920, 970, 816, 807, 380], backgroundColor:['#F9A825','#2E7D32','#AD1457','#00838F','#754DBA','#ED1C2E','#78909C'],
+      data:[1584, 1254, 920, 970, 816, 807, 380], backgroundColor:['#EBC230','#0345EB','#FF5C00','#00838F','#754DBA','#ED1C2E','#575756'],
       borderRadius:4, borderSkipped:false, maxBarThickness:28
     }]},
     options:{
@@ -2139,7 +2003,7 @@ function buildBertrend() {
   if (ctxProd) new Chart(ctxProd, {
     type:'bar',
     data:{labels:['Lengyelország','Románia','EU27','Magyarország','Horvátország','Ausztria','Németország','Szlovákia','Szlovénia'], datasets:[{
-      data:[4.1, 3.9, 1.4, 1.5, 1.0, 0.5, 0.3, 0.5, -1.2], backgroundColor:['#FF5C00','#AD1457','#0345EB','#ED1C2E','#00838F','#1565C0','#F9A825','#754DBA','#2E7D32'],
+      data:[4.1, 3.9, 1.4, 1.5, 1.0, 0.5, 0.3, 0.5, -1.2], backgroundColor:['#FF5C00','#FF5C00','#0345EB','#ED1C2E','#00838F','#00827A','#EBC230','#754DBA','#0345EB'],
       borderRadius:4, borderSkipped:false, maxBarThickness:28
     }]},
     options:{
@@ -2154,7 +2018,7 @@ function buildBertrend() {
       },
       scales:{
         x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>(v>=0?'+':'')+v+'%'},
-           grid:{color:'rgba(0,0,115,.05)'},min:-2,max:5.5},
+           grid:{color:'rgba(0,0,115,.05)'},min:-2,max:5},
         y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},
            grid:{display:false}}
       }
@@ -2530,7 +2394,7 @@ function buildSectoral() {
   if (ctxForeignPhu8) new Chart(ctxForeignPhu8, {
     type:'bar',
     data:{labels:['Ausztria','Németország','EU27 átlag','Szlovénia','Magyarország','Horvátország','Szerbia*','Szlovákia','Románia'], datasets:[{
-      data:[18.5, 15.0, 10.5, 8.0, 7.2, 5.5, 2.5, 3.0, 1.8], backgroundColor:['#1565C0','#F9A825','#0345EB','#2E7D32','#ED1C2E','#00838F','#78909C','#754DBA','#AD1457'],
+      data:[18.5, 15.0, 10.5, 8.0, 7.2, 5.5, 2.5, 3.0, 1.8], backgroundColor:['#00827A','#EBC230','#0345EB','#0345EB','#ED1C2E','#00838F','#575756','#754DBA','#FF5C00'],
       borderRadius:4, borderSkipped:false, maxBarThickness:28
     }]},
     options:{
@@ -2552,39 +2416,6 @@ function buildSectoral() {
     }
   });
 
-  // HU külföldi munkavállalók trendje 2018–2025
-  // Forrás: KSH Munkaerő-felmérés + NFSZ munkavállalási engedélyek
-  const fTrendYrs = ['2018','2019','2020','2021','2022','2023','2024','2025*'];
-  const fTrendData = [1.8, 2.3, 2.8, 3.5, 4.5, 5.8, 7.2, 8.5];
-  const fTrendColors = fTrendData.map(v => v>=5?'#ED1C2E':v>=3?'#EBC230':'#00827a');
-  const ctxForeignTrend = document.getElementById('ch-sec-foreign-trend');
-  if (ctxForeignTrend) new Chart(ctxForeignTrend, {
-    type:'bar',
-    data:{labels:fTrendYrs, datasets:[{
-      data:fTrendData, backgroundColor:fTrendColors,
-      borderRadius:4, borderSkipped:false
-    }]},
-    options:{
-      indexAxis:'y',
-      responsive:true, maintainAspectRatio:false,
-      plugins:{
-        legend:{display:false},
-        tooltip:{
-          backgroundColor:'rgba(0,0,115,.95)',titleColor:'#fff',
-          bodyColor:'rgba(255,255,255,.9)',borderColor:'rgba(0,0,115,.3)',
-          borderWidth:1,padding:10,cornerRadius:6,
-          callbacks:{label:c=>` ${c.parsed.y.toFixed(1).replace('.',',')}%`}
-        }
-      },
-      scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:11,family:'Open Sans'}},
-           grid:{color:'rgba(0,0,115,.05)'},border:{color:'rgba(0,0,115,.12)'}},
-        y:{min:0, max:10,
-           ticks:{color:'#7B8BAB',font:{size:11,family:'Open Sans'},callback:v=>v+'%'},
-           grid:{color:'rgba(0,0,115,.05)'},border:{color:'rgba(0,0,115,.12)'}}
-      }
-    }
-  });
 }
 
 // ── PANEL 4: REGIONAL ─────────────────────────────────────────────────────
@@ -2988,7 +2819,7 @@ function buildTPI() {
   // ── 9. TOP POZÍCIÓK & HIÁNYSZAKMÁK (Prohuman Excel 2026 Q1)
   const topJobLabels = ['Operátor','Gépkezelő','Targoncavezető','Raktáros','Takarító','Anyagmozgató','Csomagoló','Karbantartó','Hegesztő','Gépbeállító'];
   const topJobValues = [73, 35, 32, 32, 18, 11, 11, 9, 9, 9];
-  const topJobColors = ['#ed2b2e','#0345EB','#00827a','#ebc230','#754dba','#ff5c00','#00A89E','#1565C0','#AD1457','#F9A825'];
+  const topJobColors = ['#ed2b2e','#0345EB','#00827a','#ebc230','#754dba','#ff5c00','#00A89E','#00827A','#FF5C00','#EBC230'];
 
   const jobContainer = document.getElementById('tpi-topjobs-bars');
   if (jobContainer) {
@@ -3027,7 +2858,7 @@ function buildTPI() {
   // ── 11. IPARÁGI MEGOSZLÁS — Doughnut
   const iparDistLabels = ['Autóipar','Egyéb gyártóipar','Élelmiszeripar','Elektronika','Fémipar','Logisztika','Egészségügyi / Vegyipar','Egyéb'];
   const iparDistData   = [182, 153, 67, 63, 54, 45, 26, 55];
-  const iparDistColors = ['#ed2b2e','#0345EB','#00827a','#ebc230','#754dba','#ff5c00','#1565C0','#575756'];
+  const iparDistColors = ['#ed2b2e','#0345EB','#00827a','#ebc230','#754dba','#ff5c00','#00827A','#575756'];
 
   const ctxIparDist = document.getElementById('ch-tpi-ipar-dist');
   if (ctxIparDist) new Chart(ctxIparDist, {
@@ -3100,69 +2931,8 @@ function buildTPI() {
   });
 }
 function buildBenchmark() {
-  // Foglalkoztatás line
-  lineChart('ch-bm-emp', [
-    lds('HU', D.empRate.hu, '#ED1C2E'),
-    lds('AT', D.empRate.at, '#1565C0'),
-    lds('DE', D.empRate.de, '#F9A825'),
-    lds('SI', D.empRate.si, '#2E7D32'),
-    lds('SK', D.empRate.sk, '#754DBA'),
-    lds('RO', D.empRate.ro, '#AD1457'),
-    lds('HR', D.empRate.hr, '#00838F'),
-    lds('PHU8 átl.', D.empRate.phu8, '#6A1B9A', [5,3]),
-    lds('EU27', D.empRate.eu, '#0345EB', [6,3])
-  ], 52);
-
-  // LCI line — PHU8 + EU27
-  const ctxLCI = document.getElementById('ch-bm-lci');
-  if (ctxLCI) new Chart(ctxLCI, {
-    type:'line',
-    data:{labels:YR, datasets:[
-      lds('HU', D.lci.hu, '#ED1C2E'),
-      lds('AT', D.lci.at, '#1565C0'),
-      lds('DE', D.lci.de, '#F9A825'),
-      lds('SI', D.lci.si, '#2E7D32'),
-      lds('SK', D.lci.sk, '#754DBA'),
-      lds('RO', D.lci.ro, '#AD1457'),
-      lds('HR', D.lci.hr, '#00838F'),
-      lds('PHU8 átl.', D.lci.phu8, '#6A1B9A', [5,3]),
-      lds('EU27', D.lci.eu, '#0345EB', [6,3])
-    ]},
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      interaction:{mode:'index',intersect:false},
-      plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>` ${c.dataset.label}: ${fmt(c.parsed.y,1)}%`}}},
-      scales:{x:{...AX.x},y:{...AX.y,min:0,ticks:{...AX.y.ticks,callback:v=>'+'+v+'%'}}}
-    }
-  });
-
-  // Wage bar — PHU8 countries + EU27
-  const wLabs = ['Ausztria','Németország','Slovenija','EU27 átlag','Csehország','Szlovákia','Horvátország','Magyarország','Románia'];
-  const wDat  = [36.2, 38.5, 20.1, 33.5, 20.8, 14.0, 13.8, 14.1, 9.4];
-  const wCol  = wLabs.map(l=>({'Ausztria':'#1565C0','Németország':'#F9A825','Slovenija':'#2E7D32','EU27 átlag':'#0345EB','Csehország':'#00A89E','Szlovákia':'#754DBA','Horvátország':'#00838F','Magyarország':'#ED1C2E','Románia':'#AD1457'}[l]||'#9CAEC2'));
-  const ctxW = document.getElementById('ch-bm-wage');
-  if (ctxW) new Chart(ctxW, {
-    type:'bar',
-    data:{labels:wLabs, datasets:[{label:'Órabér (EUR)',data:wDat,backgroundColor:wCol,borderRadius:5,borderWidth:0}]},
-    options:{
-      indexAxis:'y',
-      responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>` €${fmt(c.parsed.x,1)}/óra`}}},
-      scales:{
-        x:{ticks:{color:'#7B8BAB',font:{size:11},callback:v=>'€'+v},grid:{color:'rgba(0,0,115,.05)'}},
-        y:{ticks:{color:'#000073',font:{size:11,weight:'600',family:'Open Sans'}},grid:{display:false}}
-      }
-    }
-  });
-
-  // Vacancy line
-  lineChart('ch-bm-vac', [
-    lds('Magyarország', D.vac.hu, '#ED1C2E'),
-    lds('Csehország', D.vac.cz, '#00A89E'),
-    lds('EU27', D.vac.eu, '#0345EB', [5,3]),
-    lds('Lengyelország', D.vac.pl, '#FF5C00'),
-    lds('Szlovákia', D.vac.sk, '#754DBA')
-  ], 0);
+  // Benchmark fülön csak a tábla jelenik meg (grafikonok törölve)
+  // A HTML tartalmazza a KPI kártyákat és az összehasonlító táblázatot
 }
 
 // ── HUNGARY MAP (D3) ─────────────────────────────────────────────────────
